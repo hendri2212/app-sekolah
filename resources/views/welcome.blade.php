@@ -1,211 +1,297 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Birds of the World</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
-            body {
-                font-family: 'Poppins', sans-serif;
-            }
-            h1, h2, h3, .font-serif {
-                font-family: 'Playfair Display', serif;
-            }
-        </style>
-    </head>
-    <body class="bg-stone-50 text-stone-800 antialiased flex flex-col min-h-screen">
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Resmi MTS Negeri 2 Kotabaru - Sekolah Adiwiyata Mandiri. Pendidikan berkualitas dengan karakter unggul.">
+    <meta name="keywords" content="SMPN 24 Surabaya, Madrasah Tsanawiyah Negeri, Adiwiyata, Pendidikan Islami, KOTABARU">
+    <meta name="author" content="Team Website Development SMKN 1 Kotabaru">
+    <title>@yield('title', 'MTS Negeri 2 Kotabaru')</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v=1.0') }}">
 
-        <!-- Header -->
-        <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-                <a href="/" class="text-2xl font-serif font-bold text-emerald-800 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
-                    Aviary
-                </a>
-                <nav class="hidden md:flex gap-6">
-                    <a href="#" class="text-stone-600 hover:text-emerald-700 transition font-medium">Home</a>
-                    <a href="#" class="text-stone-600 hover:text-emerald-700 transition font-medium">Gallery</a>
-                    <a href="#" class="text-stone-600 hover:text-emerald-700 transition font-medium">About</a>
-                </nav>
-                <div>
-                    @if (Route::has('login'))
-                        @auth
-                            <a href="{{ url('/dashboard') }}" class="text-sm font-semibold leading-6 text-stone-900 hover:text-emerald-700">Dashboard <span aria-hidden="true">&rarr;</span></a>
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-stone-900 hover:text-emerald-700">Log in <span aria-hidden="true">&rarr;</span></a>
-                        @endauth
-                    @else
-                        <a href="{{ url('/dashboard') }}" class="text-sm font-semibold leading-6 text-stone-900 hover:text-emerald-700">Dashboard <span aria-hidden="true">&rarr;</span></a>
-                    @endif
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/foto/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/foto/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/foto/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/foto/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('assets/foto/site.webmanifest') }}">
+
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="bg-dark text-white py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <small><i class="bi bi-geo-alt-fill"></i>Jl. Berangas Km. 3.5 Desa Sigam, Kotabaru - Kalimantan Selatan</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small>
+                        <i class="bi bi-telephone-fill"></i> (08....) | 
+                        <i class="bi bi-envelope-fill"></i> info@mtsn2kotabaru.sch.id
+                    </small>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
 
-        <!-- Hero Section -->
-        <main class="flex-grow">
-            <section class="relative bg-emerald-900 text-white overflow-hidden">
-                <div class="absolute inset-0 opacity-40">
-                    <img src="https://images.unsplash.com/photo-1444464666168-49b626f8a15b?q=80&w=2070&auto=format&fit=crop" alt="Flock of birds" class="w-full h-full object-cover" />
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <img src="{{ asset('assets/foto/logo-sekolah.png') }}" alt="MTS Negeri 2 Kotabaru" width="50" height="50" class="d-inline-block align-text-top me-2">
+                <div>
+                    <div>MTS Negeri 2 Kotabaru</div>
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent"></div>
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Discover the Majesty of Birds</h1>
-                    <p class="text-lg md:text-xl text-emerald-100 max-w-2xl mx-auto mb-10 font-light">
-                        Explore the vibrant colors, fascinating behaviors, and diverse habitats of our feathered friends from around the globe.
-                    </p>
-                    <a href="#gallery" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-white font-medium py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        View Gallery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profil
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                            <li><a class="dropdown-item" href="profil.html#sejarah">Sejarah Singkat</a></li>
+                            <li><a class="dropdown-item" href="profil.html#visi-misi">Visi, Misi & Tujuan</a></li>
+                            <li><a class="dropdown-item" href="profil.html#struktur">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="profil.html#sarana">Sarana dan Prasarana</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="beritaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Berita
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
+                            <li><a class="dropdown-item" href="berita.html">Berita Sekolah</a></li>
+                            <li><a class="dropdown-item" href="berita.html#agenda">Agenda Sekolah</a></li>
+                            <li><a class="dropdown-item" href="berita.html#pengumuman">Pengumuman</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="akademikDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Akademik
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="akademikDropdown">
+                            <li><a class="dropdown-item" href="akademik.html#kurikulum">Kurikulum</a></li>
+                            <li><a class="dropdown-item" href="akademik.html#jadwal">Jadwal Pelajaran</a></li>
+                            <li><a class="dropdown-item" href="akademik.html#penilaian">Penilaian</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="kesiswaanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kesiswaan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
+                            <li><a class="dropdown-item" href="kesiswaan.html#osis">OSIS</a></li>
+                            <li><a class="dropdown-item" href="kesiswaan.html#ekskul">Ekstrakurikuler</a></li>
+                            <li><a class="dropdown-item" href="kesiswaan.html#prestasi">Pojok Prestasi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="ppdb.html">SPMB 2025</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="kontak.html">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" href="{{ url('/dashboard') }}">Dashboard</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-2 mt-lg-0">
+                    <a href="https://elearning.smpn24sby.sch.id" class="btn btn-warning btn-sm" target="_blank">
+                        <i class="bi bi-laptop"></i> E-Learning
                     </a>
                 </div>
-            </section>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Gallery Section -->
-            <section id="gallery" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">Featured Avian Species</h2>
-                    <div class="w-24 h-1 bg-emerald-500 mx-auto rounded-full"></div>
-                </div>
+    @yield('content')
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Bird Card 1 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555169062-013468b47731?q=80&w=1887&auto=format&fit=crop" alt="Macaw Parrot" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-emerald-700">Tropical</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Scarlet Macaw</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                Known for their striking red, yellow, and blue plumage, these intelligent parrots are native to the humid evergreen forests of tropical Americas.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                    </div>
+    <!-- Social Media Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Ikuti Kami</h2>
+                <p class="text-muted">Dapatkan informasi terbaru melalui media sosial kami</p>
+            </div>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://www.youtube.com/@mtsn2kotabaru590" class="social-link" target="_blank" title="YouTube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mtsn2ktb/" class="social-link" target="_blank" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mtsn.2.kotabaru" class="social-link" target="_blank" title="TikTok">
+                    <i class="bi bi-tiktok"></i>
+                </a>
+                <a href="https://web.facebook.com/mtsn2ktb" class="social-link" target="_blank" title="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Bird Card 2 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=1965&auto=format&fit=crop" alt="Kingfisher" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-cyan-700">River</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Common Kingfisher</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                A small, unmistakable bright blue and orange bird of slow-moving or still water. They fly low over water and hunt fish from riverside perches.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bird Card 3 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1542159079-56d10c144e1a?q=80&w=2070&auto=format&fit=crop" alt="Bald Eagle" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-amber-700">Raptor</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Bald Eagle</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bird Card 4 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?q=80&w=2070&auto=format&fit=crop" alt="Hummingbird" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-rose-600">Nectarivore</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Hummingbird</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                Hummingbirds are birds native to the Americas and constitute the biological family Trochilidae. They are the smallest of birds.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bird Card 5 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1550853024-fae8cd4be47f?q=80&w=2083&auto=format&fit=crop" alt="Owl" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-stone-700">Nocturnal</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Barn Owl</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                The barn owl is the most widely distributed species of owl in the world and one of the most widespread of all species of birds.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bird Card 6 -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 group cursor-pointer border border-stone-100">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1590400030528-98f5a6b093de?q=80&w=2070&auto=format&fit=crop" alt="Flamingo" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 ease-in-out" />
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-pink-600">Wading</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-stone-800 mb-2">Greater Flamingo</h3>
-                            <p class="text-stone-600 mb-4 line-clamp-2 text-sm">
-                                The most widespread and largest species of the flamingo family. It is found in Africa, on the Indian subcontinent, in the Middle East, and in southern Europe.
-                            </p>
-                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 inline-flex items-center gap-1 transition">
-                                Learn more <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                            </a>
-                        </div>
+    <!-- Footer -->
+    <footer class="text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Tentang Sekolah -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">
+                        <img src="{{ asset('assets/foto/logo-sekolah.png') }}" alt="Logo" width="40" class="me-2">
+                        MTS Negeri 2 Kotabaru
+                    </h5>
+                    <p class="text-white-50">Sekolah yang berkomitmen memberikan pendidikan berkualitas dengan karakter unggul and berakhlakul karimah</p>
+                    <div class="mt-4">
+                        <h6 class="fw-bold mb-3">Terakreditasi</h6>
+                        <span class="badge bg-warning text-dark fs-6">A - Sangat Baik</span>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <a href="/" class="text-2xl font-serif font-bold text-white flex items-center gap-2 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
-                        Aviary
-                    </a>
-                    <p class="text-sm">Celebrating the beauty and diversity of birds across the world. Join us in our mission to learn and protect.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-emerald-400 transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition">Gallery</a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition">Conservation</a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition">Contact</a></li>
+                
+                <!-- Kontak -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Kontak Sekolah</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt-fill text-success me-2"></i>
+                            Jl. Berangas Km. 3.5 Desa Sigam, Kotabaru - Kalimantan Selatan
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-telephone-fill text-success me-2"></i>
+                            (08) .....
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-whatsapp text-success me-2"></i>
+                            0857-....
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-envelope-fill text-success me-2"></i>
+                            info@mtsn2kotabaru.sch.id
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-globe text-success me-2"></i>
+                            https://www.mtsn2kotabaru.sch.id/
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Newsletter</h4>
-                    <p class="text-sm mb-4">Subscribe to get the latest avian updates.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="bg-stone-800 border-none rounded-l-md px-4 py-2 w-full focus:ring-1 focus:ring-emerald-500 outline-none text-white text-sm" />
-                        <button class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-r-md transition text-sm font-medium">Subscribe</button>
+                
+                <!-- Quick Link -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Tautan Cepat</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled text-white-50">
+                                <li class="mb-2"><a href="profil.html" class="text-white-50 text-decoration-none">Profil Sekolah</a></li>
+                                <li class="mb-2"><a href="berita.html" class="text-white-50 text-decoration-none">Berita</a></li>
+                                <li class="mb-2"><a href="akademik.html" class="text-white-50 text-decoration-none">Akademik</a></li>
+                                <li class="mb-2"><a href="kesiswaan.html" class="text-white-50 text-decoration-none">Kesiswaan</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled text-white-50">
+                                <li class="mb-2"><a href="ppdb.html" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
+                                <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Kontak</a></li>
+                                <li class="mb-2"><a href="profil.html#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
+                                <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Lokasi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h6 class="fw-bold mt-4 mb-3">Mitra & Instansi</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-secondary">Kementerian Agama Kabupaten Kotabaru</span>
+                        <span class="badge bg-secondary">Dinas Pendidikan Kotabaru</span>
+                        <span class="badge bg-secondary">SMKN 1 Kotabaru</span>
                     </div>
                 </div>
             </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 text-sm text-center">
-                <p>&copy; {{ date('Y') }} Aviary. All rights reserved.</p>
+            
+            <hr class="my-4 border-white-50">
+            
+            <!-- Copyright -->
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">
+                        &copy; 2026-2027 MTS Negeri 2 Kotabaru. All Rights Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-white-50">
+                        Developed by <span class="text-success">Jurusan RPL SMKN 1 Kotabaru</span>
+                    </p>
+                </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-    </body>
+    <!-- Scroll to Top Button -->
+    <a href="#" class="btn btn-success scroll-to-top" id="scrollToTop" title="Kembali ke atas">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Navbar Background on Scroll
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+        
+        // Active Link Highlight
+        const currentLocation = location.href;
+        const menuItems = document.querySelectorAll('.nav-link');
+        const menuLength = menuItems.length;
+        
+        for (let i = 0; i < menuLength; i++) {
+            if (menuItems[i].href === currentLocation) {
+                menuItems[i].classList.add('active');
+            }
+        }
+    </script>
+    @yield('scripts')
+</body>
 </html>
