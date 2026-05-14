@@ -22,7 +22,7 @@
                 <div class="col-lg-4 d-none d-lg-block">
                     <div class="card border-0 shadow-lg">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-calendar-event feature-icon"></i>
+                            <i class="bi bi-calendar-event display-6 text-success mb-3"></i>
                             <h5>Tahun Ajaran 2026/2027</h5>
                             <p class="mb-0">Penerimaan Peserta Didik Baru Telah Dibuka</p>
                         </div>
@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-trophy-fill feature-icon"></i>
+                            <i class="bi bi-trophy-fill display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Prestasi Akademik & Non-Akademik</h5>
                             <p class="card-text">Kami memiliki catatan prestasi yang membanggakan dalam bidang akademik, seni, olahraga, dan kegiatan lainnya.</p>
                         </div>
@@ -111,7 +111,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-people-fill feature-icon"></i>
+                            <i class="bi bi-people-fill display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Kemitraan Dengan Orang Tua</h5>
                             <p class="card-text">Kami mengutamakan kemitraan yang erat dengan orang tua dalam mendukung perkembangan akademik dan non-akademik siswa-siswi.</p>
                         </div>
@@ -122,7 +122,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-shield-check feature-icon"></i>
+                            <i class="bi bi-shield-check display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Pembinaan Karakter</h5>
                             <p class="card-text">Kami mendorong pembentukan karakter siswa-siswi yang berintegritas tinggi, disiplin, dan bertanggung jawab.</p>
                         </div>
@@ -133,7 +133,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-activity feature-icon"></i>
+                            <i class="bi bi-activity display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Program Ekstrakurikuler Variatif</h5>
                             <p class="card-text">Kami menawarkan beragam program ekstrakurikuler yang mengembangkan bakat, minat, dan keterampilan siswa-siswi di berbagai bidang.</p>
                         </div>
@@ -144,7 +144,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-flower1 feature-icon"></i>
+                            <i class="bi bi-flower1 display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Lingkungan Belajar Yang Inspiratif</h5>
                             <p class="card-text">Kami menciptakan lingkungan belajar yang positif, kreatif, dan mendukung pertumbuhan dan perkembangan siswa-siswi.</p>
                         </div>
@@ -155,7 +155,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-building feature-icon"></i>
+                            <i class="bi bi-building display-6 text-success mb-3"></i>
                             <h5 class="card-title fw-bold">Fasilitas Modern</h5>
                             <p class="card-text">Kami menyediakan fasilitas modern dan lengkap yang mendukung proses pembelajaran dan pengembangan siswa-siswi.</p>
                         </div>

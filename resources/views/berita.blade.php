@@ -29,14 +29,14 @@
                         <div class="card-body p-3">
                             <div class="row g-2 align-items-center">
                                 <div class="col-md-6">
-                                    <div class="search-box">
-                                        <input type="text" placeholder="Cari berita...">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control rounded-pill" placeholder="Cari berita...">
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-end">
-                                    <button class="btn btn-outline-success filter-btn active">Semua</button>
-                                    <button class="btn btn-outline-success filter-btn">Akademik</button>
-                                    <button class="btn btn-outline-success filter-btn">Kesiswaan</button>
+                                    <button class="btn btn-success filter-btn rounded-pill mx-1">Semua</button>
+                                    <button class="btn btn-outline-success filter-btn rounded-pill mx-1">Akademik</button>
+                                    <button class="btn btn-outline-success filter-btn rounded-pill mx-1">Kesiswaan</button>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 <div class="card news-card">
                                     <img src="{{ asset('assets/foto/Ruang Kelas.jfif') }}" alt="Berita 1" class="card-img-top">
                                     <div class="card-body">
-                                        <span class="badge badge-kategori badge-akademik">Akademik</span>
+                                        <span class="badge bg-primary">Akademik</span>
                                         <span class="news-date float-end"><i class="bi bi-calendar3"></i> 12 Januari
                                             2025</span>
                                         <h6 class="card-title fw-bold mt-2">Persiapan Asesmen Nasional 2025</h6>
@@ -94,7 +94,7 @@
                                 <div class="card news-card">
                                     <img src="{{ asset('assets/foto/Osis.jfif') }}" alt="Berita 2" class="card-img-top">
                                     <div class="card-body">
-                                        <span class="badge badge-kategori badge-kesiswaan">Kesiswaan</span>
+                                        <span class="badge bg-success">Kesiswaan</span>
                                         <span class="news-date float-end"><i class="bi bi-calendar3"></i> 10 Januari
                                             2025</span>
                                         <h6 class="card-title fw-bold mt-2">Pemilihan Ketua OSIS 2025/2026</h6>
@@ -111,7 +111,7 @@
                                 <div class="card news-card">
                                     <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Berita 3" class="card-img-top">
                                     <div class="card-body">
-                                        <span class="badge badge-kategori badge-prestasi">Prestasi</span>
+                                        <span class="badge bg-warning text-dark">Prestasi</span>
                                         <span class="news-date float-end"><i class="bi bi-calendar3"></i> 8 Januari
                                             2025</span>
                                         <h6 class="card-title fw-bold mt-2">Siswa MTS Negeri 2 Kotabaru</h6>
@@ -128,7 +128,7 @@
                                 <div class="card news-card">
                                     <img src="{{ asset('assets/foto/Menanam.jpeg') }}" alt="Berita 4" class="card-img-top">
                                     <div class="card-body">
-                                        <span class="badge badge-kategori badge-adiwiyata">Adiwiyata</span>
+                                        <span class="badge bg-info">Adiwiyata</span>
                                         <span class="news-date float-end"><i class="bi bi-calendar3"></i> 5 Januari
                                             2025</span>
                                         <h6 class="card-title fw-bold mt-2">Kegiatan Penanaman Pohon</h6>
@@ -311,7 +311,7 @@
                 <div class="col-lg-4">
                     <!-- Kategori Berita -->
                     <div class="sidebar-card">
-                        <h5 class="sidebar-title"><i class="bi bi-folder"></i> Kategori Berita</h5>
+                        <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-folder"></i> Kategori Berita</h5>
                         <ul class="category-list">
                             <li><a href="#"><span>Akademik</span> <span class="badge bg-primary">12</span></a></li>
                             <li><a href="#"><span>Kesiswaan</span> <span class="badge bg-success">8</span></a></li>
@@ -324,7 +324,7 @@
 
                     <!-- Berita Populer -->
                     <div class="sidebar-card">
-                        <h5 class="sidebar-title"><i class="bi bi-fire"></i> Berita Populer</h5>
+                        <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-fire"></i> Berita Populer</h5>
 
                         <div class="popular-post">
                             <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Populer 1">
@@ -353,7 +353,7 @@
 
                     <!-- Quick Link -->
                     <div class="sidebar-card">
-                        <h5 class="sidebar-title"><i class="bi bi-link-45deg"></i> Tautan Cepat</h5>
+                        <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-link-45deg"></i> Tautan Cepat</h5>
                         <div class="d-grid gap-2">
                             <a href="{{ url('/ppdb') }}" class="btn btn-outline-success">
                                 <i class="bi bi-person-plus"></i> PPDB 2025
@@ -388,7 +388,7 @@
                     <div class="card news-card h-100">
                         <img src="{{ asset('assets/foto/mpls.jpg') }}" alt="Artikel 1" class="card-img-top">
                         <div class="card-body">
-                            <span class="badge badge-kategori badge-kesiswaan">Kesiswaan</span>
+                            <span class="badge bg-success">Kesiswaan</span>
                             <h6 class="card-title fw-bold mt-2">Kegiatan MPLS Ramah 2025</h6>
                             <p class="card-text small text-muted">Panduan MPLS Ramah bertujuan memastikan setiap
                                 rangkaian kegiatan berorientasi pada kebutuhan murid baru.</p>
@@ -401,7 +401,7 @@
                     <div class="card news-card h-100">
                         <img src="{{ asset('assets/foto/Literasi.jfif') }}" alt="Artikel 2" class="card-img-top">
                         <div class="card-body">
-                            <span class="badge badge-kategori badge-akademik">Akademik</span>
+                            <span class="badge bg-primary">Akademik</span>
                             <h6 class="card-title fw-bold mt-2">Program Literasi Numerasi</h6>
                             <p class="card-text small text-muted">Program peningkatan literasi dan numerasi siswa
                                 melalui berbagai kegiatan pembelajaran inovatif.</p>
@@ -414,7 +414,7 @@
                     <div class="card news-card h-100">
                         <img src="{{ asset('assets/foto/taman sekolah.jfif') }}" alt="Artikel 3" class="card-img-top">
                         <div class="card-body">
-                            <span class="badge badge-kategori badge-adiwiyata">Adiwiyata</span>
+                            <span class="badge bg-info">Adiwiyata</span>
                             <h6 class="card-title fw-bold mt-2">Program Sekolah Hijau</h6>
                             <p class="card-text small text-muted">Kegiatan penghijauan dan pengelolaan sampah dalam
                                 rangka menjaga lingkungan sekolah.</p>
@@ -433,8 +433,12 @@
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function () {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'btn-success');
+                    b.classList.add('btn-outline-success');
+                });
+                this.classList.add('active', 'btn-success');
+                this.classList.remove('btn-outline-success');
             });
         });
     </script>

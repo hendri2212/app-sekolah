@@ -6,7 +6,7 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container text-center">
-            <span class="status-badge status-open mb-3 d-inline-block">
+            <span class="badge bg-success rounded-pill px-3 py-2 fw-semibold mb-3 d-inline-block">
                 <i class="bi bi-check-circle-fill"></i> Pendaftaran Dibuka
             </span>
             <h1 class="display-4 fw-bold mb-3">PPDB / SPMB 2025</h1>
@@ -36,19 +36,19 @@
                         <h4 class="fw-bold mb-4">Hitung Mundur Penutupan Pendaftaran</h4>
                         <div class="text-center">
                             <div class="countdown-item">
-                                <div class="countdown-number" id="days">00</div>
+                                <div class="display-6 fw-bold lh-1" id="days">00</div>
                                 <div class="countdown-label">Hari</div>
                             </div>
                             <div class="countdown-item">
-                                <div class="countdown-number" id="hours">00</div>
+                                <div class="display-6 fw-bold lh-1" id="hours">00</div>
                                 <div class="countdown-label">Jam</div>
                             </div>
                             <div class="countdown-item">
-                                <div class="countdown-number" id="minutes">00</div>
+                                <div class="display-6 fw-bold lh-1" id="minutes">00</div>
                                 <div class="countdown-label">Menit</div>
                             </div>
                             <div class="countdown-item">
-                                <div class="countdown-number" id="seconds">00</div>
+                                <div class="display-6 fw-bold lh-1" id="seconds">00</div>
                                 <div class="countdown-label">Detik</div>
                             </div>
                         </div>
@@ -62,21 +62,21 @@
                 <div class="col-md-4">
                     <div class="quota-box">
                         <i class="bi bi-people-fill fs-1 mb-3 d-block"></i>
-                        <div class="quota-number">100</div>
+                        <div class="display-5 fw-bold lh-1">100</div>
                         <p class="mb-0">Kuota siswa-siswi Baru</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="quota-box" style="background: linear-gradient(135deg, #0d6efd, #0dcaf0);">
                         <i class="bi bi-building fs-1 mb-3 d-block"></i>
-                        <div class="quota-number">10</div>
+                        <div class="display-5 fw-bold lh-1">10</div>
                         <p class="mb-0">Rombongan Belajar</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="quota-box" style="background: linear-gradient(135deg, #6f42c1, #a855f7);">
                         <i class="bi bi-calendar-check fs-1 mb-3 d-block"></i>
-                        <div class="quota-number">2025</div>
+                        <div class="display-5 fw-bold lh-1">2025</div>
                         <p class="mb-0">Tahun Ajaran</p>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <i class="bi bi-file-earmark-text step-icon"></i>
+                        <i class="bi bi-file-earmark-text display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Isi Formulir</h5>
                         <p class="text-muted small">Lengkapi formulir pendaftaran online dengan data yang benar dan valid.</p>
                     </div>
@@ -106,7 +106,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <i class="bi bi-upload step-icon"></i>
+                        <i class="bi bi-upload display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Upload Dokumen</h5>
                         <p class="text-muted small">Unggah dokumen persyaratan dalam format PDF atau JPG yang jelas.</p>
                     </div>
@@ -115,7 +115,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <i class="bi bi-check-circle step-icon"></i>
+                        <i class="bi bi-check-circle display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Verifikasi</h5>
                         <p class="text-muted small">Tunggu proses verifikasi dokumen oleh panitia PPDB sekolah.</p>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="step-card">
                         <div class="step-number">4</div>
-                        <i class="bi bi-person-check step-icon"></i>
+                        <i class="bi bi-person-check display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Daftar Ulang</h5>
                         <p class="text-muted small">Jika diterima, lakukan daftar ulang sesuai jadwal yang ditentukan.</p>
                     </div>
@@ -155,7 +155,7 @@
                     <h4 class="fw-bold mb-4"><i class="bi bi-folder-check text-success"></i> Dokumen Umum</h4>
                     
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-file-earmark-text requirement-icon"></i>
+                        <i class="bi bi-file-earmark-text fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Fotokopi Akta Kelahiran</h6>
                             <p class="text-muted small mb-0">Maksimal 2 lembar, dilegalisir</p>
@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-file-earmark-person requirement-icon"></i>
+                        <i class="bi bi-file-earmark-person fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Fotokopi Kartu Keluarga (KK)</h6>
                             <p class="text-muted small mb-0">Asli dan fotokopi 2 lembar</p>
@@ -171,7 +171,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-person-badge requirement-icon"></i>
+                        <i class="bi bi-person-badge fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Fotokopi KTP Orang Tua</h6>
                             <p class="text-muted small mb-0">KTP ayah dan ibu (2 lembar)</p>
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-journal-text requirement-icon"></i>
+                        <i class="bi bi-journal-text fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Fotokopi Ijazah SD/Sederajat</h6>
                             <p class="text-muted small mb-0">Atau surat keterangan lulus</p>
@@ -191,7 +191,7 @@
                     <h4 class="fw-bold mb-4"><i class="bi bi-star text-warning"></i> Dokumen Tambahan</h4>
                     
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-file-earmark-image requirement-icon"></i>
+                        <i class="bi bi-file-earmark-image fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Pas Foto 3x4</h6>
                             <p class="text-muted small mb-0">4 lembar, latar merah, seragam SD</p>
@@ -199,7 +199,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-award requirement-icon"></i>
+                        <i class="bi bi-award fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Fotokopi Piagam Prestasi</h6>
                             <p class="text-muted small mb-0">Jika ada (akademik/non-akademik)</p>
@@ -207,7 +207,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-file-earmark-medical requirement-icon"></i>
+                        <i class="bi bi-file-earmark-medical fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Surat Keterangan Sehat</h6>
                             <p class="text-muted small mb-0">Dari puskesmas atau dokter</p>
@@ -215,7 +215,7 @@
                     </div>
 
                     <div class="requirement-card d-flex align-items-center">
-                        <i class="bi bi-envelope requirement-icon"></i>
+                        <i class="bi bi-envelope fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Surat Pindah (Jika Ada)</h6>
                             <p class="text-muted small mb-0">Untuk siswa-siswi pindahan</p>
@@ -298,7 +298,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Panduan MPLS Ramah</h6>
                             <small class="text-muted">PDF - 2.5 MB</small>
@@ -311,7 +311,7 @@
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Brosur PPDB 2025</h6>
                             <small class="text-muted">PDF - 1.8 MB</small>
@@ -324,7 +324,7 @@
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Formulir Pendaftaran</h6>
                             <small class="text-muted">PDF - 0.5 MB</small>
@@ -337,7 +337,7 @@
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Jadwal Lengkap PPDB</h6>
                             <small class="text-muted">PDF - 0.8 MB</small>
@@ -350,7 +350,7 @@
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">Syarat & Ketentuan</h6>
                             <small class="text-muted">PDF - 0.6 MB</small>
@@ -363,7 +363,7 @@
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="download-box">
-                        <i class="bi bi-file-earmark-pdf download-icon"></i>
+                        <i class="bi bi-file-earmark-pdf fs-2 text-success me-3"></i>
                         <div>
                             <h6 class="fw-bold mb-1">FAQ PPDB 2025</h6>
                             <small class="text-muted">PDF - 1.2 MB</small>

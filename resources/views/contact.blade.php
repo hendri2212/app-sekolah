@@ -175,7 +175,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-person-badge department-icon"></i>
+                            <i class="bi bi-person-badge fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Tata Usaha</h6>
                                 <p class="text-muted small mb-2">Administrasi dan informasi umum</p>
@@ -191,7 +191,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-mortarboard department-icon"></i>
+                            <i class="bi bi-mortarboard fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Bagian Akademik</h6>
                                 <p class="text-muted small mb-2">Kurikulum dan pembelajaran</p>
@@ -207,7 +207,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-people department-icon"></i>
+                            <i class="bi bi-people fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Bagian Kesiswaan</h6>
                                 <p class="text-muted small mb-2">OSIS dan ekstrakurikuler</p>
@@ -223,7 +223,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-person-plus department-icon"></i>
+                            <i class="bi bi-person-plus fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Panitia PPDB</h6>
                                 <p class="text-muted small mb-2">Pendaftaran siswa-siswi baru</p>
@@ -239,7 +239,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-megaphone department-icon"></i>
+                            <i class="bi bi-megaphone fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Humas</h6>
                                 <p class="text-muted small mb-2">Hubungan masyarakat dan kemitraan</p>
@@ -255,7 +255,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="department-card">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-heart department-icon"></i>
+                            <i class="bi bi-heart fs-2 text-success me-3"></i>
                             <div>
                                 <h6 class="fw-bold mb-2">Layanan Konseling</h6>
                                 <p class="text-muted small mb-2">Bimbingan dan konseling siswa</p>

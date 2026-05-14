@@ -25,22 +25,22 @@
                     
                     <!-- Article Header -->
                     <div class="article-header">
-                        <span class="article-category">Adiwiyata</span>
-                        <h1 class="article-title">MTS Negeri 2 Kotabaru Terima Penghargaan Adiwiyata Tingkat Provinsi Kalimantan Selatan 2026</h1>
-                        <div class="article-meta">
-                            <div class="article-meta-item">
+                        <span class="badge bg-success rounded-pill px-3 py-2">Adiwiyata</span>
+                        <h1 class="fs-2 fw-bold lh-sm mb-3">MTS Negeri 2 Kotabaru Terima Penghargaan Adiwiyata Tingkat Provinsi Kalimantan Selatan 2026</h1>
+                        <div class="d-flex flex-wrap gap-4 text-muted small mb-4 pb-4 border-bottom">
+                            <div class="d-flex align-items-center gap-2">
                                 <i class="bi bi-calendar3"></i>
                                 <span>15 Januari 2025</span>
                             </div>
-                            <div class="article-meta-item">
+                            <div class="d-flex align-items-center gap-2">
                                 <i class="bi bi-clock"></i>
                                 <span>5 Menit Baca</span>
                             </div>
-                            <div class="article-meta-item">
+                            <div class="d-flex align-items-center gap-2">
                                 <i class="bi bi-person"></i>
                                 <span>Admin MTS Negeri 2 Kotabaru</span>
                             </div>
-                            <div class="article-meta-item">
+                            <div class="d-flex align-items-center gap-2">
                                 <i class="bi bi-eye"></i>
                                 <span>1,234 Dilihat</span>
                             </div>
@@ -143,8 +143,8 @@
 
                     <!-- Share Section -->
                     <div class="share-section">
-                        <h5 class="share-title"><i class="bi bi-share-fill me-2"></i>Bagikan Berita Ini</h5>
-                        <div class="share-buttons">
+                        <h5 class="fw-semibold mb-3"><i class="bi bi-share-fill me-2"></i>Bagikan Berita Ini</h5>
+                        <div class="d-flex gap-2 flex-wrap">
                             <a href="#" class="share-btn share-facebook" title="Share to Facebook">
                                 <i class="bi bi-facebook"></i>
                             </a>
@@ -162,7 +162,7 @@
 
                     <!-- Tags Section -->
                     <div class="tags-section">
-                        <h5 class="share-title"><i class="bi bi-tags-fill me-2"></i>Tags</h5>
+                        <h5 class="fw-semibold mb-3"><i class="bi bi-tags-fill me-2"></i>Tags</h5>
                         <div>
                             <a href="{{ url('/news') }}" class="tag">Adiwiyata</a>
                             <a href="{{ url('/news') }}" class="tag">Penghargaan</a>
@@ -199,7 +199,7 @@
                 <div class="col-lg-4">
                     <!-- Kategori Berita -->
                     <div class="sidebar-card">
-                        <h5 class="sidebar-title"><i class="bi bi-folder"></i> Kategori Berita</h5>
+                        <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-folder"></i> Kategori Berita</h5>
                         <ul class="category-list">
                             <li><a href="{{ url('/news') }}"><span>Akademik</span> <span class="badge bg-primary">12</span></a></li>
                             <li><a href="{{ url('/news') }}"><span>Kesiswaan</span> <span class="badge bg-success">8</span></a></li>
@@ -210,7 +210,7 @@
 
                     <!-- Berita Terbaru -->
                     <div class="sidebar-card">
-                        <h5 class="sidebar-title"><i class="bi bi-clock-history"></i> Berita Terbaru</h5>
+                        <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-clock-history"></i> Berita Terbaru</h5>
                         <div class="recent-post">
                             <img src="{{ asset('assets/foto/adiwiyata.jpeg') }}" alt="Berita 1">
                             <div>

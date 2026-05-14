@@ -148,9 +148,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Pramuka.jpg') }}" alt="Pramuka" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-compass ekskul-icon"></i>
+                            <i class="bi bi-compass display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Pramuka</h6>
-                            <span class="badge badge-ekskul badge-keagamaan">Keagamaan</span>
+                            <span class="badge bg-success">Keagamaan</span>
                             <p class="card-text small text-muted mt-2">Pendidikan karakter dan kepemimpinan</p>
                         </div>
                     </div>
@@ -161,9 +161,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/PMR.jpg') }}" alt="PMR" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-heart-pulse ekskul-icon"></i>
+                            <i class="bi bi-heart-pulse display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">PMR</h6>
-                            <span class="badge badge-ekskul badge-keterampilan">Keterampilan</span>
+                            <span class="badge" style="background-color:#fd7e14;color:white;">Keterampilan</span>
                             <p class="card-text small text-muted mt-2">Palang Merah Remaja</p>
                         </div>
                     </div>
@@ -174,9 +174,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Paskibra.jpg') }}" alt="Paskibra" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-flag ekskul-icon"></i>
+                            <i class="bi bi-flag display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Paskibra</h6>
-                            <span class="badge badge-ekskul badge-keagamaan">Keagamaan</span>
+                            <span class="badge bg-success">Keagamaan</span>
                             <p class="card-text small text-muted mt-2">Pasukan Pengibar Bendera</p>
                         </div>
                     </div>
@@ -187,9 +187,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Basket.jpeg') }}" alt="Basket" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-dribbble ekskul-icon"></i>
+                            <i class="bi bi-dribbble display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Basket</h6>
-                            <span class="badge badge-ekskul badge-olahraga">Olahraga</span>
+                            <span class="badge bg-danger">Olahraga</span>
                             <p class="card-text small text-muted mt-2">Tim basket sekolah</p>
                         </div>
                     </div>
@@ -200,9 +200,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Futsal.jpg') }}" alt="Futsal" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-dribbble ekskul-icon"></i>
+                            <i class="bi bi-dribbble display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Futsal</h6>
-                            <span class="badge badge-ekskul badge-olahraga">Olahraga</span>
+                            <span class="badge bg-danger">Olahraga</span>
                             <p class="card-text small text-muted mt-2">Tim futsal sekolah</p>
                         </div>
                     </div>
@@ -213,9 +213,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Badminton.jpeg') }}" alt="Badminton" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-search ekskul-icon" style="transform: rotate(45deg);"></i>
+                            <i class="bi bi-search display-5 text-success mb-3" style="transform: rotate(45deg);"></i>
                             <h6 class="card-title fw-bold">Badminton</h6>
-                            <span class="badge badge-ekskul badge-olahraga">Olahraga</span>
+                            <span class="badge bg-danger">Olahraga</span>
                             <p class="card-text small text-muted mt-2">Bulutangkis sekolah</p>
                         </div>
                     </div>
@@ -226,9 +226,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Seni Tari.png') }}" alt="Seni Tari" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-music-note-beamed ekskul-icon"></i>
+                            <i class="bi bi-music-note-beamed display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Seni Tari</h6>
-                            <span class="badge badge-ekskul badge-seni">Seni</span>
+                            <span class="badge" style="background-color:#6f42c1;color:white;">Seni</span>
                             <p class="card-text small text-muted mt-2">Tari tradisional & modern</p>
                         </div>
                     </div>
@@ -239,9 +239,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Seni Musik.jpg') }}" alt="Seni Musik" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-music-note-list ekskul-icon"></i>
+                            <i class="bi bi-music-note-list display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Seni Musik</h6>
-                            <span class="badge badge-ekskul badge-seni">Seni</span>
+                            <span class="badge" style="background-color:#6f42c1;color:white;">Seni</span>
                             <p class="card-text small text-muted mt-2">Band & paduan suara</p>
                         </div>
                     </div>
@@ -252,9 +252,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/KIR.jpeg') }}" alt="KIR" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-book ekskul-icon"></i>
+                            <i class="bi bi-book display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">KIR</h6>
-                            <span class="badge badge-ekskul badge-ilmiah">Ilmiah</span>
+                            <span class="badge bg-primary">Ilmiah</span>
                             <p class="card-text small text-muted mt-2">Karya Ilmiah Remaja</p>
                         </div>
                     </div>
@@ -265,9 +265,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Komputer.jpeg') }}" alt="Komputer" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-pc-display ekskul-icon"></i>
+                            <i class="bi bi-pc-display display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Komputer</h6>
-                            <span class="badge badge-ekskul badge-ilmiah">Ilmiah</span>
+                            <span class="badge bg-primary">Ilmiah</span>
                             <p class="card-text small text-muted mt-2">Programming & desain</p>
                         </div>
                     </div>
@@ -278,9 +278,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Rohis.jpg') }}" alt="Rohis" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-moon-stars ekskul-icon"></i>
+                            <i class="bi bi-moon-stars display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Rohis</h6>
-                            <span class="badge badge-ekskul badge-keagamaan">Keagamaan</span>
+                            <span class="badge bg-success">Keagamaan</span>
                             <p class="card-text small text-muted mt-2">Rohani Islam</p>
                         </div>
                     </div>
@@ -291,9 +291,9 @@
                     <div class="card ekskul-card">
                         <img src="{{ asset('assets/foto/Jurnalistik.jpg') }}" alt="Jurnalistik" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-newspaper ekskul-icon"></i>
+                            <i class="bi bi-newspaper display-5 text-success mb-3"></i>
                             <h6 class="card-title fw-bold">Jurnalistik</h6>
-                            <span class="badge badge-ekskul badge-keterampilan">Keterampilan</span>
+                            <span class="badge" style="background-color:#fd7e14;color:white;">Keterampilan</span>
                             <p class="card-text small text-muted mt-2">Mading & media sekolah</p>
                         </div>
                     </div>
@@ -321,25 +321,25 @@
             <div class="row g-4 mb-5">
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="achievement-number">50+</div>
+                        <div class="display-5 fw-bold lh-1">50+</div>
                         <p class="mb-0 fw-bold">Prestasi Tahun 2024</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="achievement-number">15</div>
+                        <div class="display-5 fw-bold lh-1">15</div>
                         <p class="mb-0 fw-bold">Tingkat Nasional</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="achievement-number">20</div>
+                        <div class="display-5 fw-bold lh-1">20</div>
                         <p class="mb-0 fw-bold">Tingkat Provinsi</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="achievement-number">15+</div>
+                        <div class="display-5 fw-bold lh-1">15+</div>
                         <p class="mb-0 fw-bold">Tingkat Kota</p>
                     </div>
                 </div>
@@ -351,12 +351,12 @@
             <div class="prestasi-card">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <span class="prestasi-medal">🥇</span>
+                        <span class="display-5 me-3">🥇</span>
                     </div>
                     <div class="col">
                         <div class="d-flex align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Medali Emas OSN Matematika</h5>
-                            <span class="prestasi-level level-nasional ms-3">Nasional</span>
+                            <span class="badge bg-danger rounded-pill px-3 py-2 small fw-semibold ms-3">Nasional</span>
                         </div>
                         <p class="text-muted mb-1">Olimpiade Sains Nasional 2024</p>
                         <small class="text-muted"><i class="bi bi-calendar3"></i> Desember 2024 | <i class="bi bi-person"></i> [Nama Siswa]</small>
@@ -370,12 +370,12 @@
             <div class="prestasi-card">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <span class="prestasi-medal">🥈</span>
+                        <span class="display-5 me-3">🥈</span>
                     </div>
                     <div class="col">
                         <div class="d-flex align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Juara 2 Lomba Karya Ilmiah</h5>
-                            <span class="prestasi-level level-provinsi ms-3">Provinsi</span>
+                            <span class="badge rounded-pill px-3 py-2 small fw-semibold ms-3" style="background-color:#fd7e14;color:white;">Provinsi</span>
                         </div>
                         <p class="text-muted mb-1">LKIR Kalimantan Selatan 2024</p>
                         <small class="text-muted"><i class="bi bi-calendar3"></i> November 2024 | <i class="bi bi-person"></i> Tim KIR</small>
@@ -389,12 +389,12 @@
             <div class="prestasi-card">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <span class="prestasi-medal">🥉</span>
+                        <span class="display-5 me-3">🥉</span>
                     </div>
                     <div class="col">
                         <div class="d-flex align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Juara 3 Lomba Basket</h5>
-                            <span class="prestasi-level level-kota ms-3">Kota</span>
+                            <span class="badge bg-primary rounded-pill px-3 py-2 small fw-semibold ms-3">Kota</span>
                         </div>
                         <p class="text-muted mb-1">Kejuaraan Basket Pelajar Kotabaru 2024</p>
                         <small class="text-muted"><i class="bi bi-calendar3"></i> Oktober 2024 | <i class="bi bi-person"></i> Tim Basket</small>
@@ -408,12 +408,12 @@
             <div class="prestasi-card">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <span class="prestasi-medal">🏆</span>
+                        <span class="display-5 me-3">🏆</span>
                     </div>
                     <div class="col">
                         <div class="d-flex align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Sekolah Adiwiyata </h5>
-                            <span class="prestasi-level level-nasional ms-3">Nasional</span>
+                            <span class="badge bg-danger rounded-pill px-3 py-2 small fw-semibold ms-3">Nasional</span>
                         </div>
                         <p class="text-muted mb-1">Kementerian Lingkungan Hidup dan Kehutanan RI</p>
                         <small class="text-muted"><i class="bi bi-calendar3"></i> 2022 | <i class="bi bi-award"></i> MTS Negeri 2 Kotabaru</small>
@@ -427,12 +427,12 @@
             <div class="prestasi-card">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <span class="prestasi-medal">🥇</span>
+                        <span class="display-5 me-3">🥇</span>
                     </div>
                     <div class="col">
                         <div class="d-flex align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Juara 1 Lomba Seni Tari</h5>
-                            <span class="prestasi-level level-kota ms-3">Kota</span>
+                            <span class="badge bg-primary rounded-pill px-3 py-2 small fw-semibold ms-3">Kota</span>
                         </div>
                         <p class="text-muted mb-1">Festival Seni Pelajar Kotabaru 2024</p>
                         <small class="text-muted"><i class="bi bi-calendar3"></i> September 2024 | <i class="bi bi-person"></i> Tim Seni Tari</small>
@@ -463,7 +463,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-mortarboard program-icon"></i>
+                        <i class="bi bi-mortarboard display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Intrakurikuler</h5>
                         <p class="text-muted small">Kegiatan pembelajaran dalam kurikulum yang mendukung pencapaian kompetensi siswa-siswi</p>
                     </div>
@@ -471,7 +471,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-book program-icon"></i>
+                        <i class="bi bi-book display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Muatan Lokal</h5>
                         <p class="text-muted small">Pembelajaran berbasis kearifan lokal dan budaya daerah Kotabaru</p>
                     </div>
@@ -479,7 +479,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-heart program-icon"></i>
+                        <i class="bi bi-heart display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Layanan Konseling</h5>
                         <p class="text-muted small">Bimbingan dan konseling untuk perkembangan psikologis siswa-siswi</p>
                     </div>
@@ -487,7 +487,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-palette program-icon"></i>
+                        <i class="bi bi-palette display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Karya Guru & Siswa</h5>
                         <p class="text-muted small">Publikasi dan pameran karya kreatif guru dan siswa-siswi</p>
                     </div>
@@ -495,7 +495,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-trophy program-icon"></i>
+                        <i class="bi bi-trophy display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Kompetisi & Lomba</h5>
                         <p class="text-muted small">Persiapan dan partisipasi dalam berbagai kompetisi akademik dan non-akademik</p>
                     </div>
@@ -503,7 +503,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-people program-icon"></i>
+                        <i class="bi bi-people display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Kepemimpinan</h5>
                         <p class="text-muted small">Pelatihan kepemimpinan melalui OSIS dan organisasi siswa-siswi</p>
                     </div>
@@ -525,7 +525,7 @@
                 <div class="col-md-6">
                     <div class="konseling-card">
                         <div class="text-center mb-4">
-                            <i class="bi bi-chat-heart konseling-icon"></i>
+                            <i class="bi bi-chat-heart display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Konseling Individual</h4>
                         <p class="text-muted">Layanan konseling satu lawan satu untuk membantu siswa mengatasi masalah pribadi, akademik, atau sosial.</p>
@@ -543,7 +543,7 @@
                 <div class="col-md-6">
                     <div class="konseling-card">
                         <div class="text-center mb-4">
-                            <i class="bi bi-people konseling-icon"></i>
+                            <i class="bi bi-people display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Konseling Kelompok</h4>
                         <p class="text-muted">Layanan konseling dalam kelompok untuk membahas topik tertentu dan saling berbagi pengalaman.</p>

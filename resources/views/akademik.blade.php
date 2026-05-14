@@ -29,7 +29,7 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
                     <div class="curriculum-card">
-                        <i class="bi bi-book curriculum-icon"></i>
+                        <i class="bi bi-book display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Kurikulum Merdeka</h5>
                         <p class="text-muted small">Kurikulum dengan pembelajaran intrakurikuler yang beragam untuk mengembangkan kompetensi dan karakter siswa-siswi.</p>
                         <a href="#" class="btn btn-outline-success btn-sm">Pelajari Lebih Lanjut</a>
@@ -38,7 +38,7 @@
                 
                 <div class="col-md-6 col-lg-3">
                     <div class="curriculum-card">
-                        <i class="bi bi-people curriculum-icon"></i>
+                        <i class="bi bi-people display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Intrakurikuler</h5>
                         <p class="text-muted small">Kegiatan pembelajaran dalam kurikulum yang mendukung pencapaian kompetensi siswa-siswi sesuai standar nasional.</p>
                         <a href="#" class="btn btn-outline-success btn-sm">Pelajari Lebih Lanjut</a>
@@ -47,7 +47,7 @@
                 
                 <div class="col-md-6 col-lg-3">
                     <div class="curriculum-card">
-                        <i class="bi bi-globe curriculum-icon"></i>
+                        <i class="bi bi-globe display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Muatan Lokal</h5>
                         <p class="text-muted small">Pembelajaran berbasis kearifan lokal dan budaya daerah Saijaan untuk melestarikan budaya setempat.</p>
                         <a href="#" class="btn btn-outline-success btn-sm">Pelajari Lebih Lanjut</a>
@@ -56,7 +56,7 @@
                 
                 <div class="col-md-6 col-lg-3">
                     <div class="curriculum-card">
-                        <i class="bi bi-puzzle curriculum-icon"></i>
+                        <i class="bi bi-puzzle display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Projek P5</h5>
                         <p class="text-muted small">Projek Penguatan Profil Pelajar Pancasila untuk mengembangkan karakter dan kompetensi siswa-siswi.</p>
                         <a href="#" class="btn btn-outline-success btn-sm">Pelajari Lebih Lanjut</a>
@@ -200,30 +200,30 @@
                         <tbody>
                             <tr>
                                 <td class="fw-bold">07:00 - 07:40</td>
-                                <td><span class="subject-badge subject-umum">Upacara</span></td>
-                                <td><span class="subject-badge subject-mipa">Matematika</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Indonesia</span></td>
-                                <td><span class="subject-badge subject-mipa">IPA</span></td>
-                                <td><span class="subject-badge subject-umum">Agama</span></td>
-                                <td><span class="subject-badge subject-mulok">B. Arab</span></td>
+                                <td><span class="badge bg-primary">Upacara</span></td>
+                                <td><span class="badge bg-success">Matematika</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Indonesia</span></td>
+                                <td><span class="badge bg-success">IPA</span></td>
+                                <td><span class="badge bg-primary">Agama</span></td>
+                                <td><span class="badge bg-warning text-dark">B. Arab</span></td>
                             </tr>
                             <tr>
                                 <td class="fw-bold">07:40 - 08:20</td>
-                                <td><span class="subject-badge subject-umum">Upacara</span></td>
-                                <td><span class="subject-badge subject-mipa">Matematika</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Indonesia</span></td>
-                                <td><span class="subject-badge subject-mipa">IPA</span></td>
-                                <td><span class="subject-badge subject-umum">Agama</span></td>
-                                <td><span class="subject-badge subject-mulok">B. Arab</span></td>
+                                <td><span class="badge bg-primary">Upacara</span></td>
+                                <td><span class="badge bg-success">Matematika</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Indonesia</span></td>
+                                <td><span class="badge bg-success">IPA</span></td>
+                                <td><span class="badge bg-primary">Agama</span></td>
+                                <td><span class="badge bg-warning text-dark">B. Arab</span></td>
                             </tr>
                             <tr>
                                 <td class="fw-bold">08:20 - 09:00</td>
-                                <td><span class="subject-badge subject-bahasa">B. Inggris</span></td>
-                                <td><span class="subject-badge subject-ips">IPS</span></td>
-                                <td><span class="subject-badge subject-mipa">Matematika</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Inggris</span></td>
-                                <td><span class="subject-badge subject-umum">Pancasila</span></td>
-                                <td><span class="subject-badge subject-mipa">IPA</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Inggris</span></td>
+                                <td><span class="badge" style="background-color:#fd7e14;color:white;">IPS</span></td>
+                                <td><span class="badge bg-success">Matematika</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Inggris</span></td>
+                                <td><span class="badge bg-primary">Pancasila</span></td>
+                                <td><span class="badge bg-success">IPA</span></td>
                             </tr>
                             <tr>
                                 <td class="fw-bold">09:00 - 09:30</td>
@@ -231,29 +231,29 @@
                             </tr>
                             <tr>
                                 <td class="fw-bold">09:30 - 10:10</td>
-                                <td><span class="subject-badge subject-mipa">IPA</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Inggris</span></td>
-                                <td><span class="subject-badge subject-ips">IPS</span></td>
-                                <td><span class="subject-badge subject-umum">PJOK</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Indonesia</span></td>
-                                <td><span class="subject-badge subject-umum">BK</span></td>
+                                <td><span class="badge bg-success">IPA</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Inggris</span></td>
+                                <td><span class="badge" style="background-color:#fd7e14;color:white;">IPS</span></td>
+                                <td><span class="badge bg-primary">PJOK</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Indonesia</span></td>
+                                <td><span class="badge bg-primary">BK</span></td>
                             </tr>
                             <tr>
                                 <td class="fw-bold">10:10 - 10:50</td>
-                                <td><span class="subject-badge subject-ips">IPS</span></td>
-                                <td><span class="subject-badge subject-umum">PJOK</span></td>
-                                <td><span class="subject-badge subject-bahasa">B. Inggris</span></td>
-                                <td><span class="subject-badge subject-umum">PJOK</span></td>
-                                <td><span class="subject-badge subject-mipa">Matematika</span></td>
-                                <td><span class="subject-badge subject-umum">Wali Kelas</span></td>
+                                <td><span class="badge" style="background-color:#fd7e14;color:white;">IPS</span></td>
+                                <td><span class="badge bg-primary">PJOK</span></td>
+                                <td><span class="badge" style="background-color:#6f42c1;color:white;">B. Inggris</span></td>
+                                <td><span class="badge bg-primary">PJOK</span></td>
+                                <td><span class="badge bg-success">Matematika</span></td>
+                                <td><span class="badge bg-primary">Wali Kelas</span></td>
                             </tr>
                             <tr>
                                 <td class="fw-bold">10:50 - 11:30</td>
-                                <td><span class="subject-badge subject-umum">Seni Budaya</span></td>
-                                <td><span class="subject-badge subject-umum">Informatika</span></td>
-                                <td><span class="subject-badge subject-umum">P5</span></td>
-                                <td><span class="subject-badge subject-umum">P5</span></td>
-                                <td><span class="subject-badge subject-umum">Jumat Bersih</span></td>
+                                <td><span class="badge bg-primary">Seni Budaya</span></td>
+                                <td><span class="badge bg-primary">Informatika</span></td>
+                                <td><span class="badge bg-primary">P5</span></td>
+                                <td><span class="badge bg-primary">P5</span></td>
+                                <td><span class="badge bg-primary">Jumat Bersih</span></td>
                                 <td>-</td>
                             </tr>
                         </tbody>
@@ -282,7 +282,7 @@
                 <div class="col-md-4">
                     <div class="assessment-card">
                         <div class="text-center">
-                            <i class="bi bi-clipboard-check assessment-icon"></i>
+                            <i class="bi bi-clipboard-check display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Asesmen Formatif</h4>
                         <p class="text-center">Penilaian selama proses pembelajaran untuk memberikan umpan balik dan memperbaiki pembelajaran.</p>
@@ -297,7 +297,7 @@
                 <div class="col-md-4">
                     <div class="assessment-card" style="background: linear-gradient(135deg, #0d6efd, #0dcaf0);">
                         <div class="text-center">
-                            <i class="bi bi-journal-check assessment-icon"></i>
+                            <i class="bi bi-journal-check display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Asesmen Sumatif</h4>
                         <p class="text-center">Penilaian di akhir periode pembelajaran untuk mengukur pencapaian kompetensi siswa-siswi.</p>
@@ -312,7 +312,7 @@
                 <div class="col-md-4">
                     <div class="assessment-card" style="background: linear-gradient(135deg, #6f42c1, #a855f7);">
                         <div class="text-center">
-                            <i class="bi bi-graph-up assessment-icon"></i>
+                            <i class="bi bi-graph-up display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Asesmen Nasional</h4>
                         <p class="text-center">Evaluasi sistem pendidikan oleh pemerintah untuk mengukur mutu sekolah.</p>
@@ -376,7 +376,7 @@
                 <div class="col-md-6">
                     <div class="literacy-card">
                         <div class="text-center mb-4">
-                            <i class="bi bi-book-half literacy-icon"></i>
+                            <i class="bi bi-book-half display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Program Literasi</h4>
                         <p class="text-muted">Meningkatkan kemampuan membaca, memahami, dan menganalisis teks untuk mendukung pembelajaran semua mata pelajaran.</p>
@@ -405,7 +405,7 @@
                 <div class="col-md-6">
                     <div class="literacy-card">
                         <div class="text-center mb-4">
-                            <i class="bi bi-calculator literacy-icon"></i>
+                            <i class="bi bi-calculator display-4 text-success mb-3"></i>
                         </div>
                         <h4 class="fw-bold text-center mb-3">Program Numerasi</h4>
                         <p class="text-muted">Mengembangkan kemampuan berpikir menggunakan konsep, prosedur, fakta, dan alat matematika untuk menyelesaikan masalah.</p>
@@ -436,25 +436,25 @@
             <div class="row g-4 mt-5">
                 <div class="col-md-3 col-6">
                     <div class="stats-card">
-                        <div class="stats-number">85%</div>
+                        <div class="display-6 fw-bold lh-1">85%</div>
                         <p class="mb-0">Kemampuan Literasi</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stats-card">
-                        <div class="stats-number">80%</div>
+                        <div class="display-6 fw-bold lh-1">80%</div>
                         <p class="mb-0">Kemampuan Numerasi</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stats-card">
-                        <div class="stats-number">500+</div>
+                        <div class="display-6 fw-bold lh-1">500+</div>
                         <p class="mb-0">Buku Perpustakaan</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stats-card">
-                        <div class="stats-number">50+</div>
+                        <div class="display-6 fw-bold lh-1">50+</div>
                         <p class="mb-0">Siswa Berprestasi</p>
                     </div>
                 </div>
@@ -476,7 +476,7 @@
                     <div class="card osn-card h-100">
                         <img src="{{ asset('assets/foto/Matematika.webp') }}" alt="OSN Matematika" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-calculator osn-medal text-primary"></i>
+                            <i class="bi bi-calculator display-5 mb-3 text-primary"></i>
                             <h5 class="card-title fw-bold">Matematika</h5>
                             <p class="card-text small text-muted">Pembinaan intensif untuk kompetisi matematika tingkat kota, provinsi, dan nasional.</p>
                             <a href="{{ url('/kesiswaan') }}#prestasi" class="btn btn-outline-primary btn-sm">Lihat Prestasi</a>
@@ -488,7 +488,7 @@
                     <div class="card osn-card h-100">
                         <img src="{{ asset('assets/foto/IPA.jpg') }}" alt="OSN IPA" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-flask osn-medal text-success"></i>
+                            <i class="bi bi-flask display-5 mb-3 text-success"></i>
                             <h5 class="card-title fw-bold">IPA</h5>
                             <p class="card-text small text-muted">Program khusus untuk siswa-siswi berbakat dalam bidang Ilmu Pengetahuan Alam.</p>
                             <a href="{{ url('/kesiswaan') }}#prestasi" class="btn btn-outline-success btn-sm">Lihat Prestasi</a>
@@ -500,7 +500,7 @@
                     <div class="card osn-card h-100">
                         <img src="{{ asset('assets/foto/IPS.png') }}" alt="OSN IPS" class="card-img-top">
                         <div class="card-body text-center">
-                            <i class="bi bi-globe osn-medal text-warning"></i>
+                            <i class="bi bi-globe display-5 mb-3 text-warning"></i>
                             <h5 class="card-title fw-bold">IPS</h5>
                             <p class="card-text small text-muted">Pembinaan siswa-siswi untuk kompetisi Ilmu Pengetahuan Sosial tingkat nasional.</p>
                             <a href="{{ url('/kesiswaan') }}#prestasi" class="btn btn-outline-warning btn-sm">Lihat Prestasi</a>
@@ -657,7 +657,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-laptop program-icon"></i>
+                        <i class="bi bi-laptop display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Digitalisasi Pembelajaran</h5>
                         <p class="text-muted small">Implementasi E-Learning dan platform digital untuk mendukung pembelajaran hybrid.</p>
                     </div>
@@ -665,7 +665,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-people program-icon"></i>
+                        <i class="bi bi-people display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Pelatihan Guru</h5>
                         <p class="text-muted small">Workshop dan pelatihan berkelanjutan untuk meningkatkan kompetensi guru.</p>
                     </div>
@@ -673,7 +673,7 @@
                 
                 <div class="col-md-4">
                     <div class="program-box">
-                        <i class="bi bi-book program-icon"></i>
+                        <i class="bi bi-book display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Pengembangan Materi</h5>
                         <p class="text-muted small">Penyusunan modul dan materi ajar yang inovatif sesuai Kurikulum Merdeka.</p>
                     </div>

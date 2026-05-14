@@ -37,11 +37,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
+        
         
         .program-card {
             border-left: 4px solid var(--primary-color);
@@ -364,35 +360,11 @@
     background: linear-gradient(135deg, #d4edda, #c3e6cb);
     border-color: #28a745;
 }
-.search-box {
-    background-color: white;
-    border-radius: 50px;
-    padding: 5px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.search-box input {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    width: 100%;
-}
-
-.search-box input:focus {
-    outline: none;
-    box-shadow: none;
-}
 
 .filter-btn {
     border-radius: 50px;
     padding: 8px 20px;
     margin: 5px;
-}
-
-.filter-btn.active {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
 }
 
 .pagination .page-link {
@@ -412,14 +384,6 @@
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-title {
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
 }
 
 .category-list {
@@ -482,36 +446,7 @@
     padding: 10px 20px;
     margin-bottom: 10px;
 }
-.badge-kategori {
-    font-size: 0.75rem;
-    padding: 5px 12px;
-    border-radius: 20px;
-}
 
-.badge-akademik {
-    background-color: #0d6efd;
-    color: white;
-}
-
-.badge-kesiswaan {
-    background-color: #198754;
-    color: white;
-}
-
-.badge-umum {
-    background-color: #6c757d;
-    color: white;
-}
-
-.badge-prestasi {
-    background-color: #ffc107;
-    color: #000;
-}
-
-.badge-adiwiyata {
-    background-color: #20c997;
-    color: white;
-}
 /* Detail Berita Section */
 .article-header {
     background-color: white;
@@ -531,30 +466,6 @@
     font-size: 0.85rem;
     display: inline-block;
     margin-bottom: 1rem;
-}
-
-.article-title {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-}
-
-.article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    color: #6c757d;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.article-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .article-featured-image {
@@ -635,17 +546,6 @@
     padding: 1.5rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
-}
-
-.share-title {
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.share-buttons {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
 }
 
 .share-btn {
@@ -753,46 +653,6 @@
     padding: 1.5rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin-bottom: 1.5rem;
-}
-
-.sidebar-title {
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-box input {
-    border-radius: 50px;
-    padding: 12px 45px 12px 20px;
-    border: 2px solid #e9ecef;
-    width: 100%;
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.search-box button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .category-list {
@@ -929,12 +789,6 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.curriculum-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
 .schedule-table {
     background-color: white;
     border-radius: 15px;
@@ -958,18 +812,8 @@
     background-color: #f8f9fa;
 }
 
-.subject-badge {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.subject-umum { background-color: #0d6efd; color: white; }
-.subject-mipa { background-color: #198754; color: white; }
 .subject-ips { background-color: #fd7e14; color: white; }
 .subject-bahasa { background-color: #6f42c1; color: white; }
-.subject-mulok { background-color: #ffc107; color: #000; }
 
 .assessment-card {
     background: linear-gradient(135deg, var(--primary-color), #20c997);
@@ -977,11 +821,6 @@
     border-radius: 15px;
     padding: 2rem;
     height: 100%;
-}
-
-.assessment-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
 }
 
 .program-box {
@@ -997,12 +836,6 @@
 .program-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.program-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 .osn-card {
@@ -1023,23 +856,12 @@
     object-fit: cover;
 }
 
-.osn-medal {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
 .literacy-card {
     background-color: white;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     height: 100%;
-}
-
-.literacy-icon {
-    font-size: 4rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 .download-box {
@@ -1056,24 +878,12 @@
     transform: translateX(5px);
 }
 
-.download-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-right: 1rem;
-}
-
 .stats-card {
     background: linear-gradient(135deg, var(--primary-color), #20c997);
     color: white;
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
-}
-
-.stats-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
 }
 
 .accordion-button:not(.collapsed) {
@@ -1148,12 +958,6 @@
     object-fit: cover;
 }
 
-.ekskul-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
 .prestasi-card {
     border-left: 5px solid var(--accent-color);
     border-radius: 15px;
@@ -1169,22 +973,9 @@
     transform: translateX(5px);
 }
 
-.prestasi-medal {
-    font-size: 3rem;
-    margin-right: 1rem;
-}
-
-.prestasi-level {
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
 .level-internasional { background-color: #6f42c1; color: white; }
-.level-nasional { background-color: #dc3545; color: white; }
+
 .level-provinsi { background-color: #fd7e14; color: white; }
-.level-kota { background-color: #0d6efd; color: white; }
 
 .achievement-box {
     background: linear-gradient(135deg, var(--accent-color), #ffdb73);
@@ -1194,24 +985,12 @@
     text-align: center;
 }
 
-.achievement-number {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
 .konseling-card {
     background-color: white;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     height: 100%;
-}
-
-.konseling-icon {
-    font-size: 4rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 .gallery-item {
@@ -1248,16 +1027,8 @@
     opacity: 1;
 }
 
-.badge-ekskul {
-    font-size: 0.75rem;
-    padding: 5px 12px;
-    border-radius: 20px;
-}
-
-.badge-olahraga { background-color: #dc3545; color: white; }
 .badge-seni { background-color: #6f42c1; color: white; }
-.badge-ilmiah { background-color: #0d6efd; color: white; }
-.badge-keagamaan { background-color: #198754; color: white; }
+
 .badge-keterampilan { background-color: #fd7e14; color: white; }
 
 .vote-section {
@@ -1317,17 +1088,6 @@
     min-width: 80px;
 }
 
-.countdown-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.countdown-label {
-    font-size: 0.85rem;
-    margin-top: 5px;
-}
-
 .step-card {
     background-color: white;
     border-radius: 15px;
@@ -1369,12 +1129,6 @@
     margin: 0 auto 1.5rem;
 }
 
-.step-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
 .requirement-card {
     background-color: white;
     border-radius: 15px;
@@ -1387,12 +1141,6 @@
 .requirement-card:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transform: translateX(5px);
-}
-
-.requirement-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-right: 1rem;
 }
 
 .timeline-box {
@@ -1424,12 +1172,6 @@
     padding: 2rem;
     text-align: center;
     height: 100%;
-}
-
-.quota-number {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
 }
 
 .contact-box {
@@ -1470,28 +1212,6 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     background: linear-gradient(135deg, #ffdb73, var(--accent-color));
-    color: #000;
-}
-
-.status-badge {
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.status-open {
-    background-color: #28a745;
-    color: white;
-}
-
-.status-closed {
-    background-color: #dc3545;
-    color: white;
-}
-
-.status-soon {
-    background-color: #ffc107;
     color: #000;
 }
 
@@ -1640,12 +1360,6 @@
 .department-card:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transform: translateX(5px);
-}
-
-.department-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-right: 1rem;
 }
 
 .whatsapp-float {
