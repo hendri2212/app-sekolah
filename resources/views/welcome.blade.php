@@ -24,6 +24,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/foto/favicon-16x16.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/foto/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('assets/foto/site.webmanifest') }}">
+    @yield('styles')
 
 </head>
 <body>
@@ -67,10 +68,10 @@
                             Profil
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-                            <li><a class="dropdown-item" href="profil.html#sejarah">Sejarah Singkat</a></li>
-                            <li><a class="dropdown-item" href="profil.html#visi-misi">Visi, Misi & Tujuan</a></li>
-                            <li><a class="dropdown-item" href="profil.html#struktur">Struktur Organisasi</a></li>
-                            <li><a class="dropdown-item" href="profil.html#sarana">Sarana dan Prasarana</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/profile') }}#sejarah">Sejarah Singkat</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/profile') }}#visi-misi">Visi, Misi & Tujuan</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/profile') }}#struktur">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/profile') }}#sarana">Sarana dan Prasarana</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -187,7 +188,7 @@
                         </li>
                         <li class="mb-3">
                             <i class="bi bi-globe text-success me-2"></i>
-                            https://www.mtsn2kotabaru.sch.id/
+                            <a href="{{ url('/profile') }}" class="text-white-50 text-decoration-none">https://www.mtsn2kotabaru.sch.id/</a>
                         </li>
                     </ul>
                 </div>
@@ -198,7 +199,7 @@
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled text-white-50">
-                                <li class="mb-2"><a href="profil.html" class="text-white-50 text-decoration-none">Profil Sekolah</a></li>
+                                <li class="mb-2"><a href="{{ url('/profile') }}" class="text-white-50 text-decoration-none">Profil Sekolah</a></li>
                                 <li class="mb-2"><a href="berita.html" class="text-white-50 text-decoration-none">Berita</a></li>
                                 <li class="mb-2"><a href="akademik.html" class="text-white-50 text-decoration-none">Akademik</a></li>
                                 <li class="mb-2"><a href="kesiswaan.html" class="text-white-50 text-decoration-none">Kesiswaan</a></li>
@@ -208,7 +209,7 @@
                             <ul class="list-unstyled text-white-50">
                                 <li class="mb-2"><a href="ppdb.html" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
                                 <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Kontak</a></li>
-                                <li class="mb-2"><a href="profil.html#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
+                                <li class="mb-2"><a href="{{ url('/profile') }}#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
                                 <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Lokasi</a></li>
                             </ul>
                         </div>
