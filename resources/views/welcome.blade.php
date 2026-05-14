@@ -79,9 +79,9 @@
                             Berita
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
-                            <li><a class="dropdown-item" href="berita.html">Berita Sekolah</a></li>
-                            <li><a class="dropdown-item" href="berita.html#agenda">Agenda Sekolah</a></li>
-                            <li><a class="dropdown-item" href="berita.html#pengumuman">Pengumuman</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/news') }}">Berita Sekolah</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/news') }}#agenda">Agenda Sekolah</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/news') }}#pengumuman">Pengumuman</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -200,7 +200,7 @@
                         <div class="col-6">
                             <ul class="list-unstyled text-white-50">
                                 <li class="mb-2"><a href="{{ url('/profile') }}" class="text-white-50 text-decoration-none">Profil Sekolah</a></li>
-                                <li class="mb-2"><a href="berita.html" class="text-white-50 text-decoration-none">Berita</a></li>
+                                <li class="mb-2"><a href="{{ url('/news') }}" class="text-white-50 text-decoration-none">Berita</a></li>
                                 <li class="mb-2"><a href="akademik.html" class="text-white-50 text-decoration-none">Akademik</a></li>
                                 <li class="mb-2"><a href="kesiswaan.html" class="text-white-50 text-decoration-none">Kesiswaan</a></li>
                             </ul>
