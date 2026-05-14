@@ -17,3 +17,15 @@ Route::get('/news', function () {
 Route::get('/news/detail', function () {
     return view('detail-berita');
 });
+
+Route::get('/akademik', function () {
+    return view('akademik');
+});
+
+Route::get('/kesiswaan', function () {
+    return view('kesiswaan');
+});
+
+Route::get('/ppdb', function () {
+    return view('ppdb');
+});

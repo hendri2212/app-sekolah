@@ -89,9 +89,9 @@
                             Akademik
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="akademikDropdown">
-                            <li><a class="dropdown-item" href="akademik.html#kurikulum">Kurikulum</a></li>
-                            <li><a class="dropdown-item" href="akademik.html#jadwal">Jadwal Pelajaran</a></li>
-                            <li><a class="dropdown-item" href="akademik.html#penilaian">Penilaian</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/akademik') }}#kurikulum">Kurikulum</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/akademik') }}#jadwal">Jadwal Pelajaran</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/akademik') }}#penilaian">Penilaian</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -99,13 +99,13 @@
                             Kesiswaan
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
-                            <li><a class="dropdown-item" href="kesiswaan.html#osis">OSIS</a></li>
-                            <li><a class="dropdown-item" href="kesiswaan.html#ekskul">Ekstrakurikuler</a></li>
-                            <li><a class="dropdown-item" href="kesiswaan.html#prestasi">Pojok Prestasi</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#osis">OSIS</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#ekskul">Ekstrakurikuler</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#prestasi">Pojok Prestasi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="ppdb.html">SPMB 2025</a>
+                        <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="{{ url('/ppdb') }}">SPMB 2025</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="kontak.html">Kontak</a>
@@ -201,13 +201,13 @@
                             <ul class="list-unstyled text-white-50">
                                 <li class="mb-2"><a href="{{ url('/profile') }}" class="text-white-50 text-decoration-none">Profil Sekolah</a></li>
                                 <li class="mb-2"><a href="{{ url('/news') }}" class="text-white-50 text-decoration-none">Berita</a></li>
-                                <li class="mb-2"><a href="akademik.html" class="text-white-50 text-decoration-none">Akademik</a></li>
-                                <li class="mb-2"><a href="kesiswaan.html" class="text-white-50 text-decoration-none">Kesiswaan</a></li>
+                                <li class="mb-2"><a href="{{ url('/akademik') }}" class="text-white-50 text-decoration-none">Akademik</a></li>
+                                <li class="mb-2"><a href="{{ url('/kesiswaan') }}" class="text-white-50 text-decoration-none">Kesiswaan</a></li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled text-white-50">
-                                <li class="mb-2"><a href="ppdb.html" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
+                                <li class="mb-2"><a href="{{ url('/ppdb') }}" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
                                 <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Kontak</a></li>
                                 <li class="mb-2"><a href="{{ url('/profile') }}#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
                                 <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Lokasi</a></li>

@@ -913,3 +913,584 @@
     flex-direction: row-reverse;
 }
   
+/* Akademik Section */
+.curriculum-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+}
+
+.curriculum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.curriculum-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.schedule-table {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.schedule-table thead {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 1rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.subject-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.subject-umum { background-color: #0d6efd; color: white; }
+.subject-mipa { background-color: #198754; color: white; }
+.subject-ips { background-color: #fd7e14; color: white; }
+.subject-bahasa { background-color: #6f42c1; color: white; }
+.subject-mulok { background-color: #ffc107; color: #000; }
+
+.assessment-card {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+}
+
+.assessment-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.program-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.program-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.program-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.osn-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.osn-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.osn-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.osn-medal {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.literacy-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.literacy-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.download-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.download-box:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateX(5px);
+}
+
+.download-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #d4edda;
+    color: var(--primary-color);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+/* Kesiswaan Section */
+.osis-card {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.osis-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.ekskul-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.ekskul-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.ekskul-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.ekskul-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.prestasi-card {
+    border-left: 5px solid var(--accent-color);
+    border-radius: 15px;
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.prestasi-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateX(5px);
+}
+
+.prestasi-medal {
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.prestasi-level {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.level-internasional { background-color: #6f42c1; color: white; }
+.level-nasional { background-color: #dc3545; color: white; }
+.level-provinsi { background-color: #fd7e14; color: white; }
+.level-kota { background-color: #0d6efd; color: white; }
+
+.achievement-box {
+    background: linear-gradient(135deg, var(--accent-color), #ffdb73);
+    color: #000;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.achievement-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.konseling-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.konseling-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 24px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.badge-ekskul {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.badge-olahraga { background-color: #dc3545; color: white; }
+.badge-seni { background-color: #6f42c1; color: white; }
+.badge-ilmiah { background-color: #0d6efd; color: white; }
+.badge-keagamaan { background-color: #198754; color: white; }
+.badge-keterampilan { background-color: #fd7e14; color: white; }
+
+.vote-section {
+    background: linear-gradient(135deg, #6f42c1, #a855f7);
+    color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+}
+
+.candidate-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    color: #000;
+}
+
+.candidate-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 4px solid var(--primary-color);
+}
+
+/* PPDB Section */
+.info-banner {
+    background: linear-gradient(135deg, var(--accent-color), #ffdb73);
+    color: #000;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.info-banner h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.countdown-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.countdown-item {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.step-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+}
+
+.step-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.requirement-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.requirement-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateX(5px);
+}
+
+.requirement-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.timeline-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-item.completed::before {
+    background-color: var(--accent-color);
+}
+
+.timeline-item.active::before {
+    background-color: var(--secondary-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+}
+
+.quota-box {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.quota-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.contact-box {
+    background: linear-gradient(135deg, var(--primary-color), #20c997);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--accent-color), #ffdb73);
+    color: #000;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #ffdb73, var(--accent-color));
+    color: #000;
+}
+
+.status-badge {
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.status-open {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-closed {
+    background-color: #dc3545;
+    color: white;
+}
+
+.status-soon {
+    background-color: #ffc107;
+    color: #000;
+}
