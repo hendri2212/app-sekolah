@@ -37,7 +37,7 @@
                             <i class="bi bi-telephone-fill"></i>
                         </div>
                         <h5 class="fw-bold mb-3">Telepon</h5>
-                        <p class="text-muted mb-0">(08) ....</p>
+                        <p class="text-muted mb-0">(085246396463) admin</p>
                     </div>
                 </div>
                 
@@ -125,16 +125,20 @@
                 
                 <!-- Google Maps -->
                 <div class="col-lg-6">
-                    <div class="map-container mb-4">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.4811771804143!2d116.2409516749714!3d-3.229723396745386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2def2f10b898ba77%3A0x9aa1dbc6186880a7!2sMTsN%202%20Kotabaru!5e0!3m2!1sid!2sid!4v1775490899339!5m2!1sid!2sid" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Lokasi MTS Negeri 2 Kotabaru">
-                        </iframe>
-                    </div>
-
+<style>
+.map-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class="map-container">
+    <iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=mtsn2%20kotabaru&amp;t=h&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+     width="600" 
+     height="450" 
+     style="border:0;" 
+     allowfullscreen="" 
+     loading="lazy">
+    </iframe>
+</div>
+<hr>
                     <div class="office-hour-card">
                         <h4 class="fw-bold mb-4"><i class="bi bi-clock-history me-2"></i>Jam Operasional</h4>
                         
