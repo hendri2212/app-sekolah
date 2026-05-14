@@ -108,7 +108,7 @@
                         <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="{{ url('/ppdb') }}">SPMB 2025</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="kontak.html">Kontak</a>
+                        <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="{{ url('/kontak') }}">Kontak</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" href="{{ url('/dashboard') }}">Dashboard</a>
@@ -208,9 +208,9 @@
                         <div class="col-6">
                             <ul class="list-unstyled text-white-50">
                                 <li class="mb-2"><a href="{{ url('/ppdb') }}" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
-                                <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Kontak</a></li>
+                                <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Kontak</a></li>
                                 <li class="mb-2"><a href="{{ url('/profile') }}#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
-                                <li class="mb-2"><a href="kontak.html" class="text-white-50 text-decoration-none">Lokasi</a></li>
+                                <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Lokasi</a></li>
                             </ul>
                         </div>
                     </div>

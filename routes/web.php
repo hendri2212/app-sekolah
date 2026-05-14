@@ -29,3 +29,7 @@ Route::get('/kesiswaan', function () {
 Route::get('/ppdb', function () {
     return view('ppdb');
 });
+
+Route::get('/kontak', function () {
+    return view('contact');
+});
