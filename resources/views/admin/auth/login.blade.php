@@ -106,7 +106,7 @@
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope text-muted"></i></span>
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        placeholder="admin@mtsn2kotabaru.sch.id" value="{{ old('email') }}" required autofocus>
+                        placeholder="Alamat Email" value="{{ old('email') }}" required autofocus>
                 </div>
             </div>
 

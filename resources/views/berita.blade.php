@@ -23,138 +23,88 @@
             <div class="row">
                 <!-- Main News Column -->
                 <div class="col-lg-8">
-
-                    <!-- Search & Filter -->
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body p-3">
-                            <div class="row g-2 align-items-center">
-                                <div class="col-md-6">
-                                        <div class="input-group">
-                                        <input type="text" class="form-control rounded-pill" placeholder="Cari berita...">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-end">
-                                    <button class="btn btn-success filter-btn rounded-pill mx-1">Semua</button>
-                                    <button class="btn btn-outline-success filter-btn rounded-pill mx-1">Akademik</button>
-                                    <button class="btn btn-outline-success filter-btn rounded-pill mx-1">Kesiswaan</button>
-                                </div>
+                    <div class="col-8 mb-4">
+                        <form action="{{ route('news.index') }}" method="GET">
+                            @if(request('kategori'))
+                                <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+                            @endif
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control rounded-pill" 
+                                       placeholder="Cari berita..." value="{{ request('search') }}">
+                                <button class="btn btn-success rounded-pill ms-2 px-4" type="submit">Cari</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
                     <!-- Berita Sekolah Section -->
                     <div id="berita-sekolah">
                         <h2 class="section-title">Berita Sekolah</h2>
 
-                        <!-- Featured News -->
+                        {{-- Featured News --}}
+                        @if($featuredNews)
+                        @php
+                            $fImg = $featuredNews->image
+                                ? (file_exists(public_path('storage/news/' . $featuredNews->image))
+                                    ? asset('storage/news/' . $featuredNews->image)
+                                    : asset('assets/foto/' . $featuredNews->image))
+                                : asset('assets/foto/logo-sekolah.png');
+                        @endphp
                         <div class="card news-card mb-4">
                             <div class="row g-0">
                                 <div class="col-md-5">
-                                    <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Berita Utama"
+                                    <img src="{{ $fImg }}" alt="{{ $featuredNews->title }}"
                                         class="img-fluid rounded-start h-100" style="object-fit: cover;">
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body p-4">
                                         <span class="news-category">UTAMA</span>
-                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> 15 Januari
-                                            2025</span>
-                                        <h4 class="card-title fw-bold mt-2">MTsN 2 Kotabaru berhasil menyabet predikat
-                                            Juara Umum Lomba Olahraga Tradisional</h4>
-                                        <p class="card-text text-muted">Tingkat Kabupaten Kotabaru dalam rangka
-                                            memperingati Hari Olahraga Nasional (HAORNAS) ke-42.</p>
-                                        <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">
-                                            <i class="bi bi-read-more"></i> Baca Selengkapnya
+                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> {{ $featuredNews->published_at->translatedFormat('d F Y') }}</span>
+                                        <h4 class="card-title fw-bold mt-2">{{ $featuredNews->title }}</h4>
+                                        <p class="card-text text-muted">{{ $featuredNews->excerpt }}</p>
+                                        <a href="{{ url('/news/' . $featuredNews->slug) }}" class="btn btn-success btn-sm">
+                                            <i class="bi bi-book"></i> Baca Selengkapnya
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
-                        <!-- News Grid -->
+                        {{-- News Grid --}}
                         <div class="row g-4">
-                            <!-- News 1 -->
+                            @forelse($newsList as $item)
+                            @php
+                                $nImg = $item->image
+                                    ? (file_exists(public_path('storage/news/' . $item->image))
+                                        ? asset('storage/news/' . $item->image)
+                                        : asset('assets/foto/' . $item->image))
+                                    : asset('assets/foto/logo-sekolah.png');
+                            @endphp
                             <div class="col-md-6">
                                 <div class="card news-card">
-                                    <img src="{{ asset('assets/foto/Ruang Kelas.jfif') }}" alt="Berita 1" class="card-img-top">
+                                    <img src="{{ $nImg }}" alt="{{ $item->title }}" class="card-img-top" style="height:200px;object-fit:cover;">
                                     <div class="card-body">
-                                        <span class="badge bg-primary">Akademik</span>
-                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> 12 Januari
-                                            2025</span>
-                                        <h6 class="card-title fw-bold mt-2">Persiapan Asesmen Nasional 2025</h6>
-                                        <p class="card-text small text-muted">MTS Negeri 2 Kotabaru mempersiapkan
-                                            siswa-siswi untuk menghadapi Asesmen Nasional dengan program intensif.</p>
-                                        <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca
-                                            Selengkapnya</a>
+                                        <span class="badge bg-{{ $item->category->color ?? 'secondary' }}">{{ $item->category->name }}</span>
+                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> {{ $item->published_at->translatedFormat('d M Y') }}</span>
+                                        <h6 class="card-title fw-bold mt-2">{{ $item->title }}</h6>
+                                        <p class="card-text small text-muted">{{ $item->excerpt }}</p>
+                                        <a href="{{ url('/news/' . $item->slug) }}" class="btn btn-outline-success btn-sm">Baca Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- News 2 -->
-                            <div class="col-md-6">
-                                <div class="card news-card">
-                                    <img src="{{ asset('assets/foto/Osis.jfif') }}" alt="Berita 2" class="card-img-top">
-                                    <div class="card-body">
-                                        <span class="badge bg-success">Kesiswaan</span>
-                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> 10 Januari
-                                            2025</span>
-                                        <h6 class="card-title fw-bold mt-2">Pemilihan Ketua OSIS 2025/2026</h6>
-                                        <p class="card-text small text-muted">Pemilihan Ketua dan Wakil Ketua OSIS Masa
-                                            Bakti 2025/2026 dilaksanakan secara Offline.</p>
-                                        <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca
-                                            Selengkapnya</a>
-                                    </div>
-                                </div>
+                            @empty
+                            <div class="col-12">
+                                <p class="text-muted text-center py-4">Belum ada berita terbaru.</p>
                             </div>
-
-                            <!-- News 3 -->
-                            <div class="col-md-6">
-                                <div class="card news-card">
-                                    <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Berita 3" class="card-img-top">
-                                    <div class="card-body">
-                                        <span class="badge bg-warning text-dark">Prestasi</span>
-                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> 8 Januari
-                                            2025</span>
-                                        <h6 class="card-title fw-bold mt-2">Siswa MTS Negeri 2 Kotabaru</h6>
-                                        <p class="card-text small text-muted">Siswa MTS Negeri 2 Kotabaru berhasil
-                                            meraih medali dalam Olimpiade Sains Nasional tingkat kota.</p>
-                                        <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca
-                                            Selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- News 4 -->
-                            <div class="col-md-6">
-                                <div class="card news-card">
-                                    <img src="{{ asset('assets/foto/Menanam.jpeg') }}" alt="Berita 4" class="card-img-top">
-                                    <div class="card-body">
-                                        <span class="badge bg-info">Adiwiyata</span>
-                                        <span class="news-date float-end"><i class="bi bi-calendar3"></i> 5 Januari
-                                            2025</span>
-                                        <h6 class="card-title fw-bold mt-2">Kegiatan Penanaman Pohon</h6>
-                                        <p class="card-text small text-muted">Kegiatan penanaman pohon dalam rangka
-                                            menjaga lingkungan sekolah yang hijau dan asri.</p>
-                                        <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca
-                                            Selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforelse
                         </div>
 
-                        <!-- Pagination -->
+                        {{-- Pagination --}}
+                        @if($newsList->hasPages())
                         <nav aria-label="Page navigation" class="mt-5">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
+                            {{ $newsList->links('pagination::bootstrap-5') }}
                         </nav>
+                        @endif
                     </div>
 
                     <!-- Agenda Sekolah Section -->
@@ -313,12 +263,20 @@
                     <div class="sidebar-card">
                         <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-folder"></i> Kategori Berita</h5>
                         <ul class="category-list">
-                            <li><a href="#"><span>Akademik</span> <span class="badge bg-primary">12</span></a></li>
-                            <li><a href="#"><span>Kesiswaan</span> <span class="badge bg-success">8</span></a></li>
-                            <li><a href="#"><span>Prestasi</span> <span class="badge bg-warning text-dark">15</span></a>
+                            <li class="{{ !request('kategori') ? 'active' : '' }}">
+                                <a href="{{ route('news.index') }}">
+                                    <span>Semua Berita</span>
+                                    <span class="badge bg-dark">{{ $totalNewsCount ?? 0 }}</span>
+                                </a>
                             </li>
-                            <li><a href="#"><span>Adiwiyata</span> <span class="badge bg-info">6</span></a></li>
-                            <li><a href="#"><span>Umum</span> <span class="badge bg-secondary">20</span></a></li>
+                            @foreach($categories as $category)
+                            <li class="{{ request('kategori') === $category->slug ? 'active' : '' }}">
+                                <a href="{{ route('news.index', ['kategori' => $category->slug]) }}">
+                                    <span>{{ $category->name }}</span>
+                                    <span class="badge bg-{{ $category->color }}">{{ $category->news_count }}</span>
+                                </a>
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -326,29 +284,27 @@
                     <div class="sidebar-card">
                         <h5 class="fw-semibold text-success mb-3 pb-2 border-bottom border-2 border-success"><i class="bi bi-fire"></i> Berita Populer</h5>
 
+                        @forelse($popularNews as $popular)
+                        @php
+                            // Support dua sumber gambar: seeder (assets/foto) dan upload baru (storage/news)
+                            $imgSrc = $popular->image
+                                ? (file_exists(public_path('storage/news/' . $popular->image))
+                                    ? asset('storage/news/' . $popular->image)
+                                    : asset('assets/foto/' . $popular->image))
+                                : asset('assets/foto/logo-sekolah.png');
+                        @endphp
                         <div class="popular-post">
-                            <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Populer 1">
+                            <img src="{{ $imgSrc }}" alt="{{ $popular->title }}">
                             <div>
-                                <h6 class="fw-bold mb-1 small">Juara Umum Lomba Olahraga Tradisional</h6>
-                                <small class="text-muted"><i class="bi bi-eye"></i> 1.2K views</small>
+                                <h6 class="fw-bold mb-1 small">{{ Str::limit($popular->title, 45) }}</h6>
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> {{ number_format($popular->views) }} views
+                                </small>
                             </div>
                         </div>
-
-                        <div class="popular-post">
-                            <img src="{{ asset('assets/foto/Osis.jfif') }}" alt="Populer 2">
-                            <div>
-                                <h6 class="fw-bold mb-1 small">Pemilihan Ketua OSIS 2025</h6>
-                                <small class="text-muted"><i class="bi bi-eye"></i> 980 views</small>
-                            </div>
-                        </div>
-
-                        <div class="popular-post">
-                            <img src="{{ asset('assets/foto/OSN.jpeg') }}" alt="Populer 3">
-                            <div>
-                                <h6 class="fw-bold mb-1 small">Prestasi OSN Tingkat Kota</h6>
-                                <small class="text-muted"><i class="bi bi-eye"></i> 850 views</small>
-                            </div>
-                        </div>
+                        @empty
+                        <p class="text-muted small">Belum ada berita populer.</p>
+                        @endforelse
                     </div>
 
                     <!-- Quick Link -->

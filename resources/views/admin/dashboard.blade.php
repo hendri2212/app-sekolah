@@ -16,7 +16,7 @@
                     </div>
                     <span class="badge bg-success-subtle text-success small">+12%</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">520</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_siswa']) }}</div>
                 <div class="text-muted small">Total Siswa</div>
             </div>
         </div>
@@ -26,9 +26,9 @@
                     <div class="stat-icon bg-primary bg-opacity-10">
                         <i class="bi bi-newspaper text-primary"></i>
                     </div>
-                    <span class="badge bg-primary-subtle text-primary small">4 baru</span>
+                    <span class="badge bg-primary-subtle text-primary small">{{ $stats['total_news'] }} item</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">47</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_news']) }}</div>
                 <div class="text-muted small">Total Berita</div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     </div>
                     <span class="badge bg-warning-subtle text-warning small">+3</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">50+</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_prestasi']) }}+</div>
                 <div class="text-muted small">Prestasi</div>
             </div>
         </div>
@@ -48,12 +48,12 @@
             <div class="stat-card">
                 <div class="d-flex align-items-start justify-content-between mb-3">
                     <div class="stat-icon bg-info bg-opacity-10">
-                        <i class="bi bi-person-plus-fill text-info"></i>
+                        <i class="bi bi-eye-fill text-info"></i>
                     </div>
-                    <span class="badge bg-danger-subtle text-danger small">3 pending</span>
+                    <span class="badge bg-info-subtle text-info small">Views</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">28</div>
-                <div class="text-muted small">Pendaftar PPDB</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_views']) }}</div>
+                <div class="text-muted small">Total Kunjungan Berita</div>
             </div>
         </div>
     </div>
@@ -79,46 +79,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse($recent_news as $item)
                                 <tr>
                                     <td class="ps-3">
-                                        <div class="fw-semibold small">Juara Umum Lomba Olahraga Tradisional</div>
+                                        <div class="fw-semibold small text-truncate" style="max-width: 250px;">{{ $item->title }}</div>
                                     </td>
-                                    <td><span class="badge bg-warning text-dark">Prestasi</span></td>
-                                    <td><span class="text-muted small">15 Jan 2025</span></td>
+                                    <td><span class="badge bg-{{ $item->category->color ?? 'secondary' }}">{{ $item->category->name }}</span></td>
+                                    <td><span class="text-muted small">{{ $item->published_at->format('d M Y') }}</span></td>
                                     <td>
-                                        <a href="#" class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:0.75rem;">Edit</a>
+                                        <a href="{{ route('admin.berita.edit', $item->id) }}" class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:0.75rem;">Edit</a>
                                     </td>
                                 </tr>
+                                @empty
                                 <tr>
-                                    <td class="ps-3">
-                                        <div class="fw-semibold small">Persiapan Asesmen Nasional 2025</div>
-                                    </td>
-                                    <td><span class="badge bg-primary">Akademik</span></td>
-                                    <td><span class="text-muted small">12 Jan 2025</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:0.75rem;">Edit</a>
-                                    </td>
+                                    <td colspan="4" class="text-center py-4 text-muted">Belum ada berita.</td>
                                 </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <div class="fw-semibold small">Pemilihan Ketua OSIS 2025/2026</div>
-                                    </td>
-                                    <td><span class="badge bg-success">Kesiswaan</span></td>
-                                    <td><span class="text-muted small">10 Jan 2025</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:0.75rem;">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <div class="fw-semibold small">Kegiatan Penanaman Pohon</div>
-                                    </td>
-                                    <td><span class="badge bg-info">Adiwiyata</span></td>
-                                    <td><span class="text-muted small">5 Jan 2025</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-xs btn-outline-secondary py-0 px-2" style="font-size:0.75rem;">Edit</a>
-                                    </td>
-                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -135,15 +111,17 @@
                     <i class="bi bi-clock-history me-2 text-success"></i>Aktivitas Terbaru
                 </div>
                 <div class="card-body py-2">
+                    @if($recent_news->count() > 0)
                     <div class="d-flex align-items-start gap-2 py-2 border-bottom">
                         <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
                             <i class="bi bi-plus text-success"></i>
                         </div>
                         <div>
                             <div class="small fw-semibold">Berita baru ditambahkan</div>
-                            <div class="text-muted" style="font-size:0.75rem;">2 menit lalu · Admin</div>
+                            <div class="text-muted" style="font-size:0.75rem;">{{ $recent_news->first()->created_at->diffForHumans() }}</div>
                         </div>
                     </div>
+                    @endif
                     <div class="d-flex align-items-start gap-2 py-2 border-bottom">
                         <div class="rounded-circle bg-warning bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
                             <i class="bi bi-person-plus text-warning"></i>
@@ -153,22 +131,13 @@
                             <div class="text-muted" style="font-size:0.75rem;">15 menit lalu</div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-start gap-2 py-2 border-bottom">
+                    <div class="d-flex align-items-start gap-2 py-2">
                         <div class="rounded-circle bg-info bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
                             <i class="bi bi-pencil text-info"></i>
                         </div>
                         <div>
                             <div class="small fw-semibold">Profil sekolah diperbarui</div>
-                            <div class="text-muted" style="font-size:0.75rem;">1 jam lalu · Admin</div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start gap-2 py-2">
-                        <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
-                            <i class="bi bi-images text-primary"></i>
-                        </div>
-                        <div>
-                            <div class="small fw-semibold">5 foto galeri diunggah</div>
-                            <div class="text-muted" style="font-size:0.75rem;">3 jam lalu · Admin</div>
+                            <div class="text-muted" style="font-size:0.75rem;">1 jam lalu</div>
                         </div>
                     </div>
                 </div>
@@ -181,7 +150,7 @@
                 </div>
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <a href="{{ route('admin.berita.index') }}" class="btn btn-outline-primary btn-sm text-start">
+                        <a href="{{ route('admin.berita.create') }}" class="btn btn-outline-primary btn-sm text-start">
                             <i class="bi bi-plus-circle me-2"></i>Tambah Berita Baru
                         </a>
                         <a href="{{ route('admin.agenda.index') }}" class="btn btn-outline-success btn-sm text-start">

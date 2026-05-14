@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -10,37 +12,19 @@ use App\Http\Controllers\Admin\DashboardController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', fn() => view('dashboard'));
+Route::get('/profile', fn() => view('profile'));
+Route::get('/akademik', fn() => view('akademik'));
+Route::get('/kesiswaan', fn() => view('kesiswaan'));
+Route::get('/ppdb', fn() => view('ppdb'));
+Route::get('/kontak', fn() => view('contact'));
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Berita
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news:slug}', [NewsController::class, 'show'])->name('news.show');
 
-Route::get('/news', function () {
-    return view('berita');
-});
-
-Route::get('/news/detail', function () {
-    return view('detail-berita');
-});
-
-Route::get('/akademik', function () {
-    return view('akademik');
-});
-
-Route::get('/kesiswaan', function () {
-    return view('kesiswaan');
-});
-
-Route::get('/ppdb', function () {
-    return view('ppdb');
-});
-
-Route::get('/kontak', function () {
-    return view('contact');
-});
+// Filter berdasarkan kategori
+Route::get('/kategori/{category:slug}', [CategoryController::class, 'show'])->name('kategori.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         // Berita
-        Route::get('/berita', fn() => view('admin.berita.index'))->name('berita.index');
+        Route::resource('berita', \App\Http\Controllers\Admin\NewsController::class)->names('berita');
 
         // Agenda
         Route::get('/agenda', fn() => view('admin.agenda.index'))->name('agenda.index');
