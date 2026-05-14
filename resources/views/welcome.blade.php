@@ -50,7 +50,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('assets/foto/logo-sekolah.png') }}" alt="MTS Negeri 2 Kotabaru" width="50" height="50" class="d-inline-block align-text-top me-2">
+                <video autoplay loop muted class="me-2" style="width: 70px; height: 70px; object-fit: cover; border-radius: 60%;">
+                    <source src="{{ asset('assets/animasi/logomts2.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <div>
                     <div>MTS Negeri 2 Kotabaru</div>
                 </div>
