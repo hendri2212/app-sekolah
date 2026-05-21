@@ -34,6 +34,9 @@ Route::get('/kategori/{category:slug}', [CategoryController::class, 'show'])->na
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
+    // Redirect /admin ke dashboard (middleware akan handle jika belum login)
+    Route::redirect('/', '/admin/dashboard');
+
     // Login & Logout
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
