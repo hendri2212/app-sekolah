@@ -49,12 +49,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <video autoplay loop muted class="me-2" style="width: 70px; height: 70px; object-fit: cover; border-radius: 60%;">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
+                <video autoplay loop muted class="navbar-logo" style="object-fit: cover; border-radius: 60%; flex-shrink: 0;">
                     <source src="{{ asset('assets/animasi/logomts2.mp4') }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <div>
+                <div class="d-none d-sm-block">
                     <div>MTS Negeri 2 Kotabaru</div>
                 </div>
             </a>
