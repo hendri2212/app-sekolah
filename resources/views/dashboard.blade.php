@@ -11,10 +11,10 @@
                     <h1 class="display-4 fw-bold mb-3">Selamat Datang di Website Resmi MTS Negeri 2 Kotabaru</h1>
                     <p class="lead mb-4">Mewujudkan generasi unggul, berkarakter, berprestasi, dan berakhlakul karimah</p>
                     <div class="d-flex gap-3 flex-wrap">
-                        <a href="ppdb.html" class="btn btn-warning btn-lg">
-                            <i class="bi bi-person-plus-fill"></i> Daftar Sekarang
+                        <a href="{{ url('ppdb') }}" class="btn btn-warning btn-lg">
+                            <i class="bi bi-person-plus-fill"></i> Info SPMB
                         </a>
-                        <a href="profil.html" class="btn btn-outline-light btn-lg">
+                        <a href="{{ url('/profile') }}#sejarah" class="btn btn-outline-light btn-lg">
                             <i class="bi bi-info-circle"></i> Profil Sekolah
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                         </div>
                         <p>Calon Murid Baru (CMB) Tahun Ajaran 2026/2027. <br> <br> 
                            Selamat kepada murid yang telah diterima di MTS Negeri 2 Kotabaru.</p>
-                        <a href="ppdb.html" class="btn btn-light text-success">
+                        <a href="{{ url('ppdb') }}" class="btn btn-light text-success">
                             Info Selengkapnya <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -67,16 +67,16 @@
                     </div>
                 </div>
                 
-                <!-- Pemilihan OSIS -->
+                <!-- Organisasi OSIS -->
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-people-fill fs-2 text-success me-3"></i>
-                                <h4 class="mb-0">Pemilihan Ketua OSIS</h4>
+                                <h4 class="mb-0">Organisasi OSIS</h4>
                             </div>
-                            <p>Pemilihan Ketua dan Wakil Ketua OSIS Masa Bakti 2026/2027 yang dilaksanakan secara Offline.</p>
-                            <a href="kesiswaan.html#osis" class="btn btn-outline-success">
+                            <p>Wadah kesiswaan resmi di MTs Negeri 2 Kotabaru untuk melatih kepemimpinan, kreativitas, dan kolaborasi siswa melalui berbagai kegiatan positif.</p>
+                            <a href="{{ url('/kesiswaan') }}#osis" class="btn btn-outline-success">
                                 <i class="bi bi-arrow-right"></i> Lihat Detail
                             </a>
                         </div>
@@ -268,7 +268,7 @@
                             <img src="{{ asset('assets/foto/Kegiatan Sekolah 3.jpg') }}" alt="Kegiatan Sekolah 3" class="img-fluid rounded shadow-sm">
                         </div>
                     </div>
-                    <a href="profil.html#galeri" class="btn btn-outline-success mt-3">
+                    <a href="{{ url('profile#galeri') }}" class="btn btn-outline-success mt-3">
                         Lihat Semua Galeri <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -297,7 +297,7 @@
             <h2 class="fw-bold text-center mb-5">Tautan Terkait</h2>
             <div class="row g-4">
                 <div class="col-6 col-md-3">
-                    <a href="akademik.html" class="card text-center text-decoration-none border-0 shadow-sm h-100">
+                    <a href="{{ url('akademik') }}" class="card text-center text-decoration-none border-0 shadow-sm h-100">
                         <div class="card-body">
                             <i class="bi bi-book fs-2 text-primary mb-2 d-block"></i>
                             <span class="fw-bold">Akademik</span>
@@ -305,7 +305,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <a href="kesiswaan.html" class="card text-center text-decoration-none border-0 shadow-sm h-100">
+                    <a href="{{ url('kesiswaan') }}" class="card text-center text-decoration-none border-0 shadow-sm h-100">
                         <div class="card-body">
                             <i class="bi bi-people fs-2 text-success mb-2 d-block"></i>
                             <span class="fw-bold">Kesiswaan</span>
@@ -313,7 +313,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <a href="berita.html" class="card text-center text-decoration-none border-0 shadow-sm h-100">
+                    <a href="{{ url('news') }}" class="card text-center text-decoration-none border-0 shadow-sm h-100">
                         <div class="card-body">
                             <i class="bi bi-newspaper fs-2 text-warning mb-2 d-block"></i>
                             <span class="fw-bold">Berita</span>
@@ -321,7 +321,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <a href="kontak.html" class="card text-center text-decoration-none border-0 shadow-sm h-100">
+                    <a href="{{ url('kontak') }}" class="card text-center text-decoration-none border-0 shadow-sm h-100">
                         <div class="card-body">
                             <i class="bi bi-geo-alt fs-2 text-danger mb-2 d-block"></i>
                             <span class="fw-bold">Lokasi</span>
