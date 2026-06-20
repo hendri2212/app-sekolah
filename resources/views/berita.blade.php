@@ -111,87 +111,34 @@
                     <div id="agenda" class="mt-5 pt-5">
                         <h2 class="section-title">Agenda Sekolah</h2>
 
+                        @forelse($agendas as $agenda)
                         <div class="agenda-card">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="agenda-date">
-                                        <div class="day">20</div>
-                                        <div class="month">Jan</div>
+                                        <div class="day">{{ $agenda->start_at->format('d') }}</div>
+                                        <div class="month">{{ $agenda->start_at->translatedFormat('M') }}</div>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <h5 class="fw-bold mb-1">Masa Pengenalan Lingkungan Sekolah (MPLS)</h5>
-                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> 07:00 - 14:00 WITA | <i
-                                            class="bi bi-geo-alt"></i> MTS Negeri 2 Kotabaru</p>
+                                    <h5 class="fw-bold mb-1">{{ $agenda->title }}</h5>
+                                    @if($agenda->description)
+                                        <p class="small text-muted mb-1">{{ $agenda->description }}</p>
+                                    @endif
+                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> {{ $agenda->time_range }} | <i
+                                            class="bi bi-geo-alt"></i> {{ $agenda->location }}</p>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
+                                    <span class="badge bg-{{ $agenda->status_label === 'Selesai' ? 'secondary' : ($agenda->status_label === 'Berlangsung' ? 'success' : 'primary') }}">
+                                        {{ $agenda->status_label }}
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                        @empty
+                        <p class="text-muted text-center py-4">Belum ada agenda sekolah.</p>
+                        @endforelse
 
-                        <div class="agenda-card">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="agenda-date">
-                                        <div class="day">25</div>
-                                        <div class="month">Jan</div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5 class="fw-bold mb-1">Rapat Dewan Guru</h5>
-                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> 13:00 - 15:00 WITA | <i
-                                            class="bi bi-geo-alt"></i> Ruang Guru</p>
-                                </div>
-                                <div class="col-auto">
-                                    <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="agenda-card">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="agenda-date">
-                                        <div class="day">01</div>
-                                        <div class="month">Feb</div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5 class="fw-bold mb-1">Awal Semester Genap 2025</h5>
-                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> 07:00 - 12:00 WITA | <i
-                                            class="bi bi-geo-alt"></i> Seluruh Kelas</p>
-                                </div>
-                                <div class="col-auto">
-                                    <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="agenda-card">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="agenda-date">
-                                        <div class="day">10</div>
-                                        <div class="month">Feb</div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5 class="fw-bold mb-1">Pentas Seni Sekolah</h5>
-                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> 08:00 - 15:00 WIB | <i
-                                            class="bi bi-geo-alt"></i> Aula Sekolah</p>
-                                </div>
-                                <div class="col-auto">
-                                    <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <a href="#" class="btn btn-outline-success">
-                                <i class="bi bi-calendar-check"></i> Lihat Semua Agenda
-                            </a>
-                        </div>
                     </div>
 
                     <!-- Pengumuman Section -->
@@ -340,44 +287,31 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card news-card h-100">
-                        <img src="{{ asset('assets/foto/mpls.jpg') }}" alt="Artikel 1" class="card-img-top">
-                        <div class="card-body">
-                            <span class="badge bg-success">Kesiswaan</span>
-                            <h6 class="card-title fw-bold mt-2">Kegiatan MPLS Ramah 2025</h6>
-                            <p class="card-text small text-muted">Panduan MPLS Ramah bertujuan memastikan setiap
-                                rangkaian kegiatan berorientasi pada kebutuhan murid baru.</p>
-                            <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca Artikel</a>
+                @forelse($activityNews as $activity)
+                    @php
+                        $activityImg = $activity->image
+                            ? (file_exists(public_path('storage/news/' . $activity->image))
+                                ? asset('storage/news/' . $activity->image)
+                                : asset('assets/foto/' . $activity->image))
+                            : asset('assets/foto/logo-sekolah.png');
+                    @endphp
+                    <div class="col-md-4">
+                        <div class="card news-card h-100">
+                            <img src="{{ $activityImg }}" alt="{{ $activity->title }}" class="card-img-top" style="height:220px;object-fit:cover;">
+                            <div class="card-body">
+                                <span class="badge bg-{{ $activity->category->color ?? 'secondary' }}">{{ $activity->category->name ?? 'Umum' }}</span>
+                                <span class="news-date float-end"><i class="bi bi-calendar3"></i> {{ $activity->published_at->translatedFormat('d M Y') }}</span>
+                                <h6 class="card-title fw-bold mt-2">{{ $activity->title }}</h6>
+                                <p class="card-text small text-muted">{{ $activity->excerpt }}</p>
+                                <a href="{{ url('/news/' . $activity->slug) }}" class="btn btn-outline-success btn-sm">Baca Artikel</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card news-card h-100">
-                        <img src="{{ asset('assets/foto/Literasi.jfif') }}" alt="Artikel 2" class="card-img-top">
-                        <div class="card-body">
-                            <span class="badge bg-primary">Akademik</span>
-                            <h6 class="card-title fw-bold mt-2">Program Literasi Numerasi</h6>
-                            <p class="card-text small text-muted">Program peningkatan literasi dan numerasi siswa
-                                melalui berbagai kegiatan pembelajaran inovatif.</p>
-                            <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca Artikel</a>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-muted text-center py-4">Belum ada artikel kegiatan.</p>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card news-card h-100">
-                        <img src="{{ asset('assets/foto/taman sekolah.jfif') }}" alt="Artikel 3" class="card-img-top">
-                        <div class="card-body">
-                            <span class="badge bg-info">Adiwiyata</span>
-                            <h6 class="card-title fw-bold mt-2">Program Sekolah Hijau</h6>
-                            <p class="card-text small text-muted">Kegiatan penghijauan dan pengelolaan sampah dalam
-                                rangka menjaga lingkungan sekolah.</p>
-                            <a href="{{ url('/news/detail') }}" class="btn btn-outline-success btn-sm">Baca Artikel</a>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

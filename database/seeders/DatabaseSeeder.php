@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             CategorySeeder::class,
             NewsSeeder::class,
+            AgendaSeeder::class,
         ]);
     }
 }
-

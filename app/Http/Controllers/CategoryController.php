@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Agenda;
 use App\Models\News;
 
 class CategoryController extends Controller
@@ -25,7 +26,12 @@ class CategoryController extends Controller
             ->paginate(6);
 
         $featuredNews = null; // Tidak ada featured pada filter kategori
+        $totalNewsCount = News::count();
+        $agendas = Agenda::where('is_published', true)
+            ->orderBy('start_at')
+            ->limit(4)
+            ->get();
 
-        return view('berita', compact('categories', 'popularNews', 'featuredNews', 'newsList', 'category'));
+        return view('berita', compact('categories', 'popularNews', 'featuredNews', 'newsList', 'category', 'totalNewsCount', 'agendas'));
     }
 }

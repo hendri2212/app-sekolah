@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Agenda;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,11 @@ class NewsController extends Controller
         $popularNews = News::with('category')
             ->orderByDesc('views')
             ->limit(3)
+            ->get();
+
+        $agendas = Agenda::where('is_published', true)
+            ->orderBy('start_at')
+            ->limit(4)
             ->get();
 
         // Filter berdasarkan kategori jika ada query ?kategori=slug
@@ -57,9 +63,22 @@ class NewsController extends Controller
             });
         }
 
-        $newsList = $newsQuery->paginate(4)->withQueryString();
+        $newsList = $newsQuery->paginate(5)->withQueryString();
 
-        return view('berita', compact('categories', 'popularNews', 'featuredNews', 'newsList', 'totalNewsCount'));
+        $activityNews = News::with('category')
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
+
+        return view('berita', compact(
+            'categories',
+            'popularNews',
+            'featuredNews',
+            'newsList',
+            'totalNewsCount',
+            'agendas',
+            'activityNews'
+        ));
     }
 
     /**

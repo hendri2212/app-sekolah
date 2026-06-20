@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('berita', \App\Http\Controllers\Admin\NewsController::class)->names('berita');
 
         // Agenda
-        Route::get('/agenda', fn() => view('admin.agenda.index'))->name('agenda.index');
+        Route::resource('agenda', AdminAgendaController::class)->names('agenda');
 
         // Pengumuman
         Route::get('/pengumuman', fn() => view('admin.pengumuman.index'))->name('pengumuman.index');
@@ -81,4 +82,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     });
 });
-
