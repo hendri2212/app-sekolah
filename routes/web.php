@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
+use App\Http\Controllers\Admin\SchoolProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementContro
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', fn() => view('dashboard'));
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', fn() => view('profile'));
 Route::get('/akademik', fn() => view('akademik'));
 Route::get('/kesiswaan', fn() => view('kesiswaan'));
@@ -76,7 +78,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/ppdb', fn() => view('admin.ppdb.index'))->name('ppdb.index');
 
         // Profil Sekolah
-        Route::get('/profil', fn() => view('admin.profil.index'))->name('profil.index');
+        Route::get('/profil', [SchoolProfileController::class, 'index'])->name('profil.index');
+        Route::post('/profil', [SchoolProfileController::class, 'store'])->name('profil.store');
 
         // Pengguna
         Route::get('/pengguna', fn() => view('admin.pengguna.index'))->name('pengguna.index');

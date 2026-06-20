@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
             AgendaSeeder::class,
             AnnouncementSeeder::class,
+            SchoolProfileSeeder::class,
         ]);
     }
 }

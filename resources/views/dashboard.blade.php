@@ -23,7 +23,7 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body text-center p-4">
                             <i class="bi bi-calendar-event display-6 text-success mb-3"></i>
-                            <h5>Tahun Ajaran 2026/2027</h5>
+                            <h5>Tahun Ajaran {{ $schoolProfile->active_school_year ?? 'Belum diatur' }}</h5>
                             <p class="mb-0">Penerimaan Peserta Didik Baru Telah Dibuka</p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <i class="bi bi-mortarboard-fill fs-2 me-3"></i>
                             <h4 class="mb-0">SPMB 2026</h4>
                         </div>
-                        <p>Calon Murid Baru (CMB) Tahun Ajaran 2026/2027. <br> <br> 
+                        <p>Calon Murid Baru (CMB) Tahun Ajaran {{ $schoolProfile->active_school_year ?? 'Belum diatur' }}. <br> <br> 
                            Selamat kepada murid yang telah diterima di MTS Negeri 2 Kotabaru.</p>
                         <a href="{{ url('ppdb') }}" class="btn btn-light text-success">
                             Info Selengkapnya <i class="bi bi-arrow-right"></i>
@@ -231,15 +231,17 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="display-4 fw-bold">30</div>
+                    <div class="display-4 fw-bold">{{ $schoolAge ?? 0 }}</div>
                     <p>Tahun Berdiri</p>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="display-4 fw-bold">50+</div>
+                    <div class="display-4 fw-bold">
+                        {{ ($schoolProfile->teacher_count ?? 0) + ($schoolProfile->staff_count ?? 0) }}+
+                    </div>
                     <p>Guru & Staff</p>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="display-4 fw-bold">300+</div>
+                    <div class="display-4 fw-bold">{{ $schoolProfile->student_count ?? 0 }}+</div>
                     <p>Siswa-Siswi Aktif</p>
                 </div>
                 <div class="col-md-3">
@@ -282,7 +284,7 @@
                                 </div>
                             </div>
                             <blockquote class="blockquote">
-                                <p class="mb-3">"Berdasarkan Keputusan Menteri Agama Republik Indonesia NOMOR: 107 Tahun 1997 Tanggal 17 Maret 1997"</p>
+                                <p class="mb-3">"Berdasarkan Keputusan Menteri Agama Republik Indonesia NOMOR: {{ $schoolProfile->establishment_decree_number ?? 'Belum diatur' }}"</p>
                             </blockquote>
                         </div>
                     </div>
