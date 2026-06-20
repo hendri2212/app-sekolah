@@ -167,8 +167,11 @@
                             <a href="{{ url('/kesiswaan') }}#prestasi" class="btn btn-outline-warning">
                                 <i class="bi bi-trophy"></i> Pojok Prestasi
                             </a>
-                            <a href="{{ url('/akademik') }}#jadwal" class="btn btn-outline-primary">
-                                <i class="bi bi-calendar"></i> Jadwal Pelajaran
+                            <a href="{{ url('/kesiswaan') }}#osis" class="btn btn-outline-primary">
+                                <i class="bi bi-people"></i> OSIS
+                            </a>
+                            <a href="{{ url('/kesiswaan') }}#ekskul" class="btn btn-outline-warning">
+                                <i class="bi bi-trophy"></i> Ekstrakurikuler
                             </a>
                             <a href="{{ url('/kontak') }}" class="btn btn-outline-danger">
                                 <i class="bi bi-geo-alt"></i> Lokasi Sekolah
