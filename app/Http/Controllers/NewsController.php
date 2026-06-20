@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Agenda;
+use App\Models\Announcement;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -70,6 +71,10 @@ class NewsController extends Controller
             ->limit(3)
             ->get();
 
+        $announcements = Announcement::where('is_published', true)
+            ->orderByDesc('published_at')
+            ->get();
+
         return view('berita', compact(
             'categories',
             'popularNews',
@@ -77,7 +82,8 @@ class NewsController extends Controller
             'newsList',
             'totalNewsCount',
             'agendas',
-            'activityNews'
+            'activityNews',
+            'announcements'
         ));
     }
 

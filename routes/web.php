@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
+use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('agenda', AdminAgendaController::class)->names('agenda');
 
         // Pengumuman
-        Route::get('/pengumuman', fn() => view('admin.pengumuman.index'))->name('pengumuman.index');
+        Route::resource('pengumuman', AdminAnnouncementController::class)->names('pengumuman');
 
         // Galeri
         Route::get('/galeri', fn() => view('admin.galeri.index'))->name('galeri.index');

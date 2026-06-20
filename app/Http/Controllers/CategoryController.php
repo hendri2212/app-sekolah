@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Agenda;
+use App\Models\Announcement;
 use App\Models\News;
 
 class CategoryController extends Controller
@@ -32,6 +33,10 @@ class CategoryController extends Controller
             ->limit(4)
             ->get();
 
-        return view('berita', compact('categories', 'popularNews', 'featuredNews', 'newsList', 'category', 'totalNewsCount', 'agendas'));
+        $announcements = Announcement::where('is_published', true)
+            ->orderByDesc('published_at')
+            ->get();
+
+        return view('berita', compact('categories', 'popularNews', 'featuredNews', 'newsList', 'category', 'totalNewsCount', 'agendas', 'announcements'));
     }
 }

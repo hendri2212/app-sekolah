@@ -170,8 +170,8 @@
                             <a href="{{ url('/kesiswaan') }}#osis" class="btn btn-outline-primary">
                                 <i class="bi bi-people"></i> OSIS
                             </a>
-                            <a href="{{ url('/kesiswaan') }}#ekskul" class="btn btn-outline-warning">
-                                <i class="bi bi-trophy"></i> Ekstrakurikuler
+                            <a href="{{ url('/kesiswaan') }}#ekskul" class="btn btn-outline-info">
+                                <i class="bi bi-stars"></i> Ekstrakurikuler
                             </a>
                             <a href="{{ url('/kontak') }}" class="btn btn-outline-danger">
                                 <i class="bi bi-geo-alt"></i> Lokasi Sekolah
@@ -218,67 +218,45 @@
                 <div id="pengumuman" class="mt-5 pt-3">
                     <h2 class="section-title">Pengumuman</h2>
 
-                    @php
-                        $announcements = [
-                            [
-                                'type' => 'urgent',
-                                'icon' => 'bi bi-exclamation-triangle-fill',
-                                'iconColor' => 'text-danger',
-                                'titleColor' => 'text-danger',
-                                'title' => 'PENTING: Libur Nasional',
-                                'content' => 'Diberitahukan kepada seluruh siswa-siswi dan orang tua bahwa sekolah akan diliburkan pada tanggal 25 Januari 2025 dikarenakan hari libur nasional.',
-                                'date' => '15 Januari 2025'
-                            ],
-                            [
-                                'type' => 'success',
-                                'icon' => 'bi bi-check-circle-fill',
-                                'iconColor' => 'text-success',
-                                'titleColor' => 'text-success',
-                                'title' => 'Selamat Kepada Peserta SPMB 2025',
-                                'content' => 'Selamat kepada murid yang telah diterima di MTS Negeri 2 Kotabaru. Silahkan mengunduh file panduan MPLS di bawah ini.',
-                                'date' => '10 Januari 2025',
-                                'button' => [
-                                    'url' => asset('assets/docs/panduan-mpls.pdf'),
-                                    'label' => 'Unduh Panduan MPLS'
-                                ]
-                            ],
-                            [
-                                'type' => '',
-                                'icon' => 'bi bi-info-circle-fill',
-                                'iconColor' => 'text-warning',
-                                'titleColor' => 'text-dark',
-                                'title' => 'Jadwal Penilaian Tengah Semester',
-                                'content' => 'Penilaian Tengah Semester (PTS) akan dilaksanakan pada minggu ketiga Februari 2025. Siswa-siswi diharapkan mempersiapkan diri dengan baik.',
-                                'date' => '8 Januari 2025'
-                            ],
-                            [
-                                'type' => '',
-                                'icon' => 'bi bi-megaphone-fill',
-                                'iconColor' => 'text-primary',
-                                'titleColor' => 'text-dark',
-                                'title' => 'Pendaftaran Ekstrakurikuler',
-                                'content' => 'Pendaftaran ekstrakurikuler untuk semester genap telah dibuka. Siswa-siswi dapat mendaftar melalui wali kelas masing-masing.',
-                                'date' => '5 Januari 2025'
-                            ]
-                        ];
-                    @endphp
-
                     <div class="row g-4">
                         @foreach($announcements as $announcement)
+                            @php
+                                $variantClass = match($announcement->variant) {
+                                    'urgent' => 'urgent',
+                                    'success' => 'success',
+                                    'primary' => 'primary',
+                                    default => 'info'
+                                };
+
+                                $iconColor = match($announcement->variant) {
+                                    'urgent' => 'text-danger',
+                                    'success' => 'text-success',
+                                    'primary' => 'text-primary',
+                                    default => 'text-warning'
+                                };
+
+                                $titleColor = match($announcement->variant) {
+                                    'urgent' => 'text-danger',
+                                    'success' => 'text-success',
+                                    'primary' => 'text-primary',
+                                    default => 'text-dark'
+                                };
+                            @endphp
+
                             <div class="col-md-6">
-                                <div class="announcement-card {{ $announcement['type'] }} h-100">
+                                <div class="announcement-card {{ $variantClass }} h-100">
                                     <div class="d-flex align-items-start">
-                                        <i class="{{ $announcement['icon'] }} fs-3 {{ $announcement['iconColor'] }} me-3"></i>
+                                        <i class="{{ $announcement->icon ?? 'bi bi-info-circle-fill' }} fs-3 {{ $iconColor }} me-3"></i>
                                         <div>
-                                            <h5 class="fw-bold {{ $announcement['titleColor'] }} mb-2">{{ $announcement['title'] }}</h5>
-                                            <p class="mb-0">{{ $announcement['content'] }}</p>
-                                            @if(!empty($announcement['button']))
-                                                <a href="{{ $announcement['button']['url'] }}" class="btn btn-success btn-sm mt-2" download>
-                                                    <i class="bi bi-download"></i> {{ $announcement['button']['label'] }}
+                                            <h5 class="fw-bold {{ $titleColor }} mb-2">{{ $announcement->title }}</h5>
+                                            <p class="mb-0">{{ $announcement->content }}</p>
+                                            @if($announcement->button_url && $announcement->button_label)
+                                                <a href="{{ $announcement->button_url }}" class="btn btn-success btn-sm mt-2" @if(str_contains($announcement->button_url, '.pdf')) download @endif>
+                                                    <i class="bi bi-download"></i> {{ $announcement->button_label }}
                                                 </a>
                                             @endif
-                                            <small class="text-muted {{ !empty($announcement['button']) ? 'd-block mt-2' : '' }}">
-                                                <i class="bi bi-clock"></i> Diposting: {{ $announcement['date'] }}
+                                            <small class="text-muted {{ $announcement->button_url && $announcement->button_label ? 'd-block mt-2' : '' }}">
+                                                <i class="bi bi-clock"></i> Diposting: {{ optional($announcement->published_at)->translatedFormat('d F Y') }}
                                             </small>
                                         </div>
                                     </div>

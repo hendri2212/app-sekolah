@@ -346,11 +346,11 @@
 }
 
 .announcement-card {
-    background: linear-gradient(135deg, #fff3cd, #ffe69c);
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
     border-radius: 15px;
     padding: 1.5rem;
     margin-bottom: 1rem;
-    border: 2px solid var(--accent-color);
+    border: 2px solid #f0b429;
 }
 
 .announcement-card.urgent {
@@ -361,6 +361,16 @@
 .announcement-card.success {
     background: linear-gradient(135deg, #d4edda, #c3e6cb);
     border-color: #28a745;
+}
+
+.announcement-card.info {
+    background: linear-gradient(135deg, #e7f3ff, #d6e9ff);
+    border-color: #0d6efd;
+}
+
+.announcement-card.primary {
+    background: linear-gradient(135deg, #e8f0fe, #dbe7ff);
+    border-color: #0d6efd;
 }
 
 .filter-btn {
