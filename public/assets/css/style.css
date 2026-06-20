@@ -29,7 +29,7 @@
         }
         
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/hero/sekolah-main.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
             background-size: cover;
             background-position: center;
             min-height: 500px;
@@ -113,17 +113,6 @@
             position: relative;
             overflow: hidden;
         }
-
-.page-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../img/hero/sekolah-main.jpg') center/cover;
-    opacity: 0.1;
-}
 
 .page-header .container {
     position: relative;

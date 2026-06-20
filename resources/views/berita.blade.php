@@ -21,9 +21,8 @@
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <!-- Main News Column -->
                 <div class="col-lg-8">
-                    <div class="col-8 mb-4">
+                    <div class="mb-4">
                         <form action="{{ route('news.index') }}" method="GET">
                             @if(request('kategori'))
                                 <input type="hidden" name="kategori" value="{{ request('kategori') }}">
@@ -106,102 +105,6 @@
                         </nav>
                         @endif
                     </div>
-
-                    <!-- Agenda Sekolah Section -->
-                    <div id="agenda" class="mt-5 pt-5">
-                        <h2 class="section-title">Agenda Sekolah</h2>
-
-                        @forelse($agendas as $agenda)
-                        <div class="agenda-card">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="agenda-date">
-                                        <div class="day">{{ $agenda->start_at->format('d') }}</div>
-                                        <div class="month">{{ $agenda->start_at->translatedFormat('M') }}</div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5 class="fw-bold mb-1">{{ $agenda->title }}</h5>
-                                    @if($agenda->description)
-                                        <p class="small text-muted mb-1">{{ $agenda->description }}</p>
-                                    @endif
-                                    <p class="text-muted mb-0"><i class="bi bi-clock"></i> {{ $agenda->time_range }} | <i
-                                            class="bi bi-geo-alt"></i> {{ $agenda->location }}</p>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="badge bg-{{ $agenda->status_label === 'Selesai' ? 'secondary' : ($agenda->status_label === 'Berlangsung' ? 'success' : 'primary') }}">
-                                        {{ $agenda->status_label }}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        <p class="text-muted text-center py-4">Belum ada agenda sekolah.</p>
-                        @endforelse
-
-                    </div>
-
-                    <!-- Pengumuman Section -->
-                    <div id="pengumuman" class="mt-5 pt-5">
-                        <h2 class="section-title">Pengumuman</h2>
-
-                        <div class="announcement-card urgent">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-exclamation-triangle-fill fs-3 text-danger me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold text-danger mb-2">PENTING: Libur Nasional</h5>
-                                    <p class="mb-0">Diberitahukan kepada seluruh siswa-siswi dan orang tua bahwa sekolah
-                                        akan diliburkan pada tanggal 25 Januari 2025 dikarenakan hari libur nasional.
-                                    </p>
-                                    <small class="text-muted"><i class="bi bi-clock"></i> Diposting: 15 Januari
-                                        2025</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="announcement-card success">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-check-circle-fill fs-3 text-success me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold text-success mb-2">Selamat Kepada Peserta SPMB 2025</h5>
-                                    <p class="mb-0">Selamat kepada murid yang telah diterima di MTS Negeri 2 Kotabaru.
-                                        Silahkan mengunduh file panduan MPLS di bawah ini.</p>
-                                    <a href="{{ asset('assets/docs/panduan-mpls.pdf') }}" class="btn btn-success btn-sm mt-2" download>
-                                        <i class="bi bi-download"></i> Unduh Panduan MPLS
-                                    </a>
-                                    <small class="text-muted d-block mt-2"><i class="bi bi-clock"></i> Diposting: 10
-                                        Januari 2025</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="announcement-card">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-info-circle-fill fs-3 text-warning me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold text-dark mb-2">Jadwal Penilaian Tengah Semester</h5>
-                                    <p class="mb-0">Penilaian Tengah Semester (PTS) akan dilaksanakan pada minggu ketiga
-                                        Februari 2025. Siswa-siswi diharapkan mempersiapkan diri dengan baik.</p>
-                                    <small class="text-muted"><i class="bi bi-clock"></i> Diposting: 8 Januari
-                                        2025</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="announcement-card">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-megaphone-fill fs-3 text-primary me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold text-dark mb-2">Pendaftaran Ekstrakurikuler</h5>
-                                    <p class="mb-0">Pendaftaran ekstrakurikuler untuk semester genap telah dibuka.
-                                        Siswa-siswi dapat mendaftar melalui wali kelas masing-masing.</p>
-                                    <small class="text-muted"><i class="bi bi-clock"></i> Diposting: 5 Januari
-                                        2025</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Sidebar -->
@@ -271,6 +174,114 @@
                                 <i class="bi bi-geo-alt"></i> Lokasi Sekolah
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-5 pt-3">
+                <!-- Agenda Sekolah Section -->
+                <div id="agenda">
+                    <h2 class="section-title">Agenda Sekolah</h2>
+
+                    @forelse($agendas as $agenda)
+                    <div class="agenda-card">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <div class="agenda-date">
+                                    <div class="day">{{ $agenda->start_at->format('d') }}</div>
+                                    <div class="month">{{ $agenda->start_at->translatedFormat('M') }}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h5 class="fw-bold mb-1">{{ $agenda->title }}</h5>
+                                @if($agenda->description)
+                                    <p class="small text-muted mb-1">{{ $agenda->description }}</p>
+                                @endif
+                                <p class="text-muted mb-0"><i class="bi bi-clock"></i> {{ $agenda->time_range }} | <i
+                                        class="bi bi-geo-alt"></i> {{ $agenda->location }}</p>
+                            </div>
+                            <div class="col-auto">
+                                <span class="badge bg-{{ $agenda->status_label === 'Selesai' ? 'secondary' : ($agenda->status_label === 'Berlangsung' ? 'success' : 'primary') }}">
+                                    {{ $agenda->status_label }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    <p class="text-muted text-center py-4">Belum ada agenda sekolah.</p>
+                    @endforelse
+                </div>
+
+                <!-- Pengumuman Section -->
+                <div id="pengumuman" class="mt-5 pt-3">
+                    <h2 class="section-title">Pengumuman</h2>
+
+                    @php
+                        $announcements = [
+                            [
+                                'type' => 'urgent',
+                                'icon' => 'bi bi-exclamation-triangle-fill',
+                                'iconColor' => 'text-danger',
+                                'titleColor' => 'text-danger',
+                                'title' => 'PENTING: Libur Nasional',
+                                'content' => 'Diberitahukan kepada seluruh siswa-siswi dan orang tua bahwa sekolah akan diliburkan pada tanggal 25 Januari 2025 dikarenakan hari libur nasional.',
+                                'date' => '15 Januari 2025'
+                            ],
+                            [
+                                'type' => 'success',
+                                'icon' => 'bi bi-check-circle-fill',
+                                'iconColor' => 'text-success',
+                                'titleColor' => 'text-success',
+                                'title' => 'Selamat Kepada Peserta SPMB 2025',
+                                'content' => 'Selamat kepada murid yang telah diterima di MTS Negeri 2 Kotabaru. Silahkan mengunduh file panduan MPLS di bawah ini.',
+                                'date' => '10 Januari 2025',
+                                'button' => [
+                                    'url' => asset('assets/docs/panduan-mpls.pdf'),
+                                    'label' => 'Unduh Panduan MPLS'
+                                ]
+                            ],
+                            [
+                                'type' => '',
+                                'icon' => 'bi bi-info-circle-fill',
+                                'iconColor' => 'text-warning',
+                                'titleColor' => 'text-dark',
+                                'title' => 'Jadwal Penilaian Tengah Semester',
+                                'content' => 'Penilaian Tengah Semester (PTS) akan dilaksanakan pada minggu ketiga Februari 2025. Siswa-siswi diharapkan mempersiapkan diri dengan baik.',
+                                'date' => '8 Januari 2025'
+                            ],
+                            [
+                                'type' => '',
+                                'icon' => 'bi bi-megaphone-fill',
+                                'iconColor' => 'text-primary',
+                                'titleColor' => 'text-dark',
+                                'title' => 'Pendaftaran Ekstrakurikuler',
+                                'content' => 'Pendaftaran ekstrakurikuler untuk semester genap telah dibuka. Siswa-siswi dapat mendaftar melalui wali kelas masing-masing.',
+                                'date' => '5 Januari 2025'
+                            ]
+                        ];
+                    @endphp
+
+                    <div class="row g-4">
+                        @foreach($announcements as $announcement)
+                            <div class="col-md-6">
+                                <div class="announcement-card {{ $announcement['type'] }} h-100">
+                                    <div class="d-flex align-items-start">
+                                        <i class="{{ $announcement['icon'] }} fs-3 {{ $announcement['iconColor'] }} me-3"></i>
+                                        <div>
+                                            <h5 class="fw-bold {{ $announcement['titleColor'] }} mb-2">{{ $announcement['title'] }}</h5>
+                                            <p class="mb-0">{{ $announcement['content'] }}</p>
+                                            @if(!empty($announcement['button']))
+                                                <a href="{{ $announcement['button']['url'] }}" class="btn btn-success btn-sm mt-2" download>
+                                                    <i class="bi bi-download"></i> {{ $announcement['button']['label'] }}
+                                                </a>
+                                            @endif
+                                            <small class="text-muted {{ !empty($announcement['button']) ? 'd-block mt-2' : '' }}">
+                                                <i class="bi bi-clock"></i> Diposting: {{ $announcement['date'] }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

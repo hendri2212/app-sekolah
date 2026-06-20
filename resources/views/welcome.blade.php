@@ -113,9 +113,6 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="{{ url('/kontak') }}">Kontak</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" href="{{ url('/dashboard') }}">Dashboard</a>
-                    </li>
                 </ul>
                 <div class="ms-lg-3 mt-2 mt-lg-0">
                     <a href="https://elearning.smpn24sby.sch.id" class="btn btn-warning btn-sm" target="_blank">
