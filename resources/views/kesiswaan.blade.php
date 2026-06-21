@@ -215,11 +215,13 @@
                 @endforelse
             </div>
 
+            {{--
             <div class="text-center mt-5">
                 <a href="#" class="btn btn-outline-success btn-lg">
                     <i class="bi bi-plus-circle"></i> Daftar Ekstrakurikuler
                 </a>
             </div>
+            --}}
         </div>
     </section>
 

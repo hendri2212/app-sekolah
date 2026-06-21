@@ -50,7 +50,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Gambar Unggulan</label>
                         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
-                        <div class="form-text small">Format: JPG, PNG, WEBP. Maks: 2MB. Gambar akan dikompresi otomatis.</div>
+                        <div class="form-text small">Format: JPG, PNG, WEBP. Maks: 2MB. Gambar otomatis diperkecil menjadi JPG.</div>
                         @error('image') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
 

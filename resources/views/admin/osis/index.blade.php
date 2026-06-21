@@ -63,6 +63,7 @@
                                 <div class="col-md-2">
                                     <label class="form-label">Foto</label>
                                     <input type="file" name="members[{{ $index }}][photo]" class="form-control">
+                                    <div class="form-text">Foto otomatis diperkecil menjadi JPG.</div>
                                 </div>
                                 <div class="col-md-1 d-flex align-items-end">
                                     <div class="form-check">
@@ -93,6 +94,7 @@
                             <div class="col-md-2">
                                 <label class="form-label">Foto</label>
                                 <input type="file" name="members[0][photo]" class="form-control">
+                                <div class="form-text">Foto otomatis diperkecil menjadi JPG.</div>
                             </div>
                             <div class="col-md-1 d-flex align-items-end">
                                 <div class="form-check">
@@ -139,6 +141,7 @@ function addMemberRow() {
         <div class="col-md-2">
             <label class="form-label">Foto</label>
             <input type="file" name="members[${count}][photo]" class="form-control">
+            <div class="form-text">Foto otomatis diperkecil menjadi JPG.</div>
         </div>
         <div class="col-md-1 d-flex align-items-end">
             <div class="form-check">

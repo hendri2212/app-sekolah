@@ -149,7 +149,6 @@ class ExtracurricularSeeder extends Seeder
                     'image' => $extracurricular['image'],
                     'icon_class' => $extracurricular['icon_class'],
                     'description' => $extracurricular['description'],
-                    'registration_url' => null,
                     'order_number' => $extracurricular['order_number'],
                     'is_active' => true,
                     'created_at' => now(),

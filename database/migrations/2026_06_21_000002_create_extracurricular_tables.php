@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('icon_class')->default('bi bi-circle');
             $table->text('description')->nullable();
-            $table->string('registration_url')->nullable();
             $table->unsignedSmallInteger('order_number')->default(1);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

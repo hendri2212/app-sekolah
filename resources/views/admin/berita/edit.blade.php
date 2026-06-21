@@ -58,7 +58,7 @@
                             </div>
                         @endif
                         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
-                        <div class="form-text small">Biarkan kosong jika tidak ingin mengganti gambar.</div>
+                        <div class="form-text small">Biarkan kosong jika tidak ingin mengganti gambar. Upload baru otomatis diperkecil menjadi JPG.</div>
                         @error('image') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
 

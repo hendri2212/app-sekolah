@@ -12,6 +12,10 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+    private const IMAGE_MAX_WIDTH = 1200;
+    private const IMAGE_MAX_HEIGHT = 800;
+    private const IMAGE_QUALITY = 75;
+
     /**
      * Display a listing of the resource.
      */
@@ -112,12 +116,11 @@ class NewsController extends Controller
     }
 
     /**
-     * Helper: Upload and Compress Image using GD
+     * Helper: Upload, resize, and compress image using GD.
      */
     private function uploadAndCompressImage($file)
     {
-        $extension = $file->getClientOriginalExtension();
-        $filename = time() . '_' . Str::random(10) . '.jpg'; // Convert all to jpg for consistency if desired, or keep original
+        $filename = time() . '_' . Str::random(10) . '.jpg';
         
         $path = storage_path('app/public/news');
         if (!file_exists($path)) {
@@ -125,34 +128,37 @@ class NewsController extends Controller
         }
 
         $targetPath = $path . '/' . $filename;
-
-        // Load image
-        if ($extension == 'png') {
-            $image = imagecreatefrompng($file->getRealPath());
-        } elseif ($extension == 'webp') {
-            $image = imagecreatefromwebp($file->getRealPath());
-        } else {
-            $image = imagecreatefromjpeg($file->getRealPath());
-        }
-
-        // Get original dimensions
-        $width = imagesx($image);
-        $height = imagesy($image);
-
-        // Max width 1200px
-        if ($width > 1200) {
-            $newWidth = 1200;
-            $newHeight = floor($height * ($newWidth / $width));
-            $tmpImage = imagecreatetruecolor($newWidth, $newHeight);
-            imagecopyresampled($tmpImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-            imagedestroy($image);
-            $image = $tmpImage;
-        }
-
-        // Save with 75% quality
-        imagejpeg($image, $targetPath, 75);
-        imagedestroy($image);
+        $this->resizeImage($file->getRealPath(), $targetPath);
 
         return $filename;
+    }
+
+    private function resizeImage(string $sourcePath, string $targetPath): void
+    {
+        [$width, $height, $type] = getimagesize($sourcePath);
+
+        $source = match ($type) {
+            IMAGETYPE_JPEG => imagecreatefromjpeg($sourcePath),
+            IMAGETYPE_PNG => imagecreatefrompng($sourcePath),
+            IMAGETYPE_WEBP => imagecreatefromwebp($sourcePath),
+            default => null,
+        };
+
+        if (!$source) {
+            return;
+        }
+
+        $scale = min(self::IMAGE_MAX_WIDTH / $width, self::IMAGE_MAX_HEIGHT / $height, 1);
+        $targetWidth = (int) round($width * $scale);
+        $targetHeight = (int) round($height * $scale);
+
+        $target = imagecreatetruecolor($targetWidth, $targetHeight);
+        $white = imagecolorallocate($target, 255, 255, 255);
+        imagefill($target, 0, 0, $white);
+        imagecopyresampled($target, $source, 0, 0, 0, 0, $targetWidth, $targetHeight, $width, $height);
+        imagejpeg($target, $targetPath, self::IMAGE_QUALITY);
+
+        imagedestroy($source);
+        imagedestroy($target);
     }
 }

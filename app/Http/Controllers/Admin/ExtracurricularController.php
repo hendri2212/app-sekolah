@@ -12,6 +12,10 @@ use Illuminate\Validation\Rule;
 
 class ExtracurricularController extends Controller
 {
+    private const IMAGE_MAX_WIDTH = 900;
+    private const IMAGE_MAX_HEIGHT = 650;
+    private const IMAGE_QUALITY = 75;
+
     public function index()
     {
         $categories = ExtracurricularCategory::withCount('extracurriculars')
@@ -115,7 +119,6 @@ class ExtracurricularController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'icon_class' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:1000'],
-            'registration_url' => ['nullable', 'url', 'max:255'],
             'order_number' => ['nullable', 'integer', 'min:1', 'max:65535'],
             'image' => [
                 $extracurricular ? 'nullable' : 'required',
@@ -138,11 +141,46 @@ class ExtracurricularController extends Controller
         }
 
         $file = $request->file('image');
-        $filename = Str::slug($name) . '-' . time() . '.' . $file->getClientOriginalExtension();
+        $filename = Str::slug($name) . '-' . time() . '.jpg';
+        $directory = Storage::disk('public')->path('eskul');
+        $targetPath = $directory . DIRECTORY_SEPARATOR . $filename;
 
-        $file->storeAs('eskul', $filename, 'public');
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+
+        $this->resizeImage($file->getPathname(), $targetPath);
 
         return $filename;
+    }
+
+    private function resizeImage(string $sourcePath, string $targetPath): void
+    {
+        [$width, $height, $type] = getimagesize($sourcePath);
+
+        $source = match ($type) {
+            IMAGETYPE_JPEG => imagecreatefromjpeg($sourcePath),
+            IMAGETYPE_PNG => imagecreatefrompng($sourcePath),
+            IMAGETYPE_WEBP => imagecreatefromwebp($sourcePath),
+            default => null,
+        };
+
+        if (!$source) {
+            return;
+        }
+
+        $scale = min(self::IMAGE_MAX_WIDTH / $width, self::IMAGE_MAX_HEIGHT / $height, 1);
+        $targetWidth = (int) round($width * $scale);
+        $targetHeight = (int) round($height * $scale);
+
+        $target = imagecreatetruecolor($targetWidth, $targetHeight);
+        $white = imagecolorallocate($target, 255, 255, 255);
+        imagefill($target, 0, 0, $white);
+        imagecopyresampled($target, $source, 0, 0, 0, 0, $targetWidth, $targetHeight, $width, $height);
+        imagejpeg($target, $targetPath, self::IMAGE_QUALITY);
+
+        imagedestroy($source);
+        imagedestroy($target);
     }
 
     private function deleteImage(?string $image): void

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Extracurricular extends Model
@@ -16,7 +15,6 @@ class Extracurricular extends Model
         'image',
         'icon_class',
         'description',
-        'registration_url',
         'order_number',
         'is_active',
     ];
@@ -40,10 +38,14 @@ class Extracurricular extends Model
             return $this->image;
         }
 
-        if (Storage::disk('public')->exists('eskul/' . $this->image)) {
-            return asset('storage/eskul/' . $this->image);
-        }
+        $path = Str::startsWith($this->image, 'eskul/')
+            ? $this->image
+            : 'eskul/' . $this->image;
 
-        return asset('storage/eskul/' . $this->image);
+        $encodedPath = collect(explode('/', $path))
+            ->map(fn ($segment) => rawurlencode($segment))
+            ->implode('/');
+
+        return '/storage/' . $encodedPath;
     }
 }

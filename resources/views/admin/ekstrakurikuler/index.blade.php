@@ -142,14 +142,11 @@
                         <div class="col-md-4">
                             <label class="form-label small fw-semibold">Gambar</label>
                             <input type="file" name="image" class="form-control" accept="image/*" required>
+                            <div class="form-text">Gambar otomatis diperkecil menjadi JPG saat disimpan.</div>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-semibold">Icon Class</label>
                             <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', 'bi bi-circle') }}" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label small fw-semibold">URL Pendaftaran</label>
-                            <input type="url" name="registration_url" class="form-control" value="{{ old('registration_url') }}" placeholder="https://...">
                         </div>
                         <div class="col-md-2">
                             <label class="form-label small fw-semibold">Urutan</label>
@@ -206,6 +203,7 @@
                                             <input form="extracurricular-form-{{ $extracurricular->id }}" type="text" name="name" class="form-control form-control-sm" value="{{ $extracurricular->name }}" required>
                                         </div>
                                         <input form="extracurricular-form-{{ $extracurricular->id }}" type="file" name="image" class="form-control form-control-sm" accept="image/*">
+                                        <div class="form-text">Upload baru akan otomatis diperkecil.</div>
                                     </td>
                                     <td style="min-width: 150px;">
                                         <select form="extracurricular-form-{{ $extracurricular->id }}" name="extracurricular_category_id" class="form-select form-select-sm" required>
@@ -218,7 +216,6 @@
                                     <td style="min-width: 260px;">
                                         <input form="extracurricular-form-{{ $extracurricular->id }}" type="text" name="icon_class" class="form-control form-control-sm mb-2" value="{{ $extracurricular->icon_class }}" required>
                                         <textarea form="extracurricular-form-{{ $extracurricular->id }}" name="description" rows="2" class="form-control form-control-sm mb-2">{{ $extracurricular->description }}</textarea>
-                                        <input form="extracurricular-form-{{ $extracurricular->id }}" type="url" name="registration_url" class="form-control form-control-sm" value="{{ $extracurricular->registration_url }}" placeholder="URL pendaftaran">
                                     </td>
                                     <td>
                                         <div class="form-check form-switch">

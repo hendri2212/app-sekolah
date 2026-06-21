@@ -11,6 +11,10 @@ use Illuminate\Support\Str;
 
 class OsisController extends Controller
 {
+    private const PHOTO_MAX_WIDTH = 700;
+    private const PHOTO_MAX_HEIGHT = 900;
+    private const PHOTO_QUALITY = 75;
+
     public function index()
     {
         $period = OsisPeriod::with(['members' => function ($query) {
@@ -72,13 +76,56 @@ class OsisController extends Controller
                         Storage::disk('public')->delete($member->photo);
                     }
 
-                    $photoPath = $request->file("members.$index.photo")->store('osis', 'public');
-                    $member->photo = $photoPath;
+                    $member->photo = $this->storeResizedPhoto($request->file("members.$index.photo"), $memberData['name']);
                     $member->save();
                 }
             }
         }
 
         return redirect()->route('admin.osis.index')->with('success', 'Data OSIS berhasil disimpan.');
+    }
+
+    private function storeResizedPhoto($file, string $name): string
+    {
+        $filename = Str::slug($name) . '-' . time() . '-' . Str::random(6) . '.jpg';
+        $directory = Storage::disk('public')->path('osis');
+        $targetPath = $directory . DIRECTORY_SEPARATOR . $filename;
+
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+
+        $this->resizePhoto($file->getPathname(), $targetPath);
+
+        return 'osis/' . $filename;
+    }
+
+    private function resizePhoto(string $sourcePath, string $targetPath): void
+    {
+        [$width, $height, $type] = getimagesize($sourcePath);
+
+        $source = match ($type) {
+            IMAGETYPE_JPEG => imagecreatefromjpeg($sourcePath),
+            IMAGETYPE_PNG => imagecreatefrompng($sourcePath),
+            IMAGETYPE_WEBP => imagecreatefromwebp($sourcePath),
+            default => null,
+        };
+
+        if (!$source) {
+            return;
+        }
+
+        $scale = min(self::PHOTO_MAX_WIDTH / $width, self::PHOTO_MAX_HEIGHT / $height, 1);
+        $targetWidth = (int) round($width * $scale);
+        $targetHeight = (int) round($height * $scale);
+
+        $target = imagecreatetruecolor($targetWidth, $targetHeight);
+        $white = imagecolorallocate($target, 255, 255, 255);
+        imagefill($target, 0, 0, $white);
+        imagecopyresampled($target, $source, 0, 0, 0, 0, $targetWidth, $targetHeight, $width, $height);
+        imagejpeg($target, $targetPath, self::PHOTO_QUALITY);
+
+        imagedestroy($source);
+        imagedestroy($target);
     }
 }
