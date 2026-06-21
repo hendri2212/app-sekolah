@@ -4,11 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KesiswaanController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
 use App\Http\Controllers\Admin\SchoolProfileController;
+use App\Http\Controllers\Admin\OsisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ use App\Http\Controllers\Admin\SchoolProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', fn() => view('profile'));
 Route::get('/akademik', fn() => view('akademik'));
-Route::get('/kesiswaan', fn() => view('kesiswaan'));
+Route::get('/kesiswaan', [KesiswaanController::class, 'index'])->name('kesiswaan');
 Route::get('/ppdb', fn() => view('ppdb'));
 Route::get('/kontak', fn() => view('contact'));
 
@@ -80,6 +82,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Profil Sekolah
         Route::get('/profil', [SchoolProfileController::class, 'index'])->name('profil.index');
         Route::post('/profil', [SchoolProfileController::class, 'store'])->name('profil.store');
+
+        // OSIS
+        Route::get('/osis', [OsisController::class, 'index'])->name('osis.index');
+        Route::post('/osis', [OsisController::class, 'store'])->name('osis.store');
 
         // Pengguna
         Route::get('/pengguna', fn() => view('admin.pengguna.index'))->name('pengguna.index');

@@ -305,6 +305,9 @@
             <a href="{{ route('admin.pengumuman.index') }}" class="sidebar-link {{ request()->routeIs('admin.pengumuman.*') ? 'active' : '' }}">
                 <i class="bi bi-megaphone"></i> Pengumuman
             </a>
+            <a href="{{ route('admin.osis.index') }}" class="sidebar-link {{ request()->routeIs('admin.osis.*') ? 'active' : '' }}">
+                <i class="bi bi-people-fill"></i> OSIS
+            </a>
             <a href="{{ route('admin.galeri.index') }}" class="sidebar-link {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
                 <i class="bi bi-images"></i> Galeri
             </a>

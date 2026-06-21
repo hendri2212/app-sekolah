@@ -30,17 +30,37 @@
                 <div class="col-lg-10">
                     <div class="osis-card">
                         <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <img src="{{ asset('assets/foto/Ketua Osis.jpg') }}" alt="Ketua OSIS" class="osis-photo">
-                                <h4 class="fw-bold">KETUA OSIS</h4>
-                                <p class="mb-0">Masa Bakti 2024/2025</p>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="{{ asset('assets/foto/Wakil Ketua Osis.png') }}" alt="Wakil Ketua OSIS" class="osis-photo">
-                                <h4 class="fw-bold">WAKIL KETUA OSIS</h4>
-                                <p class="mb-0">Masa Bakti 2024/2025</p>
-                            </div>
-                            <div class="col-md-4">
+                            @php
+                                $primaryMembers = $period?->members->where('is_primary', true)->sortBy('order_number') ?? collect();
+                            @endphp
+
+                            @if($primaryMembers->isNotEmpty())
+                                @foreach($primaryMembers->take(2) as $member)
+                                    <div class="col-md-4 text-center">
+                                        @if($member->photo_url)
+                                            <img src="{{ $member->photo_url }}" alt="{{ $member->name }}" class="osis-photo">
+                                        @else
+                                            <i class="bi bi-person-circle fs-1 mb-3 d-block"></i>
+                                        @endif
+                                        <h4 class="fw-bold text-uppercase">{{ $member->position }}</h4>
+                                        <p class="fw-semibold mb-0">{{ $member->name }}</p>
+                                        <p class="mb-0">Masa Bakti {{ $period->name ?? '-' }}</p>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="col-md-4 text-center">
+                                    <img src="{{ asset('assets/foto/osis/Ketua Osis.jpg') }}" alt="Ketua OSIS" class="osis-photo">
+                                    <h4 class="fw-bold">KETUA OSIS</h4>
+                                    <p class="mb-0">Masa Bakti {{ $period->name ?? '2024/2025' }}</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="{{ asset('assets/foto/osis/Wakil Ketua Osis.png') }}" alt="Wakil Ketua OSIS" class="osis-photo">
+                                    <h4 class="fw-bold">WAKIL KETUA OSIS</h4>
+                                    <p class="mb-0">Masa Bakti {{ $period->name ?? '2024/2025' }}</p>
+                                </div>
+                            @endif
+
+                            <div class="col-md-4 text-center">
                                 <i class="bi bi-people-fill fs-1 mb-3 d-block"></i>
                                 <h4 class="fw-bold">STRUKTUR OSIS</h4>
                                 <p class="mb-3">Terdiri dari berbagai seksi dan bidang</p>
@@ -53,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- Pemilihan OSIS -->
+            <!--
             <div class="vote-section mb-5">
                 <div class="container">
                     <i class="bi bi-ballot-check fs-1 mb-3 d-block"></i>
@@ -84,38 +104,69 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <!-- Struktur OSIS -->
             <div id="struktur-osis" class="mt-5">
                 <h3 class="fw-bold text-center mb-4">Struktur Organisasi OSIS</h3>
                 <div class="card border-0 shadow">
                     <div class="card-body p-4">
-                        <div class="row text-center">
+                        <div class="row text-center justify-content-center">
                             <div class="col-12 mb-3">
                                 <div class="d-inline-block bg-success text-white px-4 py-2 rounded">
-                                    <strong>PEMBINA OSIS</strong>
+                                    <strong>PERIODE {{ $period->name ?? '-' }}</strong>
                                 </div>
                             </div>
-                            <div class="col-12 mb-3">
-                                <div class="d-inline-block bg-primary text-white px-4 py-2 rounded">
-                                    <strong>KETUA & WAKIL KETUA OSIS</strong>
+
+                            @if($period && $period->members->isNotEmpty())
+                                @php
+                                    $members = $period->members->sortBy('order_number');
+                                    $leadershipMembers = $members->filter(fn ($member) => str_contains(strtolower($member->position), 'ketua'));
+                                    $secretaryTreasurerMembers = $members->filter(function ($member) {
+                                        $position = strtolower($member->position);
+
+                                        return str_contains($position, 'sekretaris') || str_contains($position, 'bendahara');
+                                    });
+                                    $otherMembers = $members->diff($leadershipMembers)->diff($secretaryTreasurerMembers);
+                                @endphp
+
+                                @foreach($leadershipMembers as $member)
+                                    <div class="col-md-5 col-lg-4 mb-3">
+                                        <div class="d-inline-block bg-primary text-white px-3 py-2 rounded small w-100">
+                                            <div class="fw-semibold">{{ $member->position }}</div>
+                                            <small>{{ $member->name }}</small>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                                @if($secretaryTreasurerMembers->isNotEmpty())
+                                    <div class="col-12"></div>
+                                    @foreach($secretaryTreasurerMembers as $member)
+                                        <div class="col-md-4 col-lg-3 mb-3">
+                                            <div class="d-inline-block bg-secondary text-white px-3 py-2 rounded small w-100">
+                                                <div class="fw-semibold">{{ $member->position }}</div>
+                                                <small>{{ $member->name }}</small>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+
+                                @if($otherMembers->isNotEmpty())
+                                    <div class="col-12"></div>
+                                    @foreach($otherMembers as $member)
+                                        <div class="col-md-4 col-lg-3 mb-3">
+                                            <div class="d-inline-block bg-secondary text-white px-3 py-2 rounded small w-100">
+                                                <div class="fw-semibold">{{ $member->position }}</div>
+                                                <small>{{ $member->name }}</small>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            @else
+                                <div class="col-12">
+                                    <p class="text-muted mb-0">Belum ada data struktur OSIS.</p>
                                 </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="d-inline-block bg-secondary text-white px-3 py-2 rounded small">
-                                    Sekretaris 1 & 2
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="d-inline-block bg-secondary text-white px-3 py-2 rounded small">
-                                    Bendahara 1 & 2
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="d-inline-block bg-secondary text-white px-3 py-2 rounded small">
-                                    Seksi-Seksi Bidang
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

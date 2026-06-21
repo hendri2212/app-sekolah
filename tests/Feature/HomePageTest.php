@@ -3,10 +3,13 @@
 namespace Tests\Feature;
 
 use App\Models\SchoolProfile;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HomePageTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_home_page_shows_dynamic_school_age_from_profile(): void
     {
         SchoolProfile::create([
