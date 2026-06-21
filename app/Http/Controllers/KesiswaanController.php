@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Extracurricular;
+use App\Models\ExtracurricularCategory;
 use App\Models\OsisPeriod;
 
 class KesiswaanController extends Controller
@@ -20,6 +22,17 @@ class KesiswaanController extends Controller
             }])->latest()->first();
         }
 
-        return view('kesiswaan', compact('period'));
+        $extracurricularCategories = ExtracurricularCategory::where('is_active', true)
+            ->whereHas('extracurriculars', fn ($query) => $query->where('is_active', true))
+            ->orderBy('order_number')
+            ->get();
+
+        $extracurriculars = Extracurricular::with('category')
+            ->where('is_active', true)
+            ->whereHas('category', fn ($query) => $query->where('is_active', true))
+            ->orderBy('order_number')
+            ->get();
+
+        return view('kesiswaan', compact('period', 'extracurricularCategories', 'extracurriculars'));
     }
 }

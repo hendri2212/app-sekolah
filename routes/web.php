@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
 use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\Admin\OsisController;
+use App\Http\Controllers\Admin\ExtracurricularController as AdminExtracurricularController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // OSIS
         Route::get('/osis', [OsisController::class, 'index'])->name('osis.index');
         Route::post('/osis', [OsisController::class, 'store'])->name('osis.store');
+
+        // Ekstrakurikuler
+        Route::get('/ekstrakurikuler', [AdminExtracurricularController::class, 'index'])->name('ekstrakurikuler.index');
+        Route::post('/ekstrakurikuler/kategori', [AdminExtracurricularController::class, 'storeCategory'])->name('ekstrakurikuler.kategori.store');
+        Route::put('/ekstrakurikuler/kategori/{category}', [AdminExtracurricularController::class, 'updateCategory'])->name('ekstrakurikuler.kategori.update');
+        Route::delete('/ekstrakurikuler/kategori/{category}', [AdminExtracurricularController::class, 'destroyCategory'])->name('ekstrakurikuler.kategori.destroy');
+        Route::post('/ekstrakurikuler', [AdminExtracurricularController::class, 'store'])->name('ekstrakurikuler.store');
+        Route::put('/ekstrakurikuler/{extracurricular}', [AdminExtracurricularController::class, 'update'])->name('ekstrakurikuler.update');
+        Route::delete('/ekstrakurikuler/{extracurricular}', [AdminExtracurricularController::class, 'destroy'])->name('ekstrakurikuler.destroy');
 
         // Pengguna
         Route::get('/pengguna', fn() => view('admin.pengguna.index'))->name('pengguna.index');

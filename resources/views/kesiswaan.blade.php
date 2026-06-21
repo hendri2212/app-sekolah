@@ -179,176 +179,40 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Ekstrakurikuler</h2>
-                <p class="text-muted">20+ Program ekstrakurikuler untuk mengembangkan bakat dan minat siswa-siswi</p>
+                <p class="text-muted">{{ $extracurriculars->count() }} Program ekstrakurikuler untuk mengembangkan bakat dan minat siswa-siswi</p>
                 <div class="bg-success mx-auto" style="width: 80px; height: 3px;"></div>
             </div>
 
             <!-- Filter Kategori -->
             <div class="text-center mb-4">
                 <button class="btn btn-outline-success filter-btn active" data-filter="all">Semua</button>
-                <button class="btn btn-outline-success filter-btn" data-filter="olahraga">Olahraga</button>
-                <button class="btn btn-outline-success filter-btn" data-filter="seni">Seni</button>
-                <button class="btn btn-outline-success filter-btn" data-filter="ilmiah">Ilmiah</button>
-                <button class="btn btn-outline-success filter-btn" data-filter="keagamaan">Keagamaan</button>
-                <button class="btn btn-outline-success filter-btn" data-filter="keterampilan">Keterampilan</button>
+                @foreach($extracurricularCategories as $category)
+                    <button class="btn btn-outline-success filter-btn" data-filter="{{ $category->slug }}">{{ $category->name }}</button>
+                @endforeach
             </div>
             
             <div class="row g-4">
-                <!-- Pramuka -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="keagamaan">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Pramuka.jpg') }}" alt="Pramuka" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-compass display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Pramuka</h6>
-                            <span class="badge bg-success">Keagamaan</span>
-                            <p class="card-text small text-muted mt-2">Pendidikan karakter dan kepemimpinan</p>
+                @forelse($extracurriculars as $extracurricular)
+                    <div class="col-md-4 col-lg-3 ekskul-item" data-category="{{ $extracurricular->category->slug }}">
+                        <div class="card ekskul-card">
+                            @if($extracurricular->image_url)
+                                <img src="{{ $extracurricular->image_url }}" alt="{{ $extracurricular->name }}" class="card-img-top">
+                            @endif
+                            <div class="card-body text-center">
+                                <i class="{{ $extracurricular->icon_class }} display-5 text-success mb-3"></i>
+                                <h6 class="card-title fw-bold">{{ $extracurricular->name }}</h6>
+                                <span class="badge {{ $extracurricular->category->badge_class }}">{{ $extracurricular->category->name }}</span>
+                                @if($extracurricular->description)
+                                    <p class="card-text small text-muted mt-2">{{ $extracurricular->description }}</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- PMR -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="keterampilan">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/PMR.jpg') }}" alt="PMR" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-heart-pulse display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">PMR</h6>
-                            <span class="badge" style="background-color:#fd7e14;color:white;">Keterampilan</span>
-                            <p class="card-text small text-muted mt-2">Palang Merah Remaja</p>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center text-muted mb-0">Belum ada data ekstrakurikuler.</p>
                     </div>
-                </div>
-
-                <!-- Paskibra -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="keagamaan">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Paskibra.jpg') }}" alt="Paskibra" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-flag display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Paskibra</h6>
-                            <span class="badge bg-success">Keagamaan</span>
-                            <p class="card-text small text-muted mt-2">Pasukan Pengibar Bendera</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Basket -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="olahraga">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Basket.jpeg') }}" alt="Basket" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-dribbble display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Basket</h6>
-                            <span class="badge bg-danger">Olahraga</span>
-                            <p class="card-text small text-muted mt-2">Tim basket sekolah</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Futsal -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="olahraga">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Futsal.jpg') }}" alt="Futsal" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-dribbble display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Futsal</h6>
-                            <span class="badge bg-danger">Olahraga</span>
-                            <p class="card-text small text-muted mt-2">Tim futsal sekolah</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Badminton -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="olahraga">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Badminton.jpeg') }}" alt="Badminton" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-search display-5 text-success mb-3" style="transform: rotate(45deg);"></i>
-                            <h6 class="card-title fw-bold">Badminton</h6>
-                            <span class="badge bg-danger">Olahraga</span>
-                            <p class="card-text small text-muted mt-2">Bulutangkis sekolah</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seni Tari -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="seni">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Seni Tari.png') }}" alt="Seni Tari" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-music-note-beamed display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Seni Tari</h6>
-                            <span class="badge" style="background-color:#6f42c1;color:white;">Seni</span>
-                            <p class="card-text small text-muted mt-2">Tari tradisional & modern</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seni Musik -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="seni">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Seni Musik.jpg') }}" alt="Seni Musik" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-music-note-list display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Seni Musik</h6>
-                            <span class="badge" style="background-color:#6f42c1;color:white;">Seni</span>
-                            <p class="card-text small text-muted mt-2">Band & paduan suara</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KIR -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="ilmiah">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/KIR.jpeg') }}" alt="KIR" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-book display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">KIR</h6>
-                            <span class="badge bg-primary">Ilmiah</span>
-                            <p class="card-text small text-muted mt-2">Karya Ilmiah Remaja</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Komputer -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="ilmiah">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Komputer.jpeg') }}" alt="Komputer" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-pc-display display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Komputer</h6>
-                            <span class="badge bg-primary">Ilmiah</span>
-                            <p class="card-text small text-muted mt-2">Programming & desain</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rohis -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="keagamaan">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Rohis.jpg') }}" alt="Rohis" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-moon-stars display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Rohis</h6>
-                            <span class="badge bg-success">Keagamaan</span>
-                            <p class="card-text small text-muted mt-2">Rohani Islam</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jurnalistik -->
-                <div class="col-md-4 col-lg-3 ekskul-item" data-category="keterampilan">
-                    <div class="card ekskul-card">
-                        <img src="{{ asset('assets/foto/Jurnalistik.jpg') }}" alt="Jurnalistik" class="card-img-top">
-                        <div class="card-body text-center">
-                            <i class="bi bi-newspaper display-5 text-success mb-3"></i>
-                            <h6 class="card-title fw-bold">Jurnalistik</h6>
-                            <span class="badge" style="background-color:#fd7e14;color:white;">Keterampilan</span>
-                            <p class="card-text small text-muted mt-2">Mading & media sekolah</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
             <div class="text-center mt-5">
@@ -624,7 +488,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/KIR.jpeg') }}" alt="Kegiatan OSIS 1">
+                        <img src="{{ asset('storage/eskul/KIR.jpeg') }}" alt="Kegiatan OSIS 1">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Pelantikan OSIS 2025</h6>
                         </div>
@@ -632,7 +496,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Futsal.jpg') }}" alt="Kegiatan OSIS 2">
+                        <img src="{{ asset('storage/eskul/Futsal.jpg') }}" alt="Kegiatan OSIS 2">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Latihan Paskibra</h6>
                         </div>
@@ -648,7 +512,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Badminton.jpeg') }}" alt="Kegiatan OSIS 4">
+                        <img src="{{ asset('storage/eskul/Badminton.jpeg') }}" alt="Kegiatan OSIS 4">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Kompetisi Basket</h6>
                         </div>
@@ -656,7 +520,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Jurnalistik.jpg') }}" alt="Kegiatan OSIS 5">
+                        <img src="{{ asset('storage/eskul/Jurnalistik.jpg') }}" alt="Kegiatan OSIS 5">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Kegiatan Pramuka</h6>
                         </div>
@@ -664,7 +528,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Seni Tari.png') }}" alt="Kegiatan OSIS 6">
+                        <img src="{{ asset('storage/eskul/Seni Tari.png') }}" alt="Kegiatan OSIS 6">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Pameran Karya Siswa</h6>
                         </div>
@@ -680,10 +544,10 @@
             <h2 class="fw-bold text-center mb-5">Tautan Terkait</h2>
             <div class="row g-4">
                 <div class="col-6 col-md-3">
-                    <a href="https://elearning.smpn24sby.sch.id" class="card text-center text-decoration-none border-0 shadow-sm h-100" target="_blank">
+                    <a href="{{ url('/profile') }}#visi-misi" class="card text-center text-decoration-none border-0 shadow-sm h-100">
                         <div class="card-body">
-                            <i class="bi bi-laptop fs-2 text-primary mb-2 d-block"></i>
-                            <span class="fw-bold">E-Learning</span>
+                            <i class="bi bi-bullseye fs-2 text-primary mb-2 d-block"></i>
+                            <span class="fw-bold">Visi Misi</span>
                         </div>
                     </a>
                 </div>
