@@ -331,9 +331,11 @@
             <a href="{{ route('admin.profil.index') }}" class="sidebar-link {{ request()->routeIs('admin.profil.*') ? 'active' : '' }}">
                 <i class="bi bi-building"></i> Profil Sekolah
             </a>
-            <a href="{{ route('admin.pengguna.index') }}" class="sidebar-link {{ request()->routeIs('admin.pengguna.*') ? 'active' : '' }}">
-                <i class="bi bi-person-gear"></i> Pengguna
-            </a>
+            @if(in_array(Auth::user()?->role, ['superadmin', 'admin'], true))
+                <a href="{{ route('admin.pengguna.index') }}" class="sidebar-link {{ request()->routeIs('admin.pengguna.*') ? 'active' : '' }}">
+                    <i class="bi bi-person-gear"></i> Pengguna
+                </a>
+            @endif
             <a href="{{ url('/') }}" target="_blank" class="sidebar-link">
                 <i class="bi bi-box-arrow-up-right"></i> Lihat Website
             </a>

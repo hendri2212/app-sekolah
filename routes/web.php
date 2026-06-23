@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\Admin\OsisController;
 use App\Http\Controllers\Admin\ExtracurricularController as AdminExtracurricularController;
 use App\Http\Controllers\Admin\AchievementController as AdminAchievementController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,7 +103,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/ekstrakurikuler/{extracurricular}', [AdminExtracurricularController::class, 'destroy'])->name('ekstrakurikuler.destroy');
 
         // Pengguna
-        Route::get('/pengguna', fn() => view('admin.pengguna.index'))->name('pengguna.index');
+        Route::resource('pengguna', AdminUserController::class)->names('pengguna');
 
     });
 });

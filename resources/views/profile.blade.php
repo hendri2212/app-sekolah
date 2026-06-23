@@ -337,38 +337,6 @@
         </div>
     </section>
 
-    <!-- Statistik Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3 col-6">
-                    <div class="stats-card text-center">
-                        <div class="display-4 fw-bold">30</div>
-                        <p class="mb-0">Tahun Berdiri</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-card text-center">
-                        <div class="display-4 fw-bold">50+</div>
-                        <p class="mb-0">Guru & Staff</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-card text-center">
-                        <div class="display-4 fw-bold">300+</div>
-                        <p class="mb-0">Siswa-siswi Aktif</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stats-card text-center">
-                        <div class="display-4 fw-bold">10+</div>
-                        <p class="mb-0">Ekstrakurikuler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 @endsection
 
 @section('scripts')

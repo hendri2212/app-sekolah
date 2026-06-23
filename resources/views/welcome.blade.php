@@ -105,6 +105,7 @@
                             <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#osis">OSIS</a></li>
                             <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#ekskul">Ekstrakurikuler</a></li>
                             <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#prestasi">Pojok Prestasi</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#galeri-kegiatan">Galeri Kegiatan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
