@@ -270,7 +270,7 @@
                             </div>
                         @endforelse
                     </div>
-                    <a href="{{ url('profile#galeri') }}" class="btn btn-outline-success mt-3">
+                    <a href="{{ url('/kesiswaan#galeri-kegiatan') }}" class="btn btn-outline-success mt-3">
                         Lihat Semua Galeri <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>

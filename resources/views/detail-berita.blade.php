@@ -82,7 +82,7 @@
                             <li><strong>Pengelolaan Sarana Pendukung:</strong> Pengelolaan sarana sekolah yang mendukung pelestarian lingkungan hidup.</li>
                         </ul>
 
-                        <img src="{{ asset('assets/foto/upacara.jpeg') }}" alt="Upacara Penghargaan Adiwiyata">
+                        <img src="{{ asset('storage/news/1778736526_wZ6dVpQKKE.jpg') }}" alt="Upacara Penghargaan Adiwiyata">
                         <p class="caption">Upacara penerimaan penghargaan Adiwiyata</p>
 
                         <h2><i class="bi bi-flower1 text-success me-2"></i>Program Lingkungan</h2>

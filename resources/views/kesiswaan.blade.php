@@ -434,6 +434,12 @@
                     {{ $galleryImages->links('pagination::bootstrap-5') }}
                 </div>
             @endif
+
+            <div class="text-center mt-4">
+                <a href="https://www.youtube.com/@mtsn2kotabaru590" class="btn btn-danger" target="_blank">
+                    <i class="bi bi-youtube"></i> Lihat Video di YouTube
+                </a>
+            </div>
         </div>
     </section>
 

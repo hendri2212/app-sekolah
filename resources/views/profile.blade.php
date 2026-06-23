@@ -35,7 +35,7 @@
                         </div>
                         <div class="timeline-item">
                             <h5 class="fw-bold">2018</h5>
-                            <p class="text-muted">Meraih predikat Terakreditasi <strong>A (Sangat Baik)</strong> dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) yang mengukuhkan standar mutu pendidikannya.</p>
+                            <p class="text-muted">Meraih predikat Terakreditasi <strong>{{ $schoolProfile->accreditation ?? '-' }}</strong> dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) yang mengukuhkan standar mutu pendidikannya.</p>
                         </div>
                         <div class="timeline-item">
                             <h5 class="fw-bold">2025</h5>
@@ -49,7 +49,7 @@
                     
                     <div class="mt-4">
                         <span class="accreditation-badge">
-                            <i class="bi bi-star-fill"></i> AKREDITASI A
+                            <i class="bi bi-star-fill"></i> AKREDITASI {{ $schoolProfile->accreditation ?? '-' }}
                         </span>
                     </div>
                 </div>
@@ -249,7 +249,7 @@
                 <!-- Ruang Kelas -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/Ruang Kelas.jfif') }}" alt="Ruang Kelas" class="card-img-top">
+                        <img src="{{ asset('storage/news/1778735569_UI7coeEx4c.jpg') }}" alt="Ruang Kelas" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-building text-success me-2"></i>Ruang Kelas</h6>
                             <p class="card-text small text-muted">Ruang kelas nyaman</p>
@@ -304,7 +304,7 @@
                 <!-- Lapangan Olahraga -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/lapangan olahraga.jfif') }}" alt="Lapangan Olahraga" class="card-img-top">
+                        <img src="{{ asset('storage/eskul/Basket.jpeg') }}" alt="Lapangan Olahraga" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-grid-3x3 text-success me-2"></i>Lapangan Olahraga</h6>
                             <p class="card-text small text-muted">Lapangan untuk berbagai kegiatan olahraga</p>
@@ -326,7 +326,7 @@
                 <!-- Taman Sekolah -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/taman sekolah.jfif') }}" alt="Taman Sekolah" class="card-img-top">
+                        <img src="{{ asset('storage/news/1778736484_ou6oi74UzA.jpg') }}" alt="Taman Sekolah" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-flower1 text-success me-2"></i>Taman Sekolah</h6>
                             <p class="card-text small text-muted">Taman hijau sebagai sekolah Adiwiyata</p>
@@ -369,73 +369,6 @@
         </div>
     </section>
 
-    <!-- Galeri Foto & Video Section -->
-    <section id="galeri" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Galeri Foto & Video</h2>
-                <p class="text-muted">Dokumentasi kegiatan and prestasi MTS Negeri 2 Kotabaru</p>
-                <div class="bg-success mx-auto" style="width: 80px; height: 3px;"></div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Ruang Kelas.jfif') }}" alt="Kegiatan Sekolah 1" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kegiatan Pembelajaran</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/lapangan olahraga.jfif') }}" alt="Kegiatan Sekolah 2" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kegiatan Ekstrakurikuler</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/news/1778736307_nTIuWN8GrV.jpg') }}" alt="Kegiatan Sekolah 3" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Prestasi Siswa</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/taman sekolah.jfif') }}" alt="Kegiatan Sekolah 4" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kegiatan Adiwiyata</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/upacara.jpeg') }}" alt="Kegiatan Sekolah 5" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Upacara Bendera</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Kegiatan Sosial.jfif') }}" alt="Kegiatan Sekolah 6" class="img-fluid rounded">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kegiatan Sosial</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="https://www.youtube.com/@mtsn2kotabaru590" class="btn btn-danger" target="_blank">
-                    <i class="bi bi-youtube"></i> Lihat Video di YouTube
-                </a>
-            </div>
-        </div>
-    </section>
 @endsection
 
 @section('scripts')
