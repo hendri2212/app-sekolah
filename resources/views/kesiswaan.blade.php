@@ -238,25 +238,25 @@
             <div class="row g-4 mb-5">
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="display-5 fw-bold lh-1">50+</div>
-                        <p class="mb-0 fw-bold">Prestasi Tahun 2024</p>
+                        <div class="display-5 fw-bold lh-1">{{ number_format($achievementStats['year_total']) }}</div>
+                        <p class="mb-0 fw-bold">Prestasi Tahun {{ $achievementStats['year'] }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="display-5 fw-bold lh-1">15</div>
+                        <div class="display-5 fw-bold lh-1">{{ number_format($achievementStats['national_total']) }}</div>
                         <p class="mb-0 fw-bold">Tingkat Nasional</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="display-5 fw-bold lh-1">20</div>
+                        <div class="display-5 fw-bold lh-1">{{ number_format($achievementStats['province_total']) }}</div>
                         <p class="mb-0 fw-bold">Tingkat Provinsi</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-box">
-                        <div class="display-5 fw-bold lh-1">15+</div>
+                        <div class="display-5 fw-bold lh-1">{{ number_format($achievementStats['city_total']) }}</div>
                         <p class="mb-0 fw-bold">Tingkat Kota</p>
                     </div>
                 </div>
@@ -264,107 +264,32 @@
 
             <!-- Daftar Prestasi -->
             <h3 class="fw-bold mb-4">Daftar Prestasi Terbaru</h3>
-            
-            <div class="prestasi-card">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <span class="display-5 me-3">🥇</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Medali Emas OSN Matematika</h5>
-                            <span class="badge bg-danger rounded-pill px-3 py-2 small fw-semibold ms-3">Nasional</span>
+
+            @forelse($achievements as $achievement)
+                <div class="prestasi-card">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="display-5 me-3">{{ $achievement->medal_icon }}</span>
                         </div>
-                        <p class="text-muted mb-1">Olimpiade Sains Nasional 2024</p>
-                        <small class="text-muted"><i class="bi bi-calendar3"></i> Desember 2024 | <i class="bi bi-person"></i> [Nama Siswa]</small>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
+                        <div class="col">
+                            <div class="d-flex align-items-center mb-2 flex-wrap gap-2">
+                                <h5 class="fw-bold mb-0">{{ $achievement->title }}</h5>
+                                <span class="badge {{ $achievement->level_badge_class }} rounded-pill px-3 py-2 small fw-semibold">{{ $achievement->level_label }}</span>
+                            </div>
+                            <p class="text-muted mb-1">{{ $achievement->competition_name }}</p>
+                            <small class="text-muted">
+                                <i class="bi bi-calendar3"></i> {{ $achievement->display_date }}
+                                |
+                                <i class="bi {{ $achievement->recipient_type === 'sekolah' ? 'bi-award' : 'bi-person' }}"></i> {{ $achievement->recipient_name }}
+                            </small>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="prestasi-card">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <span class="display-5 me-3">🥈</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Juara 2 Lomba Karya Ilmiah</h5>
-                            <span class="badge rounded-pill px-3 py-2 small fw-semibold ms-3" style="background-color:#fd7e14;color:white;">Provinsi</span>
-                        </div>
-                        <p class="text-muted mb-1">LKIR Kalimantan Selatan 2024</p>
-                        <small class="text-muted"><i class="bi bi-calendar3"></i> November 2024 | <i class="bi bi-person"></i> Tim KIR</small>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                    </div>
+            @empty
+                <div class="prestasi-card text-center text-muted">
+                    Belum ada data prestasi.
                 </div>
-            </div>
-
-            <div class="prestasi-card">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <span class="display-5 me-3">🥉</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Juara 3 Lomba Basket</h5>
-                            <span class="badge bg-primary rounded-pill px-3 py-2 small fw-semibold ms-3">Kota</span>
-                        </div>
-                        <p class="text-muted mb-1">Kejuaraan Basket Pelajar Kotabaru 2024</p>
-                        <small class="text-muted"><i class="bi bi-calendar3"></i> Oktober 2024 | <i class="bi bi-person"></i> Tim Basket</small>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prestasi-card">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <span class="display-5 me-3">🏆</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Sekolah Adiwiyata </h5>
-                            <span class="badge bg-danger rounded-pill px-3 py-2 small fw-semibold ms-3">Nasional</span>
-                        </div>
-                        <p class="text-muted mb-1">Kementerian Lingkungan Hidup dan Kehutanan RI</p>
-                        <small class="text-muted"><i class="bi bi-calendar3"></i> 2022 | <i class="bi bi-award"></i> MTS Negeri 2 Kotabaru</small>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{ url('/profile') }}" class="btn btn-success btn-sm">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prestasi-card">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <span class="display-5 me-3">🥇</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Juara 1 Lomba Seni Tari</h5>
-                            <span class="badge bg-primary rounded-pill px-3 py-2 small fw-semibold ms-3">Kota</span>
-                        </div>
-                        <p class="text-muted mb-1">Festival Seni Pelajar Kotabaru 2024</p>
-                        <small class="text-muted"><i class="bi bi-calendar3"></i> September 2024 | <i class="bi bi-person"></i> Tim Seni Tari</small>
-                    </div>
-                    <div class="col-auto">
-                        <a href="{{ url('/news/detail') }}" class="btn btn-success btn-sm">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline-success">
-                    <i class="bi bi-list-ul"></i> Lihat Semua Prestasi
-                </a>
-            </div>
+            @endforelse
         </div>
     </section>
 
@@ -479,7 +404,7 @@
     </section>
 
     <!-- Galeri Kegiatan Kesiswaan -->
-    <section class="py-5 bg-light">
+    <section id="galeri-kegiatan" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Galeri Kegiatan Kesiswaan</h2>
@@ -488,55 +413,27 @@
             </div>
             
             <div class="row">
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/eskul/KIR.jpeg') }}" alt="Kegiatan OSIS 1">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Pelantikan OSIS 2025</h6>
+                @forelse($galleryImages as $image)
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}">
+                            <div class="gallery-overlay">
+                                <h6 class="mb-0">{{ $image['title'] }}</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/eskul/Futsal.jpg') }}" alt="Kegiatan OSIS 2">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Latihan Paskibra</h6>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center text-muted mb-0">Belum ada gambar galeri.</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/upacara.jpeg') }}" alt="Kegiatan OSIS 3">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Pentas Seni Sekolah</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/eskul/Badminton.jpeg') }}" alt="Kegiatan OSIS 4">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kompetisi Basket</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/eskul/Jurnalistik.jpg') }}" alt="Kegiatan OSIS 5">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Kegiatan Pramuka</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="{{ asset('storage/eskul/Seni Tari.png') }}" alt="Kegiatan OSIS 6">
-                        <div class="gallery-overlay">
-                            <h6 class="mb-0">Pameran Karya Siswa</h6>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
+
+            @if($galleryImages->hasPages())
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $galleryImages->links('pagination::bootstrap-5') }}
+                </div>
+            @endif
         </div>
     </section>
 

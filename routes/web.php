@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementContro
 use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\Admin\OsisController;
 use App\Http\Controllers\Admin\ExtracurricularController as AdminExtracurricularController;
+use App\Http\Controllers\Admin\AchievementController as AdminAchievementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/siswa', fn() => view('admin.siswa.index'))->name('siswa.index');
 
         // Prestasi
-        Route::get('/prestasi', fn() => view('admin.prestasi.index'))->name('prestasi.index');
+        Route::resource('prestasi', AdminAchievementController::class)
+            ->parameters(['prestasi' => 'achievement'])
+            ->names('prestasi');
 
         // PPDB
         Route::get('/ppdb', fn() => view('admin.ppdb.index'))->name('ppdb.index');

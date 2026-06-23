@@ -257,18 +257,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="fw-bold mb-4">Galeri Foto & Video</h2>
+                    <h2 class="fw-bold mb-4">Galeri Foto</h2>
                     <p class="text-muted mb-4">Dokumentasi kegiatan sekolah dan pencapaian prestasi siswa-siswi MTS Negeri 2 Kotabaru</p>
                     <div class="row g-2">
-                        <div class="col-4">
-                            <img src="{{ asset('assets/foto/Kegiatan Sekolah 1.jpg') }}" alt="Kegiatan Sekolah 1" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <div class="col-4">
-                            <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Kegiatan Sekolah 2" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <div class="col-4">
-                            <img src="{{ asset('assets/foto/Kegiatan Sekolah 3.jpg') }}" alt="Kegiatan Sekolah 3" class="img-fluid rounded shadow-sm">
-                        </div>
+                        @forelse($dashboardGalleryImages as $image)
+                            <div class="col-4">
+                                <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}" class="img-fluid rounded shadow-sm">
+                            </div>
+                        @empty
+                            <div class="col-12">
+                                <p class="text-muted mb-0">Belum ada foto galeri.</p>
+                            </div>
+                        @endforelse
                     </div>
                     <a href="{{ url('profile#galeri') }}" class="btn btn-outline-success mt-3">
                         Lihat Semua Galeri <i class="bi bi-arrow-right"></i>

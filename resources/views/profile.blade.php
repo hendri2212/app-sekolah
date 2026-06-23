@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="{{ asset('assets/foto/Kegiatan Sekolah 3.jpg') }}" alt="Sejarah MTS Negeri 2 Kotabaru" class="img-fluid rounded shadow-lg">
+                    <img src="{{ asset('storage/news/1778735569_UI7coeEx4c.jpg') }}" alt="Sejarah MTS Negeri 2 Kotabaru" class="img-fluid rounded shadow-lg">
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Sejarah Singkat</h2>
@@ -397,7 +397,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="{{ asset('assets/foto/Kegiatan Sekolah 2.jpg') }}" alt="Kegiatan Sekolah 3" class="img-fluid rounded">
+                        <img src="{{ asset('storage/news/1778736307_nTIuWN8GrV.jpg') }}" alt="Kegiatan Sekolah 3" class="img-fluid rounded">
                         <div class="gallery-overlay">
                             <h6 class="mb-0">Prestasi Siswa</h6>
                         </div>

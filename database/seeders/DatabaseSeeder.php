@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             SchoolProfileSeeder::class,
             OsisSeeder::class,
             ExtracurricularSeeder::class,
+            AchievementSeeder::class,
         ]);
     }
 }
