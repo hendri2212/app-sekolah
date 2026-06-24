@@ -311,19 +311,23 @@
             <a href="{{ route('admin.ekstrakurikuler.index') }}" class="sidebar-link {{ request()->routeIs('admin.ekstrakurikuler.*') ? 'active' : '' }}">
                 <i class="bi bi-grid-3x3-gap"></i> Ekstrakurikuler
             </a>
+            {{--
             <a href="{{ route('admin.galeri.index') }}" class="sidebar-link {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
                 <i class="bi bi-images"></i> Galeri
             </a>
+            --}}
 
             <div class="sidebar-section-label">Akademik</div>
+            {{--
             <a href="{{ route('admin.siswa.index') }}" class="sidebar-link {{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> Data Siswa
             </a>
+            --}}
             <a href="{{ route('admin.prestasi.index') }}" class="sidebar-link {{ request()->routeIs('admin.prestasi.*') ? 'active' : '' }}">
                 <i class="bi bi-trophy"></i> Prestasi
             </a>
             <a href="{{ route('admin.ppdb.index') }}" class="sidebar-link {{ request()->routeIs('admin.ppdb.*') ? 'active' : '' }}">
-                <i class="bi bi-person-plus"></i> PPDB
+                <i class="bi bi-person-plus"></i> SPMB
                 <span class="badge bg-warning text-dark rounded-pill">3</span>
             </a>
 

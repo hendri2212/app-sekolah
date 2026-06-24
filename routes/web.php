@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\OsisController;
 use App\Http\Controllers\Admin\ExtracurricularController as AdminExtracurricularController;
 use App\Http\Controllers\Admin\AchievementController as AdminAchievementController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\PpdbController as AdminPpdbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +84,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->names('prestasi');
 
         // PPDB
-        Route::get('/ppdb', fn() => view('admin.ppdb.index'))->name('ppdb.index');
+        Route::get('/ppdb', [AdminPpdbController::class, 'index'])->name('ppdb.index');
+        Route::post('/ppdb/settings', [AdminPpdbController::class, 'updateSettings'])->name('ppdb.settings.update');
 
         // Profil Sekolah
         Route::get('/profil', [SchoolProfileController::class, 'index'])->name('profil.index');

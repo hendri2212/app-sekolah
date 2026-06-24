@@ -108,18 +108,22 @@
                             <li><a class="dropdown-item" href="{{ url('/kesiswaan') }}#galeri-kegiatan">Galeri Kegiatan</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="{{ url('/ppdb') }}">SPMB 2025</a>
-                    </li>
+                    @if($spmbMenuEnabled ?? true)
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('ppdb*') ? 'active' : '' }}" href="{{ url('/ppdb') }}">SPMB 2025</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('kontak*') ? 'active' : '' }}" href="{{ url('/kontak') }}">Kontak</a>
                     </li>
                 </ul>
+                {{--
                 <div class="ms-lg-3 mt-2 mt-lg-0">
                     <a href="https://elearning.smpn24sby.sch.id" class="btn btn-warning btn-sm" target="_blank">
                         <i class="bi bi-laptop"></i> E-Learning
                     </a>
                 </div>
+                --}}
             </div>
         </div>
     </nav>
@@ -208,7 +212,9 @@
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled text-white-50">
-                                <li class="mb-2"><a href="{{ url('/ppdb') }}" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
+                                @if($spmbMenuEnabled ?? true)
+                                    <li class="mb-2"><a href="{{ url('/ppdb') }}" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
+                                @endif
                                 <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Kontak</a></li>
                                 <li class="mb-2"><a href="{{ url('/profile') }}#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
                                 <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Lokasi</a></li>
