@@ -95,7 +95,7 @@ class NewsController extends Controller
         // Tambah view count
         $news->increment('views');
 
-        $news->load('category');
+        $news->load(['category', 'user']);
 
         $relatedNews = News::with('category')
             ->where('category_id', $news->category_id)
@@ -104,8 +104,31 @@ class NewsController extends Controller
             ->limit(3)
             ->get();
 
-        $categories = Category::withCount('news')->get();
+        $latestNews = News::with('category')
+            ->where('id', '!=', $news->id)
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
 
-        return view('detail-berita', compact('news', 'relatedNews', 'categories'));
+        $previousNews = News::where('published_at', '<', $news->published_at)
+            ->latest('published_at')
+            ->first();
+
+        $nextNews = News::where('published_at', '>', $news->published_at)
+            ->oldest('published_at')
+            ->first();
+
+        $categories = Category::withCount('news')->get();
+        $totalNewsCount = News::count();
+
+        return view('detail-berita', compact(
+            'news',
+            'relatedNews',
+            'latestNews',
+            'previousNews',
+            'nextNews',
+            'categories',
+            'totalNewsCount'
+        ));
     }
 }
