@@ -12,12 +12,12 @@
             <div class="stat-card">
                 <div class="d-flex align-items-start justify-content-between mb-3">
                     <div class="stat-icon bg-success bg-opacity-10">
-                        <i class="bi bi-people-fill text-success"></i>
+                        <i class="bi bi-grid-3x3-gap-fill text-success"></i>
                     </div>
                     <span class="badge bg-success-subtle text-success small">+12%</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_siswa']) }}</div>
-                <div class="text-muted small">Total Siswa</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_ekstrakurikuler']) }}</div>
+                <div class="text-muted small">Total Ekstrakurikuler</div>
             </div>
         </div>
         <div class="col-6 col-lg-3">
@@ -38,9 +38,9 @@
                     <div class="stat-icon bg-warning bg-opacity-10">
                         <i class="bi bi-trophy-fill text-warning"></i>
                     </div>
-                    <span class="badge bg-warning-subtle text-warning small">+3</span>
+                    <span class="badge bg-warning-subtle text-warning small">{{ $stats['total_prestasi'] }} item</span>
                 </div>
-                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_prestasi']) }}+</div>
+                <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_prestasi']) }}</div>
                 <div class="text-muted small">Prestasi</div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     <div class="stat-icon bg-info bg-opacity-10">
                         <i class="bi bi-eye-fill text-info"></i>
                     </div>
-                    <span class="badge bg-info-subtle text-info small">Views</span>
+                    <span class="badge bg-info-subtle text-info small">{{ number_format($stats['total_views']) }} views</span>
                 </div>
                 <div class="fs-2 fw-bold lh-1 mb-1">{{ number_format($stats['total_views']) }}</div>
                 <div class="text-muted small">Total Kunjungan Berita</div>
@@ -111,35 +111,24 @@
                     <i class="bi bi-clock-history me-2 text-success"></i>Aktivitas Terbaru
                 </div>
                 <div class="card-body py-2">
-                    @if($recent_news->count() > 0)
-                    <div class="d-flex align-items-start gap-2 py-2 border-bottom">
-                        <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
-                            <i class="bi bi-plus text-success"></i>
+                    @forelse($recent_activities as $activity)
+                        <div class="d-flex align-items-start gap-2 py-2 {{ $loop->last ? '' : 'border-bottom' }}">
+                            <div class="rounded-circle bg-{{ $activity['color'] }} bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
+                                <i class="{{ $activity['icon'] }} text-{{ $activity['color'] }}"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="small fw-semibold">{{ $activity['title'] }}</div>
+                                @if($activity['description'])
+                                    <div class="text-muted text-truncate" style="font-size:0.75rem; max-width: 280px;">{{ $activity['description'] }}</div>
+                                @endif
+                                <div class="text-muted" style="font-size:0.75rem;">{{ $activity['time']->diffForHumans() }}</div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="small fw-semibold">Berita baru ditambahkan</div>
-                            <div class="text-muted" style="font-size:0.75rem;">{{ $recent_news->first()->created_at->diffForHumans() }}</div>
+                    @empty
+                        <div class="text-center py-3 text-muted small">
+                            Belum ada aktivitas terbaru.
                         </div>
-                    </div>
-                    @endif
-                    <div class="d-flex align-items-start gap-2 py-2 border-bottom">
-                        <div class="rounded-circle bg-warning bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
-                            <i class="bi bi-person-plus text-warning"></i>
-                        </div>
-                        <div>
-                            <div class="small fw-semibold">Pendaftar PPDB baru</div>
-                            <div class="text-muted" style="font-size:0.75rem;">15 menit lalu</div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start gap-2 py-2">
-                        <div class="rounded-circle bg-info bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:32px;height:32px;">
-                            <i class="bi bi-pencil text-info"></i>
-                        </div>
-                        <div>
-                            <div class="small fw-semibold">Profil sekolah diperbarui</div>
-                            <div class="text-muted" style="font-size:0.75rem;">1 jam lalu</div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
 
@@ -160,7 +149,7 @@
                             <i class="bi bi-person-check me-2"></i>Kelola Pendaftar PPDB
                         </a>
                         <a href="{{ route('admin.galeri.index') }}" class="btn btn-outline-info btn-sm text-start">
-                            <i class="bi bi-upload me-2"></i>Upload Galeri Foto
+                            <i class="bi bi-upload me-2"></i>Tambah Fasilitas
                         </a>
                     </div>
                 </div>
