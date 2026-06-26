@@ -11,7 +11,6 @@ class Facility extends Model
         'name',
         'slug',
         'image',
-        'image_alt',
         'icon_class',
         'description',
         'order_number',

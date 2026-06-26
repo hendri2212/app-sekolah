@@ -246,93 +246,23 @@
             </div>
             
             <div class="row g-4">
-                <!-- Ruang Kelas -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/news/1778735569_UI7coeEx4c.jpg') }}" alt="Ruang Kelas" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-building text-success me-2"></i>Ruang Kelas</h6>
-                            <p class="card-text small text-muted">Ruang kelas nyaman</p>
+                @forelse($facilities as $facility)
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card facility-card h-100">
+                            @if($facility->image_url)
+                                <img src="{{ $facility->image_url }}" alt="{{ $facility->name }}" class="card-img-top">
+                            @endif
+                            <div class="card-body">
+                                <h6 class="card-title fw-bold"><i class="{{ $facility->icon_class }} text-success me-2"></i>{{ $facility->name }}</h6>
+                                <p class="card-text small text-muted">{{ $facility->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Laboratorium Komputer -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/facility/Lab Komputer.jfif') }}" alt="Lab Komputer" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-laptop text-success me-2"></i>Lab Komputer</h6>
-                            <p class="card-text small text-muted">Laboratorium komputer dengan perangkat modern</p>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center text-muted mb-0">Data fasilitas belum tersedia.</p>
                     </div>
-                </div>
-                
-                <!-- Laboratorium IPA -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/facility/Lab IPA.jfif') }}" alt="Lab IPA" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-search text-success me-2"></i>Lab IPA</h6>
-                            <p class="card-text small text-muted">Laboratorium IPA lengkap untuk praktikum</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Perpustakaan -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/facility/perpustakaan.jfif') }}" alt="Perpustakaan" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-book text-success me-2"></i>Perpustakaan</h6>
-                            <p class="card-text small text-muted">Perpustakaan dengan koleksi buku lengkap</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Masjid -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/facility/masjid.jfif') }}" alt="Masjid" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-moon-stars text-success me-2"></i>Masjid</h6>
-                            <p class="card-text small text-muted">Masjid sekolah untuk kegiatan keagamaan</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Lapangan Olahraga -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/eskul/Basket.jpeg') }}" alt="Lapangan Olahraga" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-grid-3x3 text-success me-2"></i>Lapangan Olahraga</h6>
-                            <p class="card-text small text-muted">Lapangan untuk berbagai kegiatan olahraga</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Kantin -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/facility/kantin.jfif') }}" alt="Kantin" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-cup-hot text-success me-2"></i>Kantin</h6>
-                            <p class="card-text small text-muted">Kantin sehat dengan makanan bergizi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Taman Sekolah -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="card facility-card h-100">
-                        <img src="{{ asset('storage/news/1778736484_ou6oi74UzA.jpg') }}" alt="Taman Sekolah" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title fw-bold"><i class="bi bi-flower1 text-success me-2"></i>Taman Sekolah</h6>
-                            <p class="card-text small text-muted">Taman hijau sebagai sekolah Adiwiyata</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

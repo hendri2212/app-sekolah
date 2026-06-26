@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\Admin\OsisController;
 use App\Http\Controllers\Admin\ExtracurricularController as AdminExtracurricularController;
 use App\Http\Controllers\Admin\AchievementController as AdminAchievementController;
+use App\Http\Controllers\Admin\FacilityController as AdminFacilityController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\PpdbController as AdminPpdbController;
 
@@ -103,6 +104,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/ekstrakurikuler', [AdminExtracurricularController::class, 'store'])->name('ekstrakurikuler.store');
         Route::put('/ekstrakurikuler/{extracurricular}', [AdminExtracurricularController::class, 'update'])->name('ekstrakurikuler.update');
         Route::delete('/ekstrakurikuler/{extracurricular}', [AdminExtracurricularController::class, 'destroy'])->name('ekstrakurikuler.destroy');
+
+        // Fasilitas
+        Route::resource('fasilitas', AdminFacilityController::class)
+            ->except(['create', 'show', 'edit'])
+            ->parameters(['fasilitas' => 'facility'])
+            ->names('fasilitas');
 
         // Pengguna
         Route::resource('pengguna', AdminUserController::class)->names('pengguna');

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
-            $table->string('image_alt')->nullable();
             $table->string('icon_class')->default('bi bi-building');
             $table->text('description')->nullable();
             $table->unsignedSmallInteger('order_number')->default(1);

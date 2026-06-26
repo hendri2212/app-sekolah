@@ -311,6 +311,9 @@
             <a href="{{ route('admin.ekstrakurikuler.index') }}" class="sidebar-link {{ request()->routeIs('admin.ekstrakurikuler.*') ? 'active' : '' }}">
                 <i class="bi bi-grid-3x3-gap"></i> Ekstrakurikuler
             </a>
+            <a href="{{ route('admin.fasilitas.index') }}" class="sidebar-link {{ request()->routeIs('admin.fasilitas.*') ? 'active' : '' }}">
+                <i class="bi bi-building-gear"></i> Fasilitas
+            </a>
             {{--
             <a href="{{ route('admin.galeri.index') }}" class="sidebar-link {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
                 <i class="bi bi-images"></i> Galeri
