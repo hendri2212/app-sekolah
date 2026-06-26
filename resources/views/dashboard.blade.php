@@ -3,6 +3,44 @@
 @section('title', 'Beranda - MTS Negeri 2 Kotabaru')
 
 @section('content')
+    <!-- Custom Style for Hero Section -->
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 160px 0; /* Memberikan ruang ekstra di bawah untuk gelombang */
+            color: white;
+        }
+        
+        /* Pola Titik (Dot Pattern) */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+            background-size: 30px 30px;
+            z-index: 0;
+        }
+        
+        /* Memastikan konten tetap di atas background */
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Posisi SVG Wave */
+        .hero-wave {
+            position: absolute;
+            bottom: -1px; /* Menghindari garis celah pixel di beberapa browser */
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -20,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-none d-lg-block">
-                    <div class="card border-0 shadow-lg">
+                    <div class="card border-0 shadow-lg text-dark">
                         <div class="card-body text-center p-4">
                             <i class="bi bi-calendar-event display-6 text-success mb-3"></i>
                             <h5>Tahun Ajaran {{ $schoolProfile->active_school_year ?? 'Belum diatur' }}</h5>
@@ -30,6 +68,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- SVG Wave Divider -->
+        <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <!-- Warna fill disesuaikan dengan background-color section di bawahnya (bg-light -> #f8f9fa) -->
+            <path fill="#f8f9fa" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,133.3C960,117,1056,139,1152,154.7C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
     </section>
 
     <!-- Info Boxes Section -->

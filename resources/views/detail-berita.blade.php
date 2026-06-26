@@ -17,7 +17,7 @@
     </section>
 
     <!-- Main Content -->
-    <section class="py-5">
+    <section class="py-5 news-detail-section">
         <div class="container">
             <div class="row">
                 <!-- Article Content -->

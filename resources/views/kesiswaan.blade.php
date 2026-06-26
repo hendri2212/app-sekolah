@@ -415,12 +415,20 @@
             <div class="row">
                 @forelse($galleryImages as $image)
                     <div class="col-md-4">
-                        <div class="gallery-item">
+                        <button
+                            type="button"
+                            class="gallery-item gallery-modal-trigger border-0 p-0 w-100 text-start"
+                            data-bs-toggle="modal"
+                            data-bs-target="#galleryImageModal"
+                            data-image-src="{{ $image['url'] }}"
+                            data-image-title="{{ $image['title'] }}"
+                            aria-label="Lihat gambar {{ $image['title'] }}"
+                        >
                             <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}">
                             <div class="gallery-overlay">
                                 <h6 class="mb-0">{{ $image['title'] }}</h6>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 @empty
                     <div class="col-12">
@@ -442,6 +450,33 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="galleryImageModal" tabindex="-1" aria-labelledby="galleryImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content gallery-modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryImageModalLabel">Galeri Kegiatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="gallery-modal-toolbar mb-3">
+                        <button type="button" class="btn btn-outline-success btn-sm" id="galleryZoomOut">
+                            <i class="bi bi-zoom-out"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-success btn-sm" id="galleryZoomReset">
+                            Reset
+                        </button>
+                        <button type="button" class="btn btn-outline-success btn-sm" id="galleryZoomIn">
+                            <i class="bi bi-zoom-in"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-modal-image-wrap" id="galleryImageWrap">
+                        <img src="" alt="" id="galleryModalImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Quick Link Section -->
     <section class="py-5">
@@ -508,5 +543,50 @@
                 });
             });
         });
+
+        const galleryModal = document.getElementById('galleryImageModal');
+        const galleryModalImage = document.getElementById('galleryModalImage');
+        const galleryModalTitle = document.getElementById('galleryImageModalLabel');
+        const galleryImageWrap = document.getElementById('galleryImageWrap');
+        const galleryZoomIn = document.getElementById('galleryZoomIn');
+        const galleryZoomOut = document.getElementById('galleryZoomOut');
+        const galleryZoomReset = document.getElementById('galleryZoomReset');
+        let galleryZoomScale = 1;
+
+        function setGalleryZoom(scale) {
+            galleryZoomScale = Math.min(Math.max(scale, 1), 3);
+            galleryModalImage.style.maxHeight = galleryZoomScale === 1 ? '65vh' : 'none';
+            galleryModalImage.style.maxWidth = galleryZoomScale === 1 ? '100%' : 'none';
+            galleryModalImage.style.width = `${galleryZoomScale * 100}%`;
+        }
+
+        if (galleryModal) {
+            galleryModal.addEventListener('show.bs.modal', function(event) {
+                const trigger = event.relatedTarget;
+                const imageSrc = trigger.getAttribute('data-image-src');
+                const imageTitle = trigger.getAttribute('data-image-title');
+
+                galleryModalImage.src = imageSrc;
+                galleryModalImage.alt = imageTitle;
+                galleryModalTitle.textContent = imageTitle;
+                galleryImageWrap.scrollTop = 0;
+                galleryImageWrap.scrollLeft = 0;
+                setGalleryZoom(1);
+            });
+
+            galleryModal.addEventListener('hidden.bs.modal', function() {
+                galleryModalImage.src = '';
+                setGalleryZoom(1);
+            });
+
+            galleryZoomIn.addEventListener('click', () => setGalleryZoom(galleryZoomScale + 0.25));
+            galleryZoomOut.addEventListener('click', () => setGalleryZoom(galleryZoomScale - 0.25));
+            galleryZoomReset.addEventListener('click', () => setGalleryZoom(1));
+
+            galleryImageWrap.addEventListener('wheel', function(event) {
+                event.preventDefault();
+                setGalleryZoom(galleryZoomScale + (event.deltaY < 0 ? 0.15 : -0.15));
+            }, { passive: false });
+        }
     </script>
 @endsection

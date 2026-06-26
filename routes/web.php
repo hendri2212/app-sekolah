@@ -107,7 +107,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Fasilitas
         Route::resource('fasilitas', AdminFacilityController::class)
-            ->except(['create', 'show', 'edit'])
+            ->except(['show', 'edit'])
             ->parameters(['fasilitas' => 'facility'])
             ->names('fasilitas');
 

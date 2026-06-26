@@ -167,7 +167,7 @@
                     <p class="text-white-50">Sekolah yang berkomitmen memberikan pendidikan berkualitas dengan karakter unggul and berakhlakul karimah</p>
                     <div class="mt-4">
                         <h6 class="fw-bold mb-3">Terakreditasi</h6>
-                        <span class="badge bg-warning text-dark fs-6">A - Sangat Baik</span>
+                        <span class="badge bg-warning text-dark fs-6">{{ $footerAccreditation ?: 'Belum diatur' }}</span>
                     </div>
                 </div>
                 
@@ -216,7 +216,7 @@
                                     <li class="mb-2"><a href="{{ url('/ppdb') }}" class="text-white-50 text-decoration-none">PPDB 2025</a></li>
                                 @endif
                                 <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Kontak</a></li>
-                                <li class="mb-2"><a href="{{ url('/profile') }}#galeri" class="text-white-50 text-decoration-none">Galeri</a></li>
+                                <li class="mb-2"><a href="{{ url('/kesiswaan') }}#galeri-kegiatan" class="text-white-50 text-decoration-none">Galeri</a></li>
                                 <li class="mb-2"><a href="{{ url('/kontak') }}" class="text-white-50 text-decoration-none">Lokasi</a></li>
                             </ul>
                         </div>

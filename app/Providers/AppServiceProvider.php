@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\SiteSetting;
+use App\Models\SchoolProfile;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -24,12 +25,20 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('welcome', function ($view) {
             $spmbMenuEnabled = true;
+            $footerAccreditation = null;
 
             if (Schema::hasTable('site_settings')) {
                 $spmbMenuEnabled = SiteSetting::isSpmbMenuEnabled();
             }
 
-            $view->with('spmbMenuEnabled', $spmbMenuEnabled);
+            if (Schema::hasTable('school_profiles')) {
+                $footerAccreditation = SchoolProfile::query()->value('accreditation');
+            }
+
+            $view->with([
+                'spmbMenuEnabled' => $spmbMenuEnabled,
+                'footerAccreditation' => $footerAccreditation,
+            ]);
         });
     }
 }

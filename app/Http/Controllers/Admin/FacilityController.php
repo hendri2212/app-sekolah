@@ -24,6 +24,13 @@ class FacilityController extends Controller
         return view('admin.fasilitas.index', compact('facilities'));
     }
 
+    public function create()
+    {
+        $nextOrderNumber = (int) Facility::max('order_number') + 1;
+
+        return view('admin.fasilitas.create', compact('nextOrderNumber'));
+    }
+
     public function store(Request $request)
     {
         $data = $this->validatedData($request);

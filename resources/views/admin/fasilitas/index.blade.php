@@ -25,55 +25,12 @@
     </div>
 @endif
 
-<div class="content-card mb-4">
-    <div class="card-header">
-        <span><i class="bi bi-plus-circle me-2 text-success"></i>Tambah Fasilitas</span>
-    </div>
-    <div class="card-body">
-        <form action="{{ route('admin.fasilitas.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <label class="form-label small fw-semibold">Nama</label>
-                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Contoh: Ruang Kelas" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label small fw-semibold">Gambar</label>
-                    <input type="file" name="image" class="form-control" accept="image/*" required>
-                    <div class="form-text">Gambar otomatis diperkecil menjadi JPG saat disimpan.</div>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label small fw-semibold">Icon Class</label>
-                    <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', 'bi bi-building') }}" required>
-                    <div class="form-text">Contoh: bi bi-building, bi bi-book</div>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label small fw-semibold">Urutan</label>
-                    <input type="number" name="order_number" class="form-control" value="{{ old('order_number', $facilities->count() + 1) }}" min="1">
-                </div>
-                <div class="col-md-2 d-flex align-items-end">
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" name="is_active" value="1" id="facility-active" checked>
-                        <label class="form-check-label" for="facility-active">Aktif</label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <label class="form-label small fw-semibold">Deskripsi</label>
-                    <textarea name="description" rows="2" class="form-control" placeholder="Deskripsi singkat">{{ old('description') }}</textarea>
-                </div>
-            </div>
-            <div class="text-end mt-3">
-                <button type="submit" class="btn btn-success">
-                    <i class="bi bi-plus-circle me-1"></i>Tambah Fasilitas
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
 <div class="content-card">
-    <div class="card-header">
+    <div class="card-header d-flex align-items-center justify-content-between">
         <span><i class="bi bi-building-gear me-2 text-success"></i>Daftar Fasilitas</span>
+        <a href="{{ route('admin.fasilitas.create') }}" class="btn btn-success btn-sm">
+            <i class="bi bi-plus-circle me-1"></i>Tambah Fasilitas
+        </a>
     </div>
     <div class="card-body p-0">
         <div class="table-responsive">
