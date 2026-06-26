@@ -26,7 +26,7 @@ class AnnouncementSeeder extends Seeder
                 'icon' => 'bi bi-check-circle-fill',
                 'variant' => 'success',
                 'button_label' => 'Unduh Panduan MPLS',
-                'button_url' => '/assets/docs/panduan-mpls.pdf',
+                'button_url' => '/storage/docs/panduan-mpls.pdf',
                 'published_at' => '2025-01-10 09:30:00',
                 'is_published' => true,
             ],
