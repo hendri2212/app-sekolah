@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AgendaSeeder::class,
             AnnouncementSeeder::class,
             SchoolProfileSeeder::class,
+            FacilitySeeder::class,
             OsisSeeder::class,
             ExtracurricularSeeder::class,
             AchievementSeeder::class,

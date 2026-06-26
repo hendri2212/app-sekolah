@@ -260,7 +260,7 @@
                 <!-- Laboratorium Komputer -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/Lab Komputer.jfif') }}" alt="Lab Komputer" class="card-img-top">
+                        <img src="{{ asset('storage/facility/Lab Komputer.jfif') }}" alt="Lab Komputer" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-laptop text-success me-2"></i>Lab Komputer</h6>
                             <p class="card-text small text-muted">Laboratorium komputer dengan perangkat modern</p>
@@ -271,7 +271,7 @@
                 <!-- Laboratorium IPA -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/Lab IPA.jfif') }}" alt="Lab IPA" class="card-img-top">
+                        <img src="{{ asset('storage/facility/Lab IPA.jfif') }}" alt="Lab IPA" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-search text-success me-2"></i>Lab IPA</h6>
                             <p class="card-text small text-muted">Laboratorium IPA lengkap untuk praktikum</p>
@@ -282,7 +282,7 @@
                 <!-- Perpustakaan -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/perpustakaan.jfif') }}" alt="Perpustakaan" class="card-img-top">
+                        <img src="{{ asset('storage/facility/perpustakaan.jfif') }}" alt="Perpustakaan" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-book text-success me-2"></i>Perpustakaan</h6>
                             <p class="card-text small text-muted">Perpustakaan dengan koleksi buku lengkap</p>
@@ -293,7 +293,7 @@
                 <!-- Masjid -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/masjid.jfif') }}" alt="Masjid" class="card-img-top">
+                        <img src="{{ asset('storage/facility/masjid.jfif') }}" alt="Masjid" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-moon-stars text-success me-2"></i>Masjid</h6>
                             <p class="card-text small text-muted">Masjid sekolah untuk kegiatan keagamaan</p>
@@ -315,7 +315,7 @@
                 <!-- Kantin -->
                 <div class="col-md-4 col-lg-3">
                     <div class="card facility-card h-100">
-                        <img src="{{ asset('assets/foto/kantin.jfif') }}" alt="Kantin" class="card-img-top">
+                        <img src="{{ asset('storage/facility/kantin.jfif') }}" alt="Kantin" class="card-img-top">
                         <div class="card-body">
                             <h6 class="card-title fw-bold"><i class="bi bi-cup-hot text-success me-2"></i>Kantin</h6>
                             <p class="card-text small text-muted">Kantin sehat dengan makanan bergizi</p>
